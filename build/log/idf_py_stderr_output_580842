@@ -1,0 +1,39 @@
+[0;33m--- esp-idf-monitor 1.5.0 on /dev/ttyACM0 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0;33m--- 0x403800fc: _panic_handler at ??:?
+[0m
+[0;33m--- 0x40380082: _panic_handler at ??:?
+[0m
+[0;33m--- 0x40380082: _panic_handler at ??:?
+[0m
+[0;33m--- 0x40380082: _panic_handler at ??:?
+[0m
+[0;33m--- 0x40380082: _panic_handler at ??:?
+[0m
+[0;33m--- 0x40380000: _vector_table at ??:?
+[0m
+[0;33m--- 0x40380080: _panic_handler at ??:?
+[0m
+[0;33m--- 0x40380082: _panic_handler at ??:?
+[0m
+[0;33m--- 0x40380082: _panic_handler at ??:?
+[0m
+[0;33m--- 0x40380000: _vector_table at ??:?
+[0m
+[0;33m--- 0x40380082: _panic_handler at ??:?
+[0m
+[0;33m--- 0x40380082: _panic_handler at ??:?
+[0m
+[0;33m--- 0x40380082: _panic_handler at ??:?
+[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855[0m
+[0;33m--- 0x40380000: _vector_table at ??:?
+[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is 2d10c162c325e09b5d726875c913dab49c96d7e1a3323ca33717bf720733bcbc[0m
+[0;33m--- 0x40380080: _panic_handler at ??:?
+[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is 2d10c162c325e09b5d726875c913dab49c96d7e1a3323ca33717bf720733bcbc[0m
+[0;33m--- 0x40380082: _panic_handler at ??:?
+[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is 2d10c162c325e09b5d726875c913dab49c96d7e1a3323ca33717bf720733bcbc[0m
+[0m

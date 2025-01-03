@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "espnow_example",
-    "project_version":    "1",
+    "project_version":    "b84bcbe-dirty",
     "project_path":       "/home/kang/workspace/DroneComms",
     "idf_path":           "/home/kang/esp/esp-idf",
     "build_dir":          "/home/kang/workspace/DroneComms/build",

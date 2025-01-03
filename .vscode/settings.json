@@ -4,7 +4,12 @@
         "freertos.h": "c",
         "freertosconfig.h": "c",
         "stdexcept": "cpp",
-        "cstdlib": "cpp"
+        "cstdlib": "cpp",
+        "string": "cpp",
+        "*.tcc": "cpp",
+        "*.ipp": "cpp",
+        "string_view": "cpp",
+        "regex": "cpp"
     },
     "idf.port": "/dev/ttyACM0"
 }

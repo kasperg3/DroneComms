@@ -1990,4 +1990,636 @@ entry 0x403cc71a
 [0;32mI (662521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
 [0;32mI (662521) ESP-NOW: Send Status: Success[0m
 [0;32mI (662931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
-[0;32mI (662931) ES
+[0;32mI (662931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 27.96[0m
+[0;32mI (662931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 27.96[0m
+[0;32mI (662941) ESP-NOW: Peer already exists[0m
+[0;32mI (664521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (664521) ESP-NOW: Send Status: Success[0m
+[0;32mI (664931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (664931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 98.01[0m
+[0;32mI (664931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 98.01[0m
+[0;32mI (664941) ESP-NOW: Peer already exists[0m
+[0;32mI (666521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (666521) ESP-NOW: Send Status: Success[0m
+[0;32mI (666931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (666931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 51.72[0m
+[0;32mI (666931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 51.72[0m
+[0;32mI (666941) ESP-NOW: Peer already exists[0m
+[0;32mI (668521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (668521) ESP-NOW: Send Status: Success[0m
+[0;32mI (668931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (668931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 35.97[0m
+[0;32mI (668931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 35.97[0m
+[0;32mI (668941) ESP-NOW: Peer already exists[0m
+[0;32mI (670521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (670521) ESP-NOW: Send Status: Success[0m
+[0;32mI (670931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (670931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 26.56[0m
+[0;32mI (670931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 26.56[0m
+[0;32mI (670941) ESP-NOW: Peer already exists[0m
+[0;32mI (672521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (672521) ESP-NOW: Send Status: Success[0m
+[0;32mI (672931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (672931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 6.26[0m
+[0;32mI (672931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 6.26[0m
+[0;32mI (672941) ESP-NOW: Peer already exists[0m
+[0;32mI (674521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (674521) ESP-NOW: Send Status: Success[0m
+[0;32mI (674931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (674931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 51.88[0m
+[0;32mI (674931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 51.88[0m
+[0;32mI (674941) ESP-NOW: Peer already exists[0m
+[0;32mI (676521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (676521) ESP-NOW: Send Status: Success[0m
+[0;32mI (676931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (676931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 18.12[0m
+[0;32mI (676931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 18.12[0m
+[0;32mI (676941) ESP-NOW: Peer already exists[0m
+[0;32mI (678521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (678521) ESP-NOW: Send Status: Success[0m
+[0;32mI (678931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (678931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 87.37[0m
+[0;32mI (678931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 87.37[0m
+[0;32mI (678941) ESP-NOW: Peer already exists[0m
+[0;32mI (680521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (680521) ESP-NOW: Send Status: Success[0m
+[0;32mI (680931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (680931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 63.76[0m
+[0;32mI (680931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 63.76[0m
+[0;32mI (680941) ESP-NOW: Peer already exists[0m
+[0;32mI (682521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (682521) ESP-NOW: Send Status: Success[0m
+[0;32mI (682931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (682931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 5.16[0m
+[0;32mI (682931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 5.16[0m
+[0;32mI (682941) ESP-NOW: Peer already exists[0m
+[0;32mI (684521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (684521) ESP-NOW: Send Status: Success[0m
+[0;32mI (684931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (684931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 54.91[0m
+[0;32mI (684931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 54.91[0m
+[0;32mI (684941) ESP-NOW: Peer already exists[0m
+[0;32mI (686521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (686521) ESP-NOW: Send Status: Success[0m
+[0;32mI (686931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (686931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 65.68[0m
+[0;32mI (686931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 65.68[0m
+[0;32mI (686941) ESP-NOW: Peer already exists[0m
+[0;32mI (688521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (688521) ESP-NOW: Send Status: Success[0m
+[0;32mI (688931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (688931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 88.08[0m
+[0;32mI (688931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 88.08[0m
+[0;32mI (688941) ESP-NOW: Peer already exists[0m
+[0;32mI (690521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (690521) ESP-NOW: Send Status: Success[0m
+[0;32mI (690931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (690931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 80.81[0m
+[0;32mI (690931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 80.81[0m
+[0;32mI (690941) ESP-NOW: Peer already exists[0m
+[0;32mI (692521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (692521) ESP-NOW: Send Status: Success[0m
+[0;32mI (692931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (692931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 33.10[0m
+[0;32mI (692931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 33.10[0m
+[0;32mI (692941) ESP-NOW: Peer already exists[0m
+[0;32mI (694521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (694521) ESP-NOW: Send Status: Success[0m
+[0;32mI (694931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (694931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 74.86[0m
+[0;32mI (694931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 74.86[0m
+[0;32mI (694941) ESP-NOW: Peer already exists[0m
+[0;32mI (696521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (696521) ESP-NOW: Send Status: Success[0m
+[0;32mI (696931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (696931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 81.43[0m
+[0;32mI (696931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 81.43[0m
+[0;32mI (696941) ESP-NOW: Peer already exists[0m
+[0;32mI (698521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (698521) ESP-NOW: Send Status: Success[0m
+[0;32mI (698931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (698931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 91.13[0m
+[0;32mI (698931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 91.13[0m
+[0;32mI (698941) ESP-NOW: Peer already exists[0m
+[0;32mI (700521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (700521) ESP-NOW: Send Status: Success[0m
+[0;32mI (700931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (700931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 75.33[0m
+[0;32mI (700931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 75.33[0m
+[0;32mI (700941) ESP-NOW: Peer already exists[0m
+[0;32mI (702521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (702521) ESP-NOW: Send Status: Success[0m
+[0;32mI (702931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (702931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 5.78[0m
+[0;32mI (702931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 5.78[0m
+[0;32mI (702941) ESP-NOW: Peer already exists[0m
+[0;32mI (704521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (704521) ESP-NOW: Send Status: Success[0m
+[0;32mI (704931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (704931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 96.53[0m
+[0;32mI (704931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 96.53[0m
+[0;32mI (704941) ESP-NOW: Peer already exists[0m
+[0;32mI (706521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (706521) ESP-NOW: Send Status: Success[0m
+[0;32mI (706931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (706931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 27.96[0m
+[0;32mI (706931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 27.96[0m
+[0;32mI (706941) ESP-NOW: Peer already exists[0m
+[0;32mI (708521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (708521) ESP-NOW: Send Status: Success[0m
+[0;32mI (708931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (708931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 66.67[0m
+[0;32mI (708931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 66.67[0m
+[0;32mI (708941) ESP-NOW: Peer already exists[0m
+[0;32mI (710521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (710521) ESP-NOW: Send Status: Success[0m
+[0;32mI (710931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (710931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 71.62[0m
+[0;32mI (710931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 71.62[0m
+[0;32mI (710941) ESP-NOW: Peer already exists[0m
+[0;32mI (712521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (712521) ESP-NOW: Send Status: Success[0m
+[0;32mI (712931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (712931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 14.90[0m
+[0;32mI (712931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 14.90[0m
+[0;32mI (712941) ESP-NOW: Peer already exists[0m
+[0;32mI (714521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (714521) ESP-NOW: Send Status: Success[0m
+[0;32mI (714931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (714931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 46.07[0m
+[0;32mI (714931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 46.07[0m
+[0;32mI (714941) ESP-NOW: Peer already exists[0m
+[0;32mI (716521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (716521) ESP-NOW: Send Status: Success[0m
+[0;32mI (716931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (716931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 0.95[0m
+[0;32mI (716931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 0.95[0m
+[0;32mI (716941) ESP-NOW: Peer already exists[0m
+[0;32mI (718521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (718521) ESP-NOW: Send Status: Success[0m
+[0;32mI (718931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (718931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 82.18[0m
+[0;32mI (718931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 82.18[0m
+[0;32mI (718941) ESP-NOW: Peer already exists[0m
+[0;32mI (720521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (720521) ESP-NOW: Send Status: Success[0m
+[0;32mI (720931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (720931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 52.69[0m
+[0;32mI (720931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 52.69[0m
+[0;32mI (720941) ESP-NOW: Peer already exists[0m
+[0;32mI (722521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (722521) ESP-NOW: Send Status: Success[0m
+[0;32mI (722931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (722931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 5.99[0m
+[0;32mI (722931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 5.99[0m
+[0;32mI (722941) ESP-NOW: Peer already exists[0m
+[0;32mI (724521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (724521) ESP-NOW: Send Status: Success[0m
+[0;32mI (724931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (724931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 36.75[0m
+[0;32mI (724931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 36.75[0m
+[0;32mI (724941) ESP-NOW: Peer already exists[0m
+[0;32mI (726521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (726521) ESP-NOW: Send Status: Success[0m
+[0;32mI (726931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (726931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 70.37[0m
+[0;32mI (726931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 70.37[0m
+[0;32mI (726941) ESP-NOW: Peer already exists[0m
+[0;32mI (728521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (728521) ESP-NOW: Send Status: Success[0m
+[0;32mI (728931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (728931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 64.19[0m
+[0;32mI (728931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 64.19[0m
+[0;32mI (728941) ESP-NOW: Peer already exists[0m
+[0;32mI (730521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (730521) ESP-NOW: Send Status: Success[0m
+[0;32mI (730931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (730931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 74.24[0m
+[0;32mI (730931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 74.24[0m
+[0;32mI (730941) ESP-NOW: Peer already exists[0m
+[0;32mI (732521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (732521) ESP-NOW: Send Status: Success[0m
+[0;32mI (732931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (732931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 64.70[0m
+[0;32mI (732931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 64.70[0m
+[0;32mI (732941) ESP-NOW: Peer already exists[0m
+[0;32mI (734521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (734521) ESP-NOW: Send Status: Success[0m
+[0;32mI (734931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (734931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 41.97[0m
+[0;32mI (734931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 41.97[0m
+[0;32mI (734941) ESP-NOW: Peer already exists[0m
+[0;32mI (736521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (736521) ESP-NOW: Send Status: Success[0m
+[0;32mI (736931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (736931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 46.05[0m
+[0;32mI (736931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 46.05[0m
+[0;32mI (736941) ESP-NOW: Peer already exists[0m
+[0;32mI (738521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (738521) ESP-NOW: Send Status: Success[0m
+[0;32mI (738931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (738931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 74.45[0m
+[0;32mI (738931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 74.45[0m
+[0;32mI (738941) ESP-NOW: Peer already exists[0m
+[0;32mI (740521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (740521) ESP-NOW: Send Status: Success[0m
+[0;32mI (740931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (740931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 35.32[0m
+[0;32mI (740931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 35.32[0m
+[0;32mI (740941) ESP-NOW: Peer already exists[0m
+[0;32mI (742521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (742521) ESP-NOW: Send Status: Success[0m
+[0;32mI (742931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (742931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 50.55[0m
+[0;32mI (742931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 50.55[0m
+[0;32mI (742941) ESP-NOW: Peer already exists[0m
+[0;32mI (744521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (744521) ESP-NOW: Send Status: Success[0m
+[0;32mI (744931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (744931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 96.33[0m
+[0;32mI (744931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 96.33[0m
+[0;32mI (744941) ESP-NOW: Peer already exists[0m
+[0;32mI (746521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (746521) ESP-NOW: Send Status: Success[0m
+[0;32mI (746931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (746931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 36.66[0m
+[0;32mI (746931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 36.66[0m
+[0;32mI (746941) ESP-NOW: Peer already exists[0m
+[0;32mI (748521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (748521) ESP-NOW: Send Status: Success[0m
+[0;32mI (748931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (748931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 75.19[0m
+[0;32mI (748931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 75.19[0m
+[0;32mI (748941) ESP-NOW: Peer already exists[0m
+[0;32mI (750521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (750521) ESP-NOW: Send Status: Success[0m
+[0;32mI (750931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (750931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 40.32[0m
+[0;32mI (750931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 40.32[0m
+[0;32mI (750941) ESP-NOW: Peer already exists[0m
+[0;32mI (752521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (752521) ESP-NOW: Send Status: Success[0m
+[0;32mI (752931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (752931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 63.82[0m
+[0;32mI (752931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 63.82[0m
+[0;32mI (752941) ESP-NOW: Peer already exists[0m
+[0;32mI (754521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (754521) ESP-NOW: Send Status: Success[0m
+[0;32mI (754931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (754931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 28.45[0m
+[0;32mI (754931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 28.45[0m
+[0;32mI (754941) ESP-NOW: Peer already exists[0m
+[0;32mI (756521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (756521) ESP-NOW: Send Status: Success[0m
+[0;32mI (756931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (756931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 76.85[0m
+[0;32mI (756931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 76.85[0m
+[0;32mI (756941) ESP-NOW: Peer already exists[0m
+[0;32mI (758521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (758521) ESP-NOW: Send Status: Success[0m
+[0;32mI (758931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (758931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 48.73[0m
+[0;32mI (758931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 48.73[0m
+[0;32mI (758941) ESP-NOW: Peer already exists[0m
+[0;32mI (760521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (760521) ESP-NOW: Send Status: Success[0m
+[0;32mI (760931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (760931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 69.29[0m
+[0;32mI (760931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 69.29[0m
+[0;32mI (760941) ESP-NOW: Peer already exists[0m
+[0;32mI (762521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (762521) ESP-NOW: Send Status: Success[0m
+[0;32mI (762931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (762931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 20.06[0m
+[0;32mI (762931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 20.06[0m
+[0;32mI (762941) ESP-NOW: Peer already exists[0m
+[0;32mI (764521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (764521) ESP-NOW: Send Status: Success[0m
+[0;32mI (764931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (764931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 93.80[0m
+[0;32mI (764931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 93.80[0m
+[0;32mI (764941) ESP-NOW: Peer already exists[0m
+[0;32mI (766521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (766521) ESP-NOW: Send Status: Success[0m
+[0;32mI (766931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (766931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 18.81[0m
+[0;32mI (766931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 18.81[0m
+[0;32mI (766941) ESP-NOW: Peer already exists[0m
+[0;32mI (768521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (768521) ESP-NOW: Send Status: Success[0m
+[0;32mI (768931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (768931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 2.69[0m
+[0;32mI (768931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 2.69[0m
+[0;32mI (768941) ESP-NOW: Peer already exists[0m
+[0;32mI (770521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (770521) ESP-NOW: Send Status: Success[0m
+[0;32mI (770931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (770931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 90.60[0m
+[0;32mI (770931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 90.60[0m
+[0;32mI (770941) ESP-NOW: Peer already exists[0m
+[0;32mI (772521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (772521) ESP-NOW: Send Status: Success[0m
+[0;32mI (772931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (772931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 59.67[0m
+[0;32mI (772931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 59.67[0m
+[0;32mI (772941) ESP-NOW: Peer already exists[0m
+[0;32mI (774521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (774521) ESP-NOW: Send Status: Success[0m
+[0;32mI (774931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (774931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 69.99[0m
+[0;32mI (774931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 69.99[0m
+[0;32mI (774941) ESP-NOW: Peer already exists[0m
+[0;32mI (776521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (776521) ESP-NOW: Send Status: Success[0m
+[0;32mI (776931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (776931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 81.14[0m
+[0;32mI (776931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 81.14[0m
+[0;32mI (776941) ESP-NOW: Peer already exists[0m
+[0;32mI (778521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (778521) ESP-NOW: Send Status: Success[0m
+[0;32mI (778931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (778931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 64.12[0m
+[0;32mI (778931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 64.12[0m
+[0;32mI (778941) ESP-NOW: Peer already exists[0m
+[0;32mI (780521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (780521) ESP-NOW: Send Status: Success[0m
+[0;32mI (780931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (780931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 88.06[0m
+[0;32mI (780931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 88.06[0m
+[0;32mI (780941) ESP-NOW: Peer already exists[0m
+[0;32mI (782521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (782521) ESP-NOW: Send Status: Success[0m
+[0;32mI (782931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (782931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 44.46[0m
+[0;32mI (782931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 44.46[0m
+[0;32mI (782941) ESP-NOW: Peer already exists[0m
+[0;32mI (784521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (784521) ESP-NOW: Send Status: Success[0m
+[0;32mI (784931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (784931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 30.61[0m
+[0;32mI (784931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 30.61[0m
+[0;32mI (784941) ESP-NOW: Peer already exists[0m
+[0;32mI (786521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (786521) ESP-NOW: Send Status: Success[0m
+[0;32mI (786931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (786931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 33.02[0m
+[0;32mI (786931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 33.02[0m
+[0;32mI (786941) ESP-NOW: Peer already exists[0m
+[0;32mI (788521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (788521) ESP-NOW: Send Status: Success[0m
+[0;32mI (788931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (788931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 87.41[0m
+[0;32mI (788931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 87.41[0m
+[0;32mI (788941) ESP-NOW: Peer already exists[0m
+[0;32mI (790521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (790521) ESP-NOW: Send Status: Success[0m
+[0;32mI (790931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (790931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 88.89[0m
+[0;32mI (790931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 88.89[0m
+[0;32mI (790941) ESP-NOW: Peer already exists[0m
+[0;32mI (792521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (792521) ESP-NOW: Send Status: Success[0m
+[0;32mI (792931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (792931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 23.14[0m
+[0;32mI (792931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 23.14[0m
+[0;32mI (792941) ESP-NOW: Peer already exists[0m
+[0;32mI (794521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (794521) ESP-NOW: Send Status: Success[0m
+[0;32mI (794931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (794931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 47.37[0m
+[0;32mI (794931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 47.37[0m
+[0;32mI (794941) ESP-NOW: Peer already exists[0m
+[0;32mI (796521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (796521) ESP-NOW: Send Status: Success[0m
+[0;32mI (796931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (796931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 4.65[0m
+[0;32mI (796931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 4.65[0m
+[0;32mI (796941) ESP-NOW: Peer already exists[0m
+[0;32mI (798521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (798521) ESP-NOW: Send Status: Success[0m
+[0;32mI (798931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (798931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 48.62[0m
+[0;32mI (798931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 48.62[0m
+[0;32mI (798941) ESP-NOW: Peer already exists[0m
+[0;32mI (800521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (800521) ESP-NOW: Send Status: Success[0m
+[0;32mI (800931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (800931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 85.00[0m
+[0;32mI (800931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 85.00[0m
+[0;32mI (800941) ESP-NOW: Peer already exists[0m
+[0;32mI (802521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (802521) ESP-NOW: Send Status: Success[0m
+[0;32mI (802931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (802931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 98.88[0m
+[0;32mI (802931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 98.88[0m
+[0;32mI (802941) ESP-NOW: Peer already exists[0m
+[0;32mI (804521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (804521) ESP-NOW: Send Status: Success[0m
+[0;32mI (804931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (804931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 10.01[0m
+[0;32mI (804931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 10.01[0m
+[0;32mI (804941) ESP-NOW: Peer already exists[0m
+[0;32mI (806521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (806521) ESP-NOW: Send Status: Success[0m
+[0;32mI (806931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (806931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 94.75[0m
+[0;32mI (806931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 94.75[0m
+[0;32mI (806941) ESP-NOW: Peer already exists[0m
+[0;32mI (808521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (808521) ESP-NOW: Send Status: Success[0m
+[0;32mI (808931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (808931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 53.07[0m
+[0;32mI (808931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 53.07[0m
+[0;32mI (808941) ESP-NOW: Peer already exists[0m
+[0;32mI (810521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (810521) ESP-NOW: Send Status: Success[0m
+[0;32mI (810931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (810931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 31.24[0m
+[0;32mI (810931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 31.24[0m
+[0;32mI (810941) ESP-NOW: Peer already exists[0m
+[0;32mI (812521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (812521) ESP-NOW: Send Status: Success[0m
+[0;32mI (812931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (812931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 36.11[0m
+[0;32mI (812931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 36.11[0m
+[0;32mI (812941) ESP-NOW: Peer already exists[0m
+[0;32mI (814521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (814521) ESP-NOW: Send Status: Success[0m
+[0;32mI (814931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (814931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 13.46[0m
+[0;32mI (814931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 13.46[0m
+[0;32mI (814941) ESP-NOW: Peer already exists[0m
+[0;32mI (816521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (816521) ESP-NOW: Send Status: Success[0m
+[0;32mI (816931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (816931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 81.04[0m
+[0;32mI (816931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 81.04[0m
+[0;32mI (816941) ESP-NOW: Peer already exists[0m
+[0;32mI (818521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (818521) ESP-NOW: Send Status: Success[0m
+[0;32mI (818931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (818931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 17.49[0m
+[0;32mI (818931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 17.49[0m
+[0;32mI (818941) ESP-NOW: Peer already exists[0m
+[0;32mI (820521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (820521) ESP-NOW: Send Status: Success[0m
+[0;32mI (820931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (820931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 11.89[0m
+[0;32mI (820931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 11.89[0m
+[0;32mI (820941) ESP-NOW: Peer already exists[0m
+[0;32mI (822521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (822521) ESP-NOW: Send Status: Success[0m
+[0;32mI (822931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (822931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 29.97[0m
+[0;32mI (822931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 29.97[0m
+[0;32mI (822941) ESP-NOW: Peer already exists[0m
+[0;32mI (824521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (824521) ESP-NOW: Send Status: Success[0m
+[0;32mI (824931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (824931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 60.96[0m
+[0;32mI (824931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 60.96[0m
+[0;32mI (824941) ESP-NOW: Peer already exists[0m
+[0;32mI (826521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (826521) ESP-NOW: Send Status: Success[0m
+[0;32mI (826931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (826931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 57.77[0m
+[0;32mI (826931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 57.77[0m
+[0;32mI (826941) ESP-NOW: Peer already exists[0m
+[0;32mI (828521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (828521) ESP-NOW: Send Status: Success[0m
+[0;32mI (828931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (828931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 0.44[0m
+[0;32mI (828931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 0.44[0m
+[0;32mI (828941) ESP-NOW: Peer already exists[0m
+[0;32mI (830521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (830521) ESP-NOW: Send Status: Success[0m
+[0;32mI (830931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (830931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 40.36[0m
+[0;32mI (830931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 40.36[0m
+[0;32mI (830941) ESP-NOW: Peer already exists[0m
+[0;32mI (832521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (832521) ESP-NOW: Send Status: Success[0m
+[0;32mI (832931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (832931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 65.93[0m
+[0;32mI (832931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 65.93[0m
+[0;32mI (832941) ESP-NOW: Peer already exists[0m
+[0;32mI (834521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (834521) ESP-NOW: Send Status: Success[0m
+[0;32mI (834931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (834931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 63.39[0m
+[0;32mI (834931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 63.39[0m
+[0;32mI (834941) ESP-NOW: Peer already exists[0m
+[0;32mI (836521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (836521) ESP-NOW: Send Status: Success[0m
+[0;32mI (836931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (836931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 27.40[0m
+[0;32mI (836931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 27.40[0m
+[0;32mI (836941) ESP-NOW: Peer already exists[0m
+[0;32mI (838521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (838521) ESP-NOW: Send Status: Success[0m
+[0;32mI (838931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (838931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 0.13[0m
+[0;32mI (838931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 0.13[0m
+[0;32mI (838941) ESP-NOW: Peer already exists[0m
+[0;32mI (840521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (840521) ESP-NOW: Send Status: Success[0m
+[0;32mI (840931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (840931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 53.04[0m
+[0;32mI (840931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 53.04[0m
+[0;32mI (840941) ESP-NOW: Peer already exists[0m
+[0;32mI (842521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (842521) ESP-NOW: Send Status: Success[0m
+[0;32mI (842931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (842931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 88.24[0m
+[0;32mI (842931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 88.24[0m
+[0;32mI (842941) ESP-NOW: Peer already exists[0m
+[0;32mI (844521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (844521) ESP-NOW: Send Status: Success[0m
+[0;32mI (844931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (844931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 98.52[0m
+[0;32mI (844931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 98.52[0m
+[0;32mI (844941) ESP-NOW: Peer already exists[0m
+[0;32mI (846521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (846521) ESP-NOW: Send Status: Success[0m
+[0;32mI (846931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (846931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 41.81[0m
+[0;32mI (846931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 41.81[0m
+[0;32mI (846941) ESP-NOW: Peer already exists[0m
+[0;32mI (848521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (848521) ESP-NOW: Send Status: Success[0m
+[0;32mI (848931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (848931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 59.46[0m
+[0;32mI (848931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 59.46[0m
+[0;32mI (848941) ESP-NOW: Peer already exists[0m
+[0;32mI (850521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (850521) ESP-NOW: Send Status: Success[0m
+[0;32mI (850931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (850931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 32.83[0m
+[0;32mI (850931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 32.83[0m
+[0;32mI (850941) ESP-NOW: Peer already exists[0m
+[0;32mI (852521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (852521) ESP-NOW: Send Status: Success[0m
+[0;32mI (852931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (852931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 14.51[0m
+[0;32mI (852931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 14.51[0m
+[0;32mI (852941) ESP-NOW: Peer already exists[0m
+[0;32mI (854521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (854521) ESP-NOW: Send Status: Success[0m
+[0;32mI (854931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (854931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 40.62[0m
+[0;32mI (854931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 40.62[0m
+[0;32mI (854941) ESP-NOW: Peer already exists[0m
+[0;32mI (856521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (856521) ESP-NOW: Send Status: Success[0m
+[0;32mI (856931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (856931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 30.97[0m
+[0;32mI (856931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 30.97[0m
+[0;32mI (856941) ESP-NOW: Peer already exists[0m
+[0;32mI (858521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (858521) ESP-NOW: Send Status: Success[0m
+[0;32mI (858931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (858931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 3.20[0m
+[0;32mI (858931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 3.20[0m
+[0;32mI (858941) ESP-NOW: Peer already exists[0m
+[0;32mI (860521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (860521) ESP-NOW: Send Status: Success[0m
+[0;32mI (860931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (860931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 39.42[0m
+[0;32mI (860931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 39.42[0m
+[0;32mI (860941) ESP-NOW: Peer already exists[0m
+[0;32mI (862521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (862521) ESP-NOW: Send Status: Success[0m
+[0;32mI (862931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (862931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 21.51[0m
+[0;32mI (862931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 21.51[0m
+[0;32mI (862941) ESP-NOW: Peer already exists[0m
+[0;32mI (864521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (864521) ESP-NOW: Send Status: Success[0m
+[0;32mI (864931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (864931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 97.85[0m
+[0;32mI (864931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 97.85[0m
+[0;32mI (864941) ESP-NOW: Peer already exists[0m
+[0;32mI (866521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (866521) ESP-NOW: Send Status: Success[0m
+[0;32mI (866931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (866931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 35.75[0m
+[0;32mI (866931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 35.75[0m
+[0;32mI (866941) ESP-NOW: Peer already exists[0m
+[0;32mI (868521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (868521) ESP-NOW: Send Status: Success[0m
+[0;32mI (868931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (868931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 23.47[0m
+[0;32mI (868931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 23.47[0m
+[0;32mI (868941) ESP-NOW: Peer already exists[0m
+[0;32mI (870521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (870521) ESP-NOW: Send Status: Success[0m
+[0;32mI (870931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (870931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 85.17[0m
+[0;32mI (870931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 85.17[0m
+[0;32mI (870941) ESP-NOW: Peer already exists[0m
+[0;32mI (872521) ESP-NOW: Data sent to: ff:ff:ff:ff:ff:ff[0m
+[0;32mI (872521) ESP-NOW: Send Status: Success[0m
+[0;32mI (872931) ESP-NOW: Received data from: 64:e8:33:86:81:a4[0m
+[0;32mI (872931) ESP-NOW: Target MAC adress: ff:ff:ff:ff:ff:ff, Value: 60.32[0m
+[0;32mI (872931) ESP-NOW: Processing received data: MAC Address: ff:ff:ff:ff:ff:ff, Value: 60.32[0m
+[0;32mI (872941) ESP-NOW: Peer already exists[0m
