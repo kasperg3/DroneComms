@@ -1,5 +1,0 @@
-[1/4] cd /home/kang/workspace/DroneComms/build/esp-idf/esptool_py && /home/kang/.espressif/python_env/idf5.2_py3.10_env/bin/python /home/kang/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/kang/workspace/DroneComms/build/partition_table/partition-table.bin /home/kang/workspace/DroneComms/build/espnow_example.bin
-espnow_example.bin binary size 0xbea80 bytes. Smallest app partition is 0x100000 bytes. 0x41580 bytes (26%) free.
-[2/4] Performing build step for 'bootloader'
-[1/1] cd /home/kang/workspace/DroneComms/build/bootloader/esp-idf/esptool_py && /home/kang/.espressif/python_env/idf5.2_py3.10_env/bin/python /home/kang/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 /home/kang/workspace/DroneComms/build/bootloader/bootloader.bin
-Bootloader binary size 0x5380 bytes. 0x2c80 bytes (35%) free.

@@ -11,17 +11,18 @@
 #include "nvs_flash.h"
 #include <string>
 #include "driver/gpio.h"
-#define TAG "ESP-NOW-UART"
 #include "esp_log.h"
 #include "esp_netif.h"
 #include "esp_eth.h"
-#include "tinyusb.h"
-#include "lwip/sockets.h"
 
-#define UART_NUM UART_NUM_1
-#define TXD_PIN (GPIO_NUM_21)
-#define RXD_PIN (GPIO_NUM_20)
-#define UART_BUF_SIZE (1024)
+
+#define TAG "ESP-NOW"
+#define UDP_PORT 12345 // Port for UDP communication
+#define RECV_TASK_STACK_SIZE 4096
+#define RECV_TASK_PRIORITY 5
+
+static int udp_socket = -1;
+
 // Data structure for ESP-NOW
 struct Message
 {
@@ -121,96 +122,70 @@ public:
     }
 };
 
-// UART send task
-void uartSendTask(void *pvParameters)
+void usb_init(void)
 {
-    Message data;
-
-    while (true)
-    {
-        if (xQueueReceive(uartQueue, &data, portMAX_DELAY) == pdPASS)
-        {
-            ESP_LOGI(TAG, "Sending data over UART");
-            std::string message = "MAC: " + std::to_string(data.macAddress[0]) + ":" +
-                                  std::to_string(data.macAddress[1]) + " Value: " + std::to_string(data.value) + "\n";
-            uart_write_bytes(UART_NUM, message.c_str(), message.length());
-        }
-    }
-}
-
-// ESP-NOW send task
-void espNowSendTask(void *pvParameters)
-{
-    ESPNowHandler *handler = static_cast<ESPNowHandler *>(pvParameters);
-    Message data;
-
-    while (true)
-    {
-        if (xQueueReceive(espNowQueue, &data, portMAX_DELAY) == pdPASS)
-        {
-            ESP_LOGI(TAG, "Sending data over ESP-NOW");
-            handler->sendData(data);
-        }
-    }
-}
-
-// UART receive task
-void uartReceiveTask(void *pvParameters)
-{
-    uint8_t data[UART_BUF_SIZE];
-
-    while (true)
-    {
-        int len = uart_read_bytes(UART_NUM, data, UART_BUF_SIZE, pdMS_TO_TICKS(1000));
-        if (len > 0)
-        {
-            Message receivedMessage;
-            // Parse UART data (assume MAC + Value)
-            std::memcpy(receivedMessage.macAddress, data, 6);
-            receivedMessage.value = *reinterpret_cast<float *>(data + 6);
-
-            // Forward data to ESP-NOW
-            if (xQueueSend(espNowQueue, &receivedMessage, portMAX_DELAY) != pdPASS)
-            {
-                ESP_LOGE(TAG, "Failed to send data to ESP-NOW queue");
-            }
-        }
-    }
-}
-
-void uart_init()
-{
-    const uart_config_t uart_config = {
-        .baud_rate = 115200,
-        .data_bits = UART_DATA_8_BITS,
-        .parity = UART_PARITY_DISABLE,
-        .stop_bits = UART_STOP_BITS_1,
-        .flow_ctrl = UART_HW_FLOWCTRL_DISABLE,
+    // USB Device configuration
+    const usb_device_config_t dev_config = {
+        .device_descriptor = NULL,
+        .string_descriptor = NULL,
+        .external_phy = false,
+        .configuration_descriptor = NULL,
     };
 
-    ESP_ERROR_CHECK(uart_param_config(UART_NUM, &uart_config));
-    ESP_ERROR_CHECK(uart_set_pin(UART_NUM, TXD_PIN, RXD_PIN, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE));
-    ESP_ERROR_CHECK(uart_driver_install(UART_NUM, UART_BUF_SIZE, UART_BUF_SIZE, 0, NULL, 0));
+    // Install USB Device driver
+    ESP_ERROR_CHECK(usb_device_install(&dev_config));
+
+    // CDC-ACM configuration
+    const cdc_acm_config_t cdc_acm_config = {
+        .data_bit = CDC_DATA_8_BIT,
+        .parity = CDC_PARITY_NONE,
+        .stop_bit = CDC_STOP_BITS_1,
+        .flow_ctrl = CDC_FLOW_CTRL_NONE,
+        .rx_unread_buf_sz = 64,
+        .tx_unread_buf_sz = 64,
+    };
+
+    // Install CDC-ACM driver
+    ESP_ERROR_CHECK(cdc_acm_driver_install(&cdc_acm_config));
 }
 
-
-
-// Initialize CDC-NCM
-static void init_cdc_ncm()
+void usb_to_espnow_task(void *pvParameters)
 {
-    // Install TinyUSB driver
-    tinyusb_config_t tusb_cfg = {};
-    ESP_ERROR_CHECK(tinyusb_driver_install(&tusb_cfg));
-    ESP_LOGI(TAG, "TinyUSB driver installed");
+    ESPNowHandler *espnow_handler = static_cast<ESPNowHandler *>(pvParameters);
+    uint8_t data[64];
+    size_t len;
 
-    // Initialize Ethernet over USB
-    esp_netif_config_t cfg = ESP_NETIF_DEFAULT_NCM();
-    esp_netif_t *netif = esp_netif_new(&cfg);
-    ESP_ERROR_CHECK(esp_netif_attach(netif));
-    ESP_ERROR_CHECK(esp_netif_start(netif));
-    ESP_LOGI(TAG, "CDC-NCM network interface initialized");
+    while (true)
+    {
+        // Read data from USB
+        len = cdc_acm_read_bytes(data, sizeof(data), portMAX_DELAY);
+        if (len > 0)
+        {
+            // Prepare ESP-NOW message
+            Message msg;
+            std::memcpy(msg.macAddress, broadcastAddr, 6);
+            msg.value = parse_value_from_data(data, len); // Implement this function as needed
+
+            // Send data via ESP-NOW
+            espnow_handler->sendData(msg);
+        }
+    }
 }
 
+void espnow_to_usb_task(void *pvParameters)
+{
+    Message msg;
+
+    while (xQueueReceive(dataQueue, &msg, portMAX_DELAY) == pdPASS)
+    {
+        // Format data as needed
+        uint8_t data[64];
+        size_t len = format_data_from_message(msg, data, sizeof(data)); // Implement this function
+
+        // Send data over USB
+        cdc_acm_write_bytes(data, len);
+    }
+}
 
 extern "C" void app_main()
 {
@@ -224,13 +199,11 @@ extern "C" void app_main()
         ESP_LOGE(TAG, "Failed to create queues");
         return;
     }
-    init_cdc_ncm();
-
-
     static ESPNowHandler espNowHandler;
 
-    // Create tasks
-    xTaskCreate(uartSendTask, "uartSendTask", 4096, &espNowHandler, 1, nullptr);
-    xTaskCreate(espNowSendTask, "espNowSendTask", 4096, &espNowHandler, 1, nullptr);
-    xTaskCreate(uartReceiveTask, "uartReceiveTask", 4096, nullptr, 1, nullptr);
+    usb_init();
+
+    xTaskCreate(usb_to_espnow_task, "USBToESPNowTask", 4096, &espNowHandler, 1, nullptr);
+    xTaskCreate(espnow_to_usb_task, "ESPNowToUSBTask", 4096, nullptr, 2, nullptr);
+
 }

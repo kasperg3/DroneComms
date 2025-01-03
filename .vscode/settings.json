@@ -9,7 +9,9 @@
         "*.tcc": "cpp",
         "*.ipp": "cpp",
         "string_view": "cpp",
-        "regex": "cpp"
+        "regex": "cpp",
+        "typeindex": "cpp",
+        "typeinfo": "cpp"
     },
     "idf.port": "/dev/ttyACM0"
 }
