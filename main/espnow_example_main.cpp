@@ -14,29 +14,41 @@
 #include "esp_log.h"
 #include "esp_netif.h"
 #include "esp_eth.h"
+#include <iostream>
+#include <stdio.h>
+#include <string.h>
+#include "esp_log.h"
 
+#include <stdio.h>
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "driver/usb_serial_jtag.h"
+#include "sdkconfig.h"
+#include "esp_log.h"
+#include "esp_check.h"
+
+#define BUF_SIZE (1024)
+#define ECHO_TASK_STACK_SIZE (4096)
 
 #define TAG "ESP-NOW"
-#define UDP_PORT 12345 // Port for UDP communication
-#define RECV_TASK_STACK_SIZE 4096
-#define RECV_TASK_PRIORITY 5
-
-static int udp_socket = -1;
-
+using std::exception;
 // Data structure for ESP-NOW
+
 struct Message
 {
-    uint8_t macAddress[6];
-    float value;
+    uint8_t data[BUF_SIZE];
+    size_t len;
 };
 
 // Queue handle for ESP-NOW and UART
-QueueHandle_t espNowQueue;
-QueueHandle_t uartQueue;
+QueueHandle_t transmitQueue;
+QueueHandle_t recieveQueue;
 
 // Define ESPNowHandler class
 class ESPNowHandler
 {
+private:
+
 public:
     ESPNowHandler()
     {
@@ -76,6 +88,7 @@ public:
         std::memset(peerInfo.peer_addr, 0xFF, ESP_NOW_ETH_ALEN); // Broadcast address
         peerInfo.channel = 0;
         peerInfo.encrypt = false;
+        peerInfo.ifidx = WIFI_IF_STA;
 
         ret = esp_now_add_peer(&peerInfo);
         if (ret != ESP_OK)
@@ -91,8 +104,8 @@ public:
         std::memcpy(&receivedData, data, sizeof(receivedData));
         ESP_LOGI(TAG, "Received data from ESP-NOW, forwarding to UART");
 
-        // Send data to UART queue
-        if (xQueueSend(uartQueue, &receivedData, portMAX_DELAY) != pdPASS)
+        // Send data to serial queue
+        if (xQueueSend(recieveQueue, &receivedData, portMAX_DELAY) != pdPASS)
         {
             ESP_LOGE(TAG, "Failed to send data to UART queue");
         }
@@ -106,11 +119,13 @@ public:
                  status == ESP_NOW_SEND_SUCCESS ? "Success" : "Failure");
     }
 
-    void sendData(const Message &data)
+    void sendData(const uint8_t *peer_addr, const Message &data)
     {
-        if (esp_now_send(nullptr, reinterpret_cast<const uint8_t *>(&data), sizeof(data)) != ESP_OK)
+
+        auto result = esp_now_send(peer_addr, data.data, data.len);
+        if (result != ESP_OK)
         {
-            ESP_LOGE(TAG, "Error sending data via ESP-NOW");
+            ESP_LOGE(TAG, "Error sending data: %s", esp_err_to_name(result));
         }
     }
 
@@ -122,88 +137,130 @@ public:
     }
 };
 
-void usb_init(void)
+class SerialHandler
 {
-    // USB Device configuration
-    const usb_device_config_t dev_config = {
-        .device_descriptor = NULL,
-        .string_descriptor = NULL,
-        .external_phy = false,
-        .configuration_descriptor = NULL,
-    };
-
-    // Install USB Device driver
-    ESP_ERROR_CHECK(usb_device_install(&dev_config));
-
-    // CDC-ACM configuration
-    const cdc_acm_config_t cdc_acm_config = {
-        .data_bit = CDC_DATA_8_BIT,
-        .parity = CDC_PARITY_NONE,
-        .stop_bit = CDC_STOP_BITS_1,
-        .flow_ctrl = CDC_FLOW_CTRL_NONE,
-        .rx_unread_buf_sz = 64,
-        .tx_unread_buf_sz = 64,
-    };
-
-    // Install CDC-ACM driver
-    ESP_ERROR_CHECK(cdc_acm_driver_install(&cdc_acm_config));
-}
-
-void usb_to_espnow_task(void *pvParameters)
-{
-    ESPNowHandler *espnow_handler = static_cast<ESPNowHandler *>(pvParameters);
-    uint8_t data[64];
-    size_t len;
-
-    while (true)
+private:
+public:
+    SerialHandler()
     {
-        // Read data from USB
-        len = cdc_acm_read_bytes(data, sizeof(data), portMAX_DELAY);
-        if (len > 0)
-        {
-            // Prepare ESP-NOW message
-            Message msg;
-            std::memcpy(msg.macAddress, broadcastAddr, 6);
-            msg.value = parse_value_from_data(data, len); // Implement this function as needed
+        init();
+    }
 
-            // Send data via ESP-NOW
-            espnow_handler->sendData(msg);
+    Message read()
+    {
+        Message message;
+        message.len = usb_serial_jtag_read_bytes(message.data, sizeof(message.data), 20 / portTICK_PERIOD_MS);
+        return message;
+    }
+
+    void write(Message serialMessage)
+    {
+        usb_serial_jtag_write_bytes(serialMessage.data, serialMessage.len, 20 / portTICK_PERIOD_MS);
+    }
+
+    ~SerialHandler()
+    {
+    }
+
+    void init()
+    {
+        // Configure USB SERIAL JTAG
+        usb_serial_jtag_driver_config_t usb_serial_jtag_config = {
+            .tx_buffer_size = BUF_SIZE,
+            .rx_buffer_size = BUF_SIZE,
+        };
+
+        ESP_ERROR_CHECK(usb_serial_jtag_driver_install(&usb_serial_jtag_config));
+        ESP_LOGI("usb_serial_jtag echo", "USB_SERIAL_JTAG init done");
+    }
+};
+
+// ESP-NOW send task
+void espNowSendTask(void *pvParameters)
+{
+    try
+    {
+        ESPNowHandler *handler = static_cast<ESPNowHandler *>(pvParameters);
+        Message message;
+
+        while (xQueueReceive(transmitQueue, &message, portMAX_DELAY) == pdPASS)
+        {
+            uint8_t broadcastAddress[6] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF}; // Broadcast
+            handler->sendData(broadcastAddress, message);
         }
+    }
+    catch (exception &e)
+    {
+        ESP_LOGE(TAG, "Exception: %s", e.what());
+    }
+}
+// Serial read task
+void serialReadTask(void *pvParameters)
+{
+    try
+    {
+        SerialHandler *handler = static_cast<SerialHandler *>(pvParameters);
+        while (1)
+        {
+            Message serialMessage = handler->read();
+            if (serialMessage.len > 0)
+            {
+                ESP_LOGI(TAG, "Serial Data received: %.*s, Length: %d", serialMessage.len, serialMessage.data, serialMessage.len);
+
+                if (xQueueSend(transmitQueue, &serialMessage, portMAX_DELAY) != pdPASS)
+                {
+                    ESP_LOGE(TAG, "Failed to send data to ESP-NOW queue");
+                }
+            }
+        }
+    }
+    catch (exception &e)
+    {
+        ESP_LOGE(TAG, "Exception: %s", e.what());
     }
 }
 
-void espnow_to_usb_task(void *pvParameters)
+// Serial write task
+void serialWriteTask(void *pvParameters)
 {
-    Message msg;
-
-    while (xQueueReceive(dataQueue, &msg, portMAX_DELAY) == pdPASS)
+    try
     {
-        // Format data as needed
-        uint8_t data[64];
-        size_t len = format_data_from_message(msg, data, sizeof(data)); // Implement this function
+        SerialHandler *handler = static_cast<SerialHandler *>(pvParameters);
+        Message receivedData;
 
-        // Send data over USB
-        cdc_acm_write_bytes(data, len);
+        while (xQueueReceive(recieveQueue, &receivedData, portMAX_DELAY) == pdPASS)
+        {
+            Message serialMessage;
+            std::memcpy(serialMessage.data, &receivedData, sizeof(receivedData));
+            serialMessage.len = sizeof(receivedData);
+
+            handler->write(serialMessage);
+        }
+    }
+    catch (exception &e)
+    {
+        ESP_LOGE("usb_serial_jtag echo", "Exception: %s", e.what());
     }
 }
 
 extern "C" void app_main()
 {
     ESP_LOGI(TAG, "Starting ESP-NOW and UART Bridge");
-
     // Initialize queues
-    espNowQueue = xQueueCreate(10, sizeof(Message));
-    uartQueue = xQueueCreate(10, sizeof(Message));
-    if (!espNowQueue || !uartQueue)
+
+    transmitQueue = xQueueCreate(10, sizeof(Message));
+    recieveQueue = xQueueCreate(10, sizeof(Message));
+    if (!transmitQueue || !recieveQueue)
     {
         ESP_LOGE(TAG, "Failed to create queues");
         return;
     }
+
     static ESPNowHandler espNowHandler;
+    static SerialHandler serialHandler;
 
-    usb_init();
-
-    xTaskCreate(usb_to_espnow_task, "USBToESPNowTask", 4096, &espNowHandler, 1, nullptr);
-    xTaskCreate(espnow_to_usb_task, "ESPNowToUSBTask", 4096, nullptr, 2, nullptr);
-
+    // Create tasks
+    xTaskCreate(espNowSendTask, "espNowSendTask", 4096, &espNowHandler, 1, nullptr);
+    xTaskCreate(serialReadTask, "serialTask", 4096, &serialHandler, 1, nullptr);
+    xTaskCreate(serialWriteTask, "serialTask", 4096, &serialHandler, 1, nullptr);
 }

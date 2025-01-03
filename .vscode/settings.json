@@ -11,7 +11,20 @@
         "string_view": "cpp",
         "regex": "cpp",
         "typeindex": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "array": "cpp",
+        "exception": "cpp",
+        "ostream": "cpp",
+        "fstream": "cpp",
+        "istream": "cpp",
+        "limits": "cpp",
+        "shared_mutex": "cpp",
+        "sstream": "cpp",
+        "stop_token": "cpp",
+        "streambuf": "cpp",
+        "*.inc": "cpp",
+        "iosfwd": "cpp",
+        "functional": "cpp"
     },
     "idf.port": "/dev/ttyACM0"
 }
