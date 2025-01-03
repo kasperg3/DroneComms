@@ -1,0 +1,372 @@
+[0;32mI (212) esp_image: segment 3: paddr=000bb728 vaddr=3fc93b[0;32mI (240) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (240) boot: Disabling RNG early entropy source...[0m
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4004c490
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x1820
+load:0x403cc710,len:0xbcc
+load:0x403ce710,len:0x2f40
+entry 0x403cc71a
+[0;32mI (24) boot: ESP-IDF v5.2.3 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Jan  2 2025 14:01:37[0m
+[0;32mI (25) boot: chip revision: v0.4[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (32) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (37) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (46) boot: Enabling RNG early entropy source...[0m
+[0;32mI (51) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (62) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (70) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (77) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (85) boot: End of partition table[0m
+[0;32mI (89) esp_image: segment 0: paddr=00010020 vaddr=3c090020 size=1e8c8h (125128) map[0m
+[0;32mI (117) esp_image: segment 1: paddr=0002e8f0 vaddr=3fc92400 size=01728h (  5928) load[0m
+[0;32mI (118) esp_image: segment 2: paddr=00030020 vaddr=42000020 size=8b700h (571136) map[0m
+[0;32mI (212) esp_image: segment 3: paddr=000bb728 vaddr=3fc93b28 size=014c0h (  5312) load[0m
+[0;32mI (213) esp_image: segment 4: paddr=000bcbf0 vaddr=40380000 size=1239ch ( 74652) load[0m
+[0;32mI (237) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (237) boot: Disabling RNG early entropy source...[0m
+[0;32mI (249) cpu_start: Unicore app[0m
+[0;32mI (258) cpu_start: Pro cpu start user code[0m
+[0;32mI (258) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (258) cpu_start: Application information:[0m
+[0;32mI (261) cpu_start: Project name:     espnow_example[0m
+[0;32mI (266) cpu_start: App version:      1[0m
+[0;32mI (271) cpu_start: Compile time:     Jan  3 2025 08:10:41[0m
+[0;32mI (277) cpu_start: ELF file SHA256:  3f4b92706...[0m
+[0;32mI (282) cpu_start: ESP-IDF:          v5.2.3[0m
+[0;32mI (287) cpu_start: Min chip rev:     v0.3[0m
+[0;32mI (292) cpu_start: Max chip rev:     v1.99 [0m
+[0;32mI (297) cpu_start: Chip rev:         v0.4[0m
+[0;32mI (301) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (309) heap_init: At 3FC99180 len 00026E80 (155 KiB): RAM[0m
+[0;32mI (315) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (322) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (329) heap_init: At 50000010 len 00001FD8 (7 KiB): RTCRAM[0m
+[0;32mI (336) spi_flash: detected chip: generic[0m
+[0;32mI (340) spi_flash: flash io: dio[0m
+[0;33mW (343) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (357) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (363) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (371) main_task: Started on CPU0[0m
+[0;32mI (371) main_task: Calling app_main()[0m
+[0;32mI (371) ESP-NOW: ESP-NOW Example Starting[0m
+[0;32mI (381) pp: pp rom version: 9387209[0m
+[0;32mI (381) net80211: net80211 rom version: 9387209[0m
+[0;32mI (401) wifi:wifi driver task: 3fca1aac, prio:23, stack:6656, core=0[0m
+[0;32mI (401) wifi:wifi firmware version: 82f54d2[0m
+[0;32mI (401) wifi:wifi certification version: v7.0[0m
+[0;32mI (401) wifi:config NVS flash: enabled[0m
+[0;32mI (401) wifi:config nano formating: disabled[0m
+[0;32mI (411) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (411) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (421) wifi:Init management short buffer num: 32[0m
+[0;32mI (421) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (431) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (431) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (431) wifi:Init static rx buffer num: 10[0m
+[0;32mI (441) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (441) wifi_init: rx ba win: 6[0m
+[0;32mI (451) wifi_init: tcpip mbox: 32[0m
+[0;32mI (451) wifi_init: udp mbox: 6[0m
+[0;32mI (451) wifi_init: tcp mbox: 6[0m
+[0;32mI (461) wifi_init: tcp tx win: 5760[0m
+[0;32mI (461) wifi_init: tcp rx win: 5760[0m
+[0;32mI (471) wifi_init: tcp mss: 1440[0m
+[0;32mI (471) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (471) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (481) phy_init: phy_version 1180,01f2a49,Jun  4 2024,16:34:25[0m
+[0;32mI (521) wifi:mode : sta (64:e8:33:84:b8:5c)[0m
+[0;32mI (521) wifi:enable tsf[0m
+[0;32mI (521) wifi:ifx:0, phymode(new:0x3, nvs:0x3)[0m
+[0;32mI (521) wifi:enable tsf[0m
+[0;32mI (531) ESPNOW: espnow [version: 1.0] init[0m
+[0;32mI (531) ESP-NOW: Main loop running[0m
+[0;32mI (531) ESP-NOW: Main loop running[0m
+[0;32mI (541) ESP-NOW: Main loop running[0m
+[0;32mI (551) ESP-NOW: Main loop running[0m
+[0;32mI (561) ESP-NOW: Main loop running[0m
+[0;32mI (571) ESP-NOW: Main loop running[0m
+[0;32mI (581) ESP-NOW: Main loop running[0m
+[0;32mI (591) ESP-NOW: Main loop running[0m
+[0;32mI (601) ESP-NOW: Main loop running[0m
+[0;32mI (611) ESP-NOW: Main loop running[0m
+[0;32mI (621) ESP-NOW: Main loop running[0m
+[0;32mI (631) ESP-NOW: Main loop running[0m
+[0;32mI (641) ESP-NOW: Main loop running[0m
+[0;32mI (651) ESP-NOW: Main loop running[0m
+[0;32mI (661) ESP-NOW: Main loop running[0m
+[0;32mI (671) ESP-NOW: Main loop running[0m
+[0;32mI (681) ESP-NOW: Main loop running[0m
+[0;32mI (691) ESP-NOW: Main loop running[0m
+[0;32mI (701) ESP-NOW: Main loop running[0m
+[0;32mI (711) ESP-NOW: Main loop running[0m
+[0;32mI (721) ESP-NOW: Main loop running[0m
+[0;32mI (731) ESP-NOW: Main loop running[0m
+[0;32mI (741) ESP-NOW: Main loop running[0m
+[0;32mI (751) ESP-NOW: Main loop running[0m
+[0;32mI (761) ESP-NOW: Main loop running[0m
+[0;32mI (771) ESP-NOW: Main loop running[0m
+[0;32mI (781) ESP-NOW: Main loop running[0m
+[0;32mI (791) ESP-NOW: Main loop running[0m
+[0;32mI (801) ESP-NOW: Main loop running[0m
+[0;32mI (811) ESP-NOW: Main loop running[0m
+[0;32mI (821) ESP-NOW: Main loop running[0m
+[0;32mI (831) ESP-NOW: Main loop running[0m
+[0;32mI (841) ESP-NOW: Main loop running[0m
+[0;32mI (851) ESP-NOW: Main loop running[0m
+[0;32mI (861) ESP-NOW: Main loop running[0m
+[0;32mI (871) ESP-NOW: Main loop running[0m
+[0;32mI (881) ESP-NOW: Main loop running[0m
+[0;32mI (891) ESP-NOW: Main loop running[0m
+[0;32mI (901) ESP-NOW: Main loop running[0m
+[0;32mI (911) ESP-NOW: Main loop running[0m
+[0;32mI (921) ESP-NOW: Main loop running[0m
+[0;32mI (931) ESP-NOW: Main loop running[0m
+[0;32mI (941) ESP-NOW: Main loop running[0m
+[0;32mI (951) ESP-NOW: Main loop running[0m
+[0;32mI (961) ESP-NOW: Main loop running[0m
+[0;32mI (971) ESP-NOW: Main loop running[0m
+[0;32mI (981) ESP-NOW: Main loop running[0m
+[0;32mI (991) ESP-NOW: Main loop running[0m
+[0;32mI (1001) ESP-NOW: Main loop running[0m
+[0;32mI (1011) ESP-NOW: Main loop running[0m
+[0;32mI (1021) ESP-NOW: Main loop running[0m
+[0;32mI (1031) ESP-NOW: Main loop running[0m
+[0;32mI (1041) ESP-NOW: Main loop running[0m
+[0;32mI (1051) ESP-NOW: Main loop running[0m
+[0;32mI (1061) ESP-NOW: Main loop running[0m
+[0;32mI (1071) ESP-NOW: Main loop running[0m
+[0;32mI (1081) ESP-NOW: Main loop running[0m
+[0;32mI (1091) ESP-NOW: Main loop running[0m
+[0;32mI (1101) ESP-NOW: Main loop running[0m
+[0;32mI (1111) ESP-NOW: Main loop running[0m
+[0;32mI (1121) ESP-NOW: Main loop running[0m
+[0;32mI (1131) ESP-NOW: Main loop running[0m
+[0;32mI (1141) ESP-NOW: Main loop running[0m
+[0;32mI (1151) ESP-NOW: Main loop running[0m
+[0;32mI (1161) ESP-NOW: Main loop running[0m
+[0;32mI (1171) ESP-NOW: Main loop running[0m
+[0;32mI (1181) ESP-NOW: Main loop running[0m
+[0;32mI (1191) ESP-NOW: Main loop running[0m
+[0;32mI (1201) ESP-NOW: Main loop running[0m
+[0;32mI (1211) ESP-NOW: Main loop running[0m
+[0;32mI (1221) ESP-NOW: Main loop running[0m
+[0;32mI (1231) ESP-NOW: Main loop running[0m
+[0;32mI (1241) ESP-NOW: Main loop running[0m
+[0;32mI (1251) ESP-NOW: Main loop running[0m
+[0;32mI (1261) ESP-NOW: Main loop running[0m
+[0;32mI (1271) ESP-NOW: Main loop running[0m
+[0;32mI (1281) ESP-NOW: Main loop running[0m
+[0;32mI (1291) ESP-NOW: Main loop running[0m
+[0;32mI (1301) ESP-NOW: Main loop running[0m
+[0;32mI (1311) ESP-NOW: Main loop running[0m
+[0;32mI (1321) ESP-NOW: Main loop running[0m
+[0;32mI (1331) ESP-NOW: Main loop running[0m
+[0;32mI (1341) ESP-NOW: Main loop running[0m
+[0;32mI (1351) ESP-NOW: Main loop running[0m
+[0;32mI (1361) ESP-NOW: Main loop running[0m
+[0;32mI (1371) ESP-NOW: Main loop running[0m
+[0;32mI (1381) ESP-NOW: Main loop running[0m
+[0;32mI (1391) ESP-NOW: Main loop running[0m
+[0;32mI (1401) ESP-NOW: Main loop running[0m
+[0;32mI (1411) ESP-NOW: Main loop running[0m
+[0;32mI (1421) ESP-NOW: Main loop running[0m
+[0;32mI (1431) ESP-NOW: Main loop running[0m
+[0;32mI (1441) ESP-NOW: Main loop running[0m
+[0;32mI (1451) ESP-NOW: Main loop running[0m
+[0;32mI (1461) ESP-NOW: Main loop running[0m
+[0;32mI (1471) ESP-NOW: Main loop running[0m
+[0;32mI (1481) ESP-NOW: Main loop running[0m
+[0;32mI (1491) ESP-NOW: Main loop running[0m
+[0;32mI (1501) ESP-NOW: Main loop running[0m
+[0;32mI (1511) ESP-NOW: Main loop running[0m
+[0;32mI (1521) ESP-NOW: Main loop running[0m
+[0;32mI (1531) ESP-NOW: Main loop running[0m
+[0;32mI (1541) ESP-NOW: Main loop running[0m
+[0;32mI (1551) ESP-NOW: Main loop running[0m
+[0;32mI (1561) ESP-NOW: Main loop running[0m
+[0;32mI (1571) ESP-NOW: Main loop running[0m
+[0;32mI (1581) ESP-NOW: Main loop running[0m
+[0;32mI (1591) ESP-NOW: Main loop running[0m
+[0;32mI (1601) ESP-NOW: Main loop running[0m
+[0;32mI (1611) ESP-NOW: Main loop running[0m
+[0;32mI (1621) ESP-NOW: Main loop running[0m
+[0;32mI (1631) ESP-NOW: Main loop running[0m
+[0;32mI (1641) ESP-NOW: Main loop running[0m
+[0;32mI (1651) ESP-NOW: Main loop running[0m
+[0;32mI (1661) ESP-NOW: Main loop running[0m
+[0;32mI (1671) ESP-NOW: Main loop running[0m
+[0;32mI (1681) ESP-NOW: Main loop running[0m
+[0;32mI (1691) ESP-NOW: Main loop running[0m
+[0;32mI (1701) ESP-NOW: Main loop running[0m
+[0;32mI (1711) ESP-NOW: Main loop running[0m
+[0;32mI (1721) ESP-NOW: Main loop running[0m
+[0;32mI (1731) ESP-NOW: Main loop running[0m
+[0;32mI (1741) ESP-NOW: Main loop running[0m
+[0;32mI (1751) ESP-NOW: Main loop running[0m
+[0;32mI (1761) ESP-NOW: Main loop running[0m
+[0;32mI (1771) ESP-NOW: Main loop running[0m
+[0;32mI (1781) ESP-NOW: Main loop running[0m
+[0;32mI (1791) ESP-NOW: Main loop running[0m
+[0;32mI (1801) ESP-NOW: Main loop running[0m
+[0;32mI (1811) ESP-NOW: Main loop running[0m
+[0;32mI (1821) ESP-NOW: Main loop running[0m
+[0;32mI (1831) ESP-NOW: Main loop running[0m
+[0;32mI (1841) ESP-NOW: Main loop running[0m
+[0;32mI (1851) ESP-NOW: Main loop running[0m
+[0;32mI (1861) ESP-NOW: Main loop running[0m
+[0;32mI (1871) ESP-NOW: Main loop running[0m
+[0;32mI (1881) ESP-NOW: Main loop running[0m
+[0;32mI (1891) ESP-NOW: Main loop running[0m
+[0;32mI (1901) ESP-NOW: Main loop running[0m
+[0;32mI (1911) ESP-NOW: Main loop running[0m
+[0;32mI (1921) ESP-NOW: Main loop running[0m
+[0;32mI (1931) ESP-NOW: Main loop running[0m
+[0;32mI (1941) ESP-NOW: Main loop running[0m
+[0;32mI (1951) ESP-NOW: Main loop running[0m
+[0;32mI (1961) ESP-NOW: Main loop running[0m
+[0;32mI (1971) ESP-NOW: Main loop running[0m
+[0;32mI (1981) ESP-NOW: Main loop running[0m
+[0;32mI (1991) ESP-NOW: Main loop running[0m
+[0;32mI (2001) ESP-NOW: Main loop running[0m
+[0;32mI (2011) ESP-NOW: Main loop running[0m
+[0;32mI (2021) ESP-NOW: Main loop running[0m
+[0;32mI (2031) ESP-NOW: Main loop running[0m
+[0;32mI (2041) ESP-NOW: Main loop running[0m
+[0;32mI (2051) ESP-NOW: Main loop running[0m
+[0;32mI (2061) ESP-NOW: Main loop running[0m
+[0;32mI (2071) ESP-NOW: Main loop running[0m
+[0;32mI (2081) ESP-NOW: Main loop running[0m
+[0;32mI (2091) ESP-NOW: Main loop running[0m
+[0;32mI (2101) ESP-NOW: Main loop running[0m
+[0;32mI (2111) ESP-NOW: Main loop running[0m
+[0;32mI (2121) ESP-NOW: Main loop running[0m
+[0;32mI (2131) ESP-NOW: Main loop running[0m
+[0;32mI (2141) ESP-NOW: Main loop running[0m
+[0;32mI (2151) ESP-NOW: Main loop running[0m
+[0;32mI (2161) ESP-NOW: Main loop running[0m
+[0;32mI (2171) ESP-NOW: Main loop running[0m
+[0;32mI (2181) ESP-NOW: Main loop running[0m
+[0;32mI (2191) ESP-NOW: Main loop running[0m
+[0;32mI (2201) ESP-NOW: Main loop running[0m
+[0;32mI (2211) ESP-NOW: Main loop running[0m
+[0;32mI (2221) ESP-NOW: Main loop running[0m
+[0;32mI (2231) ESP-NOW: Main loop running[0m
+[0;32mI (2241) ESP-NOW: Main loop running[0m
+[0;32mI (2251) ESP-NOW: Main loop running[0m
+[0;32mI (2261) ESP-NOW: Main loop running[0m
+[0;32mI (2271) ESP-NOW: Main loop running[0m
+[0;32mI (2281) ESP-NOW: Main loop running[0m
+[0;32mI (2291) ESP-NOW: Main loop running[0m
+[0;32mI (2301) ESP-NOW: Main loop running[0m
+[0;32mI (2311) ESP-NOW: Main loop running[0m
+[0;32mI (2321) ESP-NOW: Main loop running[0m
+[0;32mI (2331) ESP-NOW: Main loop running[0m
+[0;32mI (2341) ESP-NOW: Main loop running[0m
+[0;32mI (2351) ESP-NOW: Main loop running[0m
+[0;32mI (2361) ESP-NOW: Main loop running[0m
+[0;32mI (2371) ESP-NOW: Main loop running[0m
+[0;32mI (2381) ESP-NOW: Main loop running[0m
+[0;32mI (2391) ESP-NOW: Main loop running[0m
+[0;32mI (2401) ESP-NOW: Main loop running[0m
+[0;32mI (2411) ESP-NOW: Main loop running[0m
+[0;32mI (2421) ESP-NOW: Main loop running[0m
+[0;32mI (2431) ESP-NOW: Main loop running[0m
+[0;32mI (2441) ESP-NOW: Main loop running[0m
+[0;32mI (2451) ESP-NOW: Main loop running[0m
+[0;32mI (2461) ESP-NOW: Main loop running[0m
+[0;32mI (2471) ESP-NOW: Main loop running[0m
+[0;32mI (2481) ESP-NOW: Main loop running[0m
+[0;32mI (2491) ESP-NOW: Main loop running[0m
+[0;32mI (2501) ESP-NOW: Main loop running[0m
+[0;32mI (2511) ESP-NOW: Main loop running[0m
+[0;32mI (2521) ESP-NOW: Main loop running[0m
+[0;32mI (2531) ESP-NOW: Main loop running[0m
+[0;32mI (2541) ESP-NOW: Main loop running[0m
+[0;32mI (2551) ESP-NOW: Main loop running[0m
+[0;32mI (2561) ESP-NOW: Main loop running[0m
+[0;32mI (2571) ESP-NOW: Main loop running[0m
+[0;32mI (2581) ESP-NOW: Main loop running[0m
+[0;32mI (2591) ESP-NOW: Main loop running[0m
+[0;32mI (2601) ESP-NOW: Main loop running[0m
+[0;32mI (2611) ESP-NOW: Main loop running[0m
+[0;32mI (2621) ESP-NOW: Main loop running[0m
+[0;32mI (2631) ESP-NOW: Main loop running[0m
+[0;32mI (2641) ESP-NOW: Main loop running[0m
+[0;32mI (2651) ESP-NOW: Main loop running[0m
+[0;32mI (2661) ESP-NOW: Main loop running[0m
+[0;32mI (2671) ESP-NOW: Main loop running[0m
+[0;32mI (2681) ESP-NOW: Main loop running[0m
+[0;32mI (2691) ESP-NOW: Main loop running[0m
+[0;32mI (2701) ESP-NOW: Main loop running[0m
+[0;32mI (2711) ESP-NOW: Main loop running[0m
+[0;32mI (2721) ESP-NOW: Main loop running[0m
+[0;32mI (2731) ESP-NOW: Main loop running[0m
+[0;32mI (2741) ESP-NOW: Main loop running[0m
+[0;32mI (2751) ESP-NOW: Main loop running[0m
+[0;32mI (2761) ESP-NOW: Main loop running[0m
+[0;32mI (2771) ESP-NOW: Main loop running[0m
+[0;32mI (2781) ESP-NOW: Main loop running[0m
+[0;32mI (2791) ESP-NOW: Main loop running[0m
+[0;32mI (2801) ESP-NOW: Main loop running[0m
+[0;32mI (2811) ESP-NOW: Main loop running[0m
+[0;32mI (2821) ESP-NOW: Main loop running[0m
+[0;32mI (2831) ESP-NOW: Main loop running[0m
+[0;32mI (2841) ESP-NOW: Main loop running[0m
+[0;32mI (2851) ESP-NOW: Main loop running[0m
+[0;32mI (2861) ESP-NOW: Main loop running[0m
+[0;32mI (2871) ESP-NOW: Main loop running[0m
+[0;32mI (2881) ESP-NOW: Main loop running[0m
+[0;32mI (2891) ESP-NOW: Main loop running[0m
+[0;32mI (2901) ESP-NOW: Main loop running[0m
+[0;32mI (2911) ESP-NOW: Main loop running[0m
+[0;32mI (2921) ESP-NOW: Main loop running[0m
+[0;32mI (2931) ESP-NOW: Main loop running[0m
+[0;32mI (2941) ESP-NOW: Main loop running[0m
+[0;32mI (2951) ESP-NOW: Main loop running[0m
+[0;32mI (2961) ESP-NOW: Main loop running[0m
+[0;32mI (2971) ESP-NOW: Main loop running[0m
+[0;32mI (2981) ESP-NOW: Main loop running[0m
+[0;32mI (2991) ESP-NOW: Main loop running[0m
+[0;32mI (3001) ESP-NOW: Main loop running[0m
+[0;32mI (3011) ESP-NOW: Main loop running[0m
+[0;32mI (3021) ESP-NOW: Main loop running[0m
+[0;32mI (3031) ESP-NOW: Main loop running[0m
+[0;32mI (3041) ESP-NOW: Main loop running[0m
+[0;32mI (3051) ESP-NOW: Main loop running[0m
+[0;32mI (3061) ESP-NOW: Main loop running[0m
+[0;32mI (3071) ESP-NOW: Main loop running[0m
+[0;32mI (3081) ESP-NOW: Main loop running[0m
+[0;32mI (3091) ESP-NOW: Main loop running[0m
+[0;32mI (3101) ESP-NOW: Main loop running[0m
+[0;32mI (3111) ESP-NOW: Main loop running[0m
+[0;32mI (3121) ESP-NOW: Main loop running[0m
+[0;32mI (3131) ESP-NOW: Main loop running[0m
+[0;32mI (3141) ESP-NOW: Main loop running[0m
+[0;32mI (3151) ESP-NOW: Main loop running[0m
+[0;32mI (3161) ESP-NOW: Main loop running[0m
+[0;32mI (3171) ESP-NOW: Main loop running[0m
+[0;32mI (3181) ESP-NOW: Main loop running[0m
+[0;32mI (3191) ESP-NOW: Main loop running[0m
+[0;32mI (3201) ESP-NOW: Main loop running[0m
+[0;32mI (3211) ESP-NOW: Main loop running[0m
+[0;32mI (3221) ESP-NOW: Main loop running[0m
+[0;32mI (3231) ESP-NOW: Main loop running[0m
+[0;32mI (3241) ESP-NOW: Main loop running[0m
+[0;32mI (3251) ESP-NOW: Main loop running[0m
+[0;32mI (3261) ESP-NOW: Main loop running[0m
+[0;32mI (3271) ESP-NOW: Main loop running[0m
+[0;32mI (3281) ESP-NOW: Main loop running[0m
+[0;32mI (3291) ESP-NOW: Main loop running[0m
+[0;32mI (3301) ESP-NOW: Main loop running[0m
+[0;32mI (3311) ESP-NOW: Main loop running[0m
+[0;32mI (3321) ESP-NOW: Main loop running[0m
+[0;32mI (3331) ESP-NOW: Main loop running[0m
+[0;32mI (3341) ESP-NOW: Main loop running[0m
+[0;32mI (3351) ESP-NOW: Main loop running[0m

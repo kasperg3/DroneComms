@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "nvs_flash.h": "c",
+        "freertos.h": "c",
+        "freertosconfig.h": "c",
+        "stdexcept": "cpp",
+        "cstdlib": "cpp"
+    },
+    "idf.port": "/dev/ttyACM0"
+}

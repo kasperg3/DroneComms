@@ -1,0 +1,306 @@
+[0;32mI (212) esp_image: segment 3: paddr=000bb288 vaddr=3fc93bESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403d0842
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x1820
+load:0x403cc710,len:0xbcc
+load:0x403ce710,len:0x2f40
+entry 0x403cc71a
+[0;32mI (24) boot: ESP-IDF v5.2.3 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Jan  2 2025 14:01:37[0m
+[0;32mI (25) boot: chip revision: v0.4[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (32) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (37) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (46) boot: Enabling RNG early entropy source...[0m
+[0;32mI (51) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (62) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (70) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (77) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (85) boot: End of partition table[0m
+[0;32mI (89) esp_image: segment 0: paddr=00010020 vaddr=3c090020 size=1e830h (124976) map[0m
+[0;32mI (117) esp_image: segment 1: paddr=0002e858 vaddr=3fc92400 size=017c0h (  6080) load[0m
+[0;32mI (118) esp_image: segment 2: paddr=00030020 vaddr=42000020 size=8b260h (569952) map[0m
+[0;32mI (212) esp_image: segment 3: paddr=000bb288 vaddr=3fc93bc0 size=01430h (  5168) load[0m
+[0;32mI (213) esp_image: segment 4: paddr=000bc6c0 vaddr=40380000 size=1239ch ( 74652) load[0m
+[0;32mI (237) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (237) boot: Disabling RNG early entropy source...[0m
+[0;32mI (248) cpu_start: Unicore app[0m
+[0;32mI (257) cpu_start: Pro cpu start user code[0m
+[0;32mI (257) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (257) cpu_start: Application information:[0m
+[0;32mI (260) cpu_start: Project name:     espnow_example[0m
+[0;32mI (266) cpu_start: App version:      1[0m
+[0;32mI (270) cpu_start: Compile time:     Jan  2 2025 14:01:31[0m
+[0;32mI (276) cpu_start: ELF file SHA256:  4e025cdf8...[0m
+[0;32mI (282) cpu_start: ESP-IDF:          v5.2.3[0m
+[0;32mI (286) cpu_start: Min chip rev:     v0.3[0m
+[0;32mI (291) cpu_start: Max chip rev:     v1.99 [0m
+[0;32mI (296) cpu_start: Chip rev:         v0.4[0m
+[0;32mI (301) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (308) heap_init: At 3FC990D0 len 00026F30 (155 KiB): RAM[0m
+[0;32mI (314) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (321) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (328) heap_init: At 50000010 len 00001FD8 (7 KiB): RTCRAM[0m
+[0;32mI (335) spi_flash: detected chip: generic[0m
+[0;32mI (339) spi_flash: flash io: dio[0m
+[0;33mW (343) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (357) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (363) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (370) main_task: Started on CPU0[0m
+[0;32mI (370) main_task: Calling app_main()[0m
+[0;32mI (380) pp: pp rom version: 9387209[0m
+[0;32mI (380) net80211: net80211 rom version: 9387209[0m
+[0;32mI (390) wifi:wifi driver task: 3fca18ec, prio:23, stack:6656, core=0[0m
+[0;32mI (390) wifi:wifi firmware version: 82f54d2[0m
+[0;32mI (390) wifi:wifi certification version: v7.0[0m
+[0;32mI (400) wifi:config NVS flash: enabled[0m
+[0;32mI (400) wifi:config nano formating: disabled[0m
+[0;32mI (400) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (410) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (410) wifi:Init management short buffer num: 32[0m
+[0;32mI (420) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (420) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (430) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (430) wifi:Init static rx buffer num: 10[0m
+[0;32mI (430) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (440) wifi_init: rx ba win: 6[0m
+[0;32mI (440) wifi_init: tcpip mbox: 32[0m
+[0;32mI (450) wifi_init: udp mbox: 6[0m
+[0;32mI (450) wifi_init: tcp mbox: 6[0m
+[0;32mI (450) wifi_init: tcp tx win: 5760[0m
+[0;32mI (460) wifi_init: tcp rx win: 5760[0m
+[0;32mI (460) wifi_init: tcp mss: 1440[0m
+[0;32mI (460) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (470) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (470) phy_init: phy_version 1180,01f2a49,Jun  4 2024,16:34:25[0m
+[0;33mW (520) phy_init: saving new calibration data because of checksum failure, mode(0)[0m
+[0;32mI (570) wifi:mode : sta (64:e8:33:86:81:a4)[0m
+[0;32mI (570) wifi:enable tsf[0m
+[0;32mI (570) ESPNOW: espnow [version: 1.0] init[0m
+[0;32mI (570) main_task: Returned from app_main()[0m
+[0;32mI (5570) espnow_example: Start sending broadcast data[0m
+[0;32mI (5570) espnow_example: Receive 246th broadcast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (5570) espnow_example: Receive 247th broadcast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (5580) espnow_example: Receive 248th broadcast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (5590) espnow_example: Receive 249th broadcast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (5590) espnow_example: Receive 250th broadcast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (6600) espnow_example: send data to ff:ff:ff:ff:ff:ff[0m
+[0;32mI (6600) espnow_example: Receive 251th broadcast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (7600) espnow_example: send data to ff:ff:ff:ff:ff:ff[0m
+[0;32mI (7600) espnow_example: Receive 252th broadcast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (7600) espnow_example: Receive 0th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (7940) espnow_example: Receive 1th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (8940) espnow_example: Receive 2th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (9940) espnow_example: Receive 3th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (10940) espnow_example: Receive 4th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (11940) espnow_example: Receive 5th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (12940) espnow_example: Receive 6th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (13940) espnow_example: Receive 7th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (14940) espnow_example: Receive 8th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (15940) espnow_example: Receive 9th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (16940) espnow_example: Receive 10th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (17940) espnow_example: Receive 11th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (18940) espnow_example: Receive 12th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (19940) espnow_example: Receive 13th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (20940) espnow_example: Receive 14th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (21940) espnow_example: Receive 15th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (22940) espnow_example: Receive 16th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (23940) espnow_example: Receive 17th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (24940) espnow_example: Receive 18th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (25940) espnow_example: Receive 19th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (26940) espnow_example: Receive 20th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (27940) espnow_example: Receive 21th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (28940) espnow_example: Receive 22th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (29940) espnow_example: Receive 23th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (30940) espnow_example: Receive 24th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (31940) espnow_example: Receive 25th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (32940) espnow_example: Receive 26th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (33940) espnow_example: Receive 27th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (34940) espnow_example: Receive 28th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (35940) espnow_example: Receive 29th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (36940) espnow_example: Receive 30th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (37940) espnow_example: Receive 31th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (38940) espnow_example: Receive 32th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (39940) espnow_example: Receive 33th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (40940) espnow_example: Receive 34th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (41940) espnow_example: Receive 35th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (42940) espnow_example: Receive 36th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (43940) espnow_example: Receive 37th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (44940) espnow_example: Receive 38th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (45940) espnow_example: Receive 39th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (46940) espnow_example: Receive 40th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (47940) espnow_example: Receive 41th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (48940) espnow_example: Receive 42th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (49940) espnow_example: Receive 43th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (50940) espnow_example: Receive 44th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (51940) espnow_example: Receive 45th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (52940) espnow_example: Receive 46th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (53940) espnow_example: Receive 47th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (54940) espnow_example: Receive 48th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (55940) espnow_example: Receive 49th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (56940) espnow_example: Receive 50th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (57940) espnow_example: Receive 51th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (58940) espnow_example: Receive 52th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (59940) espnow_example: Receive 53th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (60940) espnow_example: Receive 54th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (61940) espnow_example: Receive 55th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (62940) espnow_example: Receive 56th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (63940) espnow_example: Receive 57th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (64940) espnow_example: Receive 58th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (65940) espnow_example: Receive 59th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (66940) espnow_example: Receive 60th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (67940) espnow_example: Receive 61th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (68940) espnow_example: Receive 62th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (69940) espnow_example: Receive 63th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (70940) espnow_example: Receive 64th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (71940) espnow_example: Receive 65th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (72940) espnow_example: Receive 66th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (73940) espnow_example: Receive 67th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (74940) espnow_example: Receive 68th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (75940) espnow_example: Receive 69th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (76940) espnow_example: Receive 70th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (77940) espnow_example: Receive 71th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (78940) espnow_example: Receive 72th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (79940) espnow_example: Receive 73th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (80940) espnow_example: Receive 74th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (81940) espnow_example: Receive 75th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (82940) espnow_example: Receive 76th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (83940) espnow_example: Receive 77th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (84940) espnow_example: Receive 78th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (85940) espnow_example: Receive 79th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (86940) espnow_example: Receive 80th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (87940) espnow_example: Receive 81th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (88940) espnow_example: Receive 82th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (89940) espnow_example: Receive 83th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (90940) espnow_example: Receive 84th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (91940) espnow_example: Receive 85th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (92940) espnow_example: Receive 86th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (93940) espnow_example: Receive 87th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (94940) espnow_example: Receive 88th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (95940) espnow_example: Receive 89th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (96940) espnow_example: Receive 90th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (97940) espnow_example: Receive 91th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (98950) espnow_example: Receive 92th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (99940) espnow_example: Receive 93th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (100940) espnow_example: Receive 94th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (101940) espnow_example: Receive 95th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (102940) espnow_example: Receive 96th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (103940) espnow_example: Receive 97th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (104940) espnow_example: Receive 98th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (105940) espnow_example: Receive 99th unicast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (5528) espnow_example: Start sending broadcast data[0m
+[0;32mI (5528) espnow_example: Receive 0th broadcast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (5528) espnow_example: Receive 1th broadcast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (6538) espnow_example: send data to ff:ff:ff:ff:ff:ff[0m
+[0;32mI (6538) espnow_example: Receive 2th broadcast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (7538) espnow_example: send data to ff:ff:ff:ff:ff:ff[0m
+[0;32mI (7538) espnow_example: Receive 3th broadcast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (7538) espnow_example: Start sending unicast data[0m
+[0;32mI (7538) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (8548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (8548) espnow_example: Receive 4th broadcast data from: 64:e8:33:84:b8:5c, len: 10[0m
+[0;32mI (9548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (10548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (11548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (12548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (13548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (14548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (15548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (16548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (17548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (18548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (19548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (20548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (21548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (22548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (23548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (24548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (25548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (26548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (27548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (28548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (29548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (30548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (31548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (32548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (33548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (34548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (35548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (36548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (37548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (38548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (39548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (40548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (41548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (42548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (43548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (44548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (45548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (46548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (47548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (48548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (49548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (50548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (51548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (52548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (53548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (54548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (55548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (56548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (57548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (58548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (59548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (60548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (61548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (62548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (63548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (64548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (65548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (66548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (67548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (68548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (69548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (70548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (71548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (72548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (73548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (74548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (75548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (76548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (77548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (78548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (79548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (80548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (81548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (82548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (83548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (84548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (85548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (86548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (87548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (88548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (89548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (90548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (91548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (92548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (93548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (94548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (95548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (96548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (97548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (98548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (99548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (100548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (101548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (102548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (103548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (104548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (105548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (106548) espnow_example: send data to 64:e8:33:84:b8:5c[0m
+[0;32mI (106548) espnow_example: Send done[0m
+[0;32mI (106548) ESPNOW: espnow [version: 1.0] deinit[0m

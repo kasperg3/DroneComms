@@ -1,0 +1,1017 @@
+[0;32mI (202) esp_image: segment 4: paddr=000a31a4 vaddr=40382etion:ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4004c0d4
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x1820
+load:0x403cc710,len:0xbcc
+load:0x403ce710,len:0x2f40
+entry 0x403cc71a
+[0;32mI (24) boot: ESP-IDF v5.2.3 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Jan  2 2025 14:01:37[0m
+[0;32mI (25) boot: chip revision: v0.4[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (32) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (37) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (46) boot: Enabling RNG early entropy source...[0m
+[0;32mI (51) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (62) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (70) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (77) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (85) boot: End of partition table[0m
+[0;32mI (89) esp_image: segment 0: paddr=00010020 vaddr=3c080020 size=1a6c8h (108232) map[0m
+[0;32mI (114) esp_image: segment 1: paddr=0002a6f0 vaddr=3fc91c00 size=02b00h ( 11008) load[0m
+[0;32mI (117) esp_image: segment 2: paddr=0002d1f8 vaddr=40380000 size=02e20h ( 11808) load[0m
+[0;32mI (122) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=7317ch (471420) map[0m
+[0;32mI (202) esp_image: segment 4: paddr=000a31a4 vaddr=40382e20 size=0ecb8h ( 60600) load[0m
+[0;32mI (219) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (220) boot: Disabling RNG early entropy source...[0m
+[0;32mI (231) cpu_start: Unicore app[0m
+[0;32mI (240) cpu_start: Pro cpu start user code[0m
+[0;32mI (240) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (240) cpu_start: Application information:[0m
+[0;32mI (243) cpu_start: Project name:     espnow_example[0m
+[0;32mI (248) cpu_start: App version:      1[0m
+[0;32mI (253) cpu_start: Compile time:     Jan  3 2025 08:10:41[0m
+[0;32mI (259) cpu_start: ELF file SHA256:  df70bf7f1...[0m
+[0;32mI (264) cpu_start: ESP-IDF:          v5.2.3[0m
+[0;32mI (269) cpu_start: Min chip rev:     v0.3[0m
+[0;32mI (274) cpu_start: Max chip rev:     v1.99 [0m
+[0;32mI (279) cpu_start: Chip rev:         v0.4[0m
+[0;32mI (283) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (291) heap_init: At 3FC97ED0 len 00028130 (160 KiB): RAM[0m
+[0;32mI (297) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (304) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (311) heap_init: At 50000010 len 00001FD8 (7 KiB): RTCRAM[0m
+[0;32mI (318) spi_flash: detected chip: generic[0m
+[0;32mI (322) spi_flash: flash io: dio[0m
+[0;33mW (326) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (339) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (345) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (353) main_task: Started on CPU0[0m
+[0;32mI (353) main_task: Calling app_main()[0m
+[0;32mI (353) ESP-NOW: ESP-NOW Example Starting[0m
+[0;32mI (363) pp: pp rom version: 9387209[0m
+[0;32mI (363) net80211: net80211 rom version: 9387209[0m
+[0;33mW (373) wifi:wifi osi_nvs_open fail ret=4353[0m
+
+[0;33mW (373) wifi_init: Failed to unregister Rx callbacks[0m
+[0;31mE (383) wifi_init: Failed to deinit Wi-Fi driver (0x3001)[0m
+[0;31mE (383) wifi_init: Failed to deinit Wi-Fi (0x3001)[0m
+[0;31mE (393) ESP-NOW: Wi-Fi initialization failed: ESP_ERR_NVS_NOT_INITIALIZED[0m
+
+abort() was called at PC 0x4200828b on core 0
+Core  0 register dump:
+MEPC    : 0x403806d8  RA      : 0x40385710  SP      : 0x3fc9abf0  GP      : 0x3fc92400  
+TP      : 0x3fc80818  T0      : 0x37363534  T1      : 0x7271706f  T2      : 0x33323130  
+S0/FP   : 0x00000004  S1      : 0x3fc9ac54  A0      : 0x3fc9ac1c  A1      : 0x3fc9ac52  
+A2      : 0x00000000  A3      : 0x3fc9ac49  A4      : 0x00000001  A5      : 0x3fc98000  
+A6      : 0x7a797877  A7      : 0x76757473  S2      : 0x00000000  S3      : 0x00000000  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x6e6d6c6b  T4      : 0x6a696867  T5      : 0x66656463  T6      : 0x62613938  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x00000007  MTVAL   : 0x00000000  
+MHARTID : 0x00000000  
+
+panic_abort (details=details@entry=0x3fc9ac1c "abort() was called at PC 0x4200828b on core 0") at /home/kang/esp/esp-idf/components/esp_system/panic.c:466
+466	    *((volatile int *) 0) = 0; // NOLINT(clang-analyzer-core.NullDereference) should be an invalid operation on targets
+#0  panic_abort (details=details@entry=0x3fc9ac1c "abort() was called at PC 0x4200828b on core 0") at /home/kang/esp/esp-idf/components/esp_system/panic.c:466
+#1  0x40385710 in esp_system_abort (details=details@entry=0x3fc9ac1c "abort() was called at PC 0x4200828b on core 0") at /home/kang/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+#2  0x4038cf82 in abort () at /home/kang/esp/esp-idf/components/newlib/abort.c:38
+#3  0x4200828e in ESPNowHandler::ESPNowHandler (this=<optimized out>) at /home/kang/workspace/DroneComms/main/espnow_example_main.cpp:41
+#4  0x4200866e in app_main () at /home/kang/workspace/DroneComms/main/espnow_example_main.cpp:202
+#5  0x420721f0 in main_task (args=<error reading variable: value has been optimized out>) at /home/kang/esp/esp-idf/components/freertos/app_startup.c:208
+#6  0x40386686 in vPortTaskWrapper (pxCode=<optimized out>, pvParameters=<optimized out>) at /home/kang/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/riscv/port.c:255
+
+
+
+ELF file SHA256: df70bf7f1
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403806c4
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x1820
+load:0x403cc710,len:0xbcc
+load:0x403ce710,len:0x2f40
+entry 0x403cc71a
+[0;32mI (24) boot: ESP-IDF v5.2.3 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Jan  2 2025 14:01:37[0m
+[0;32mI (24) boot: chip revision: v0.4[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (31) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (36) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (46) boot: Enabling RNG early entropy source...[0m
+[0;32mI (51) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (62) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (69) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (77) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (84) boot: End of partition table[0m
+[0;32mI (88) esp_image: segment 0: paddr=00010020 vaddr=3c080020 size=1a6c8h (108232) map[0m
+[0;32mI (114) esp_image: segment 1: paddr=0002a6f0 vaddr=3fc91c00 size=02b00h ( 11008) load[0m
+[0;32mI (116) esp_image: segment 2: paddr=0002d1f8 vaddr=40380000 size=02e20h ( 11808) load[0m
+[0;32mI (122) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=7317ch (471420) map[0m
+[0;32mI (202) esp_image: segment 4: paddr=000a31a4 vaddr=40382e20 size=0ecb8h ( 60600) load[0m
+[0;32mI (219) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (219) boot: Disabling RNG early entropy source...[0m
+[0;32mI (230) cpu_start: Unicore app[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (242) cpu_start: Project name:     espnow_example[0m
+[0;32mI (248) cpu_start: App version:      1[0m
+[0;32mI (252) cpu_start: Compile time:     Jan  3 2025 08:10:41[0m
+[0;32mI (258) cpu_start: ELF file SHA256:  df70bf7f1...[0m
+[0;32mI (264) cpu_start: ESP-IDF:          v5.2.3[0m
+[0;32mI (269) cpu_start: Min chip rev:     v0.3[0m
+[0;32mI (273) cpu_start: Max chip rev:     v1.99 [0m
+[0;32mI (278) cpu_start: Chip rev:         v0.4[0m
+[0;32mI (283) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (290) heap_init: At 3FC97ED0 len 00028130 (160 KiB): RAM[0m
+[0;32mI (296) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (303) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (310) heap_init: At 50000010 len 00001FD8 (7 KiB): RTCRAM[0m
+[0;32mI (317) spi_flash: detected chip: generic[0m
+[0;32mI (321) spi_flash: flash io: dio[0m
+[0;33mW (325) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (339) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (345) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (352) main_task: Started on CPU0[0m
+[0;32mI (352) main_task: Calling app_main()[0m
+[0;32mI (352) ESP-NOW: ESP-NOW Example Starting[0m
+[0;32mI (362) pp: pp rom version: 9387209[0m
+[0;32mI (362) net80211: net80211 rom version: 9387209[0m
+[0;33mW (372) wifi:wifi osi_nvs_open fail ret=4353[0m
+
+[0;33mW (372) wifi_init: Failed to unregister Rx callbacks[0m
+[0;31mE (382) wifi_init: Failed to deinit Wi-Fi driver (0x3001)[0m
+[0;31mE (382) wifi_init: Failed to deinit Wi-Fi (0x3001)[0m
+[0;31mE (392) ESP-NOW: Wi-Fi initialization failed: ESP_ERR_NVS_NOT_INITIALIZED[0m
+
+abort() was called at PC 0x4200828b on core 0
+Core  0 register dump:
+MEPC    : 0x403806d8  RA      : 0x40385710  SP      : 0x3fc9abf0  GP      : 0x3fc92400  
+TP      : 0x3fc80818  T0      : 0x37363534  T1      : 0x7271706f  T2      : 0x33323130  
+S0/FP   : 0x00000004  S1      : 0x3fc9ac54  A0      : 0x3fc9ac1c  A1      : 0x3fc9ac52  
+A2      : 0x00000000  A3      : 0x3fc9ac49  A4      : 0x00000001  A5      : 0x3fc98000  
+A6      : 0x7a797877  A7      : 0x76757473  S2      : 0x00000000  S3      : 0x00000000  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x6e6d6c6b  T4      : 0x6a696867  T5      : 0x66656463  T6      : 0x62613938  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x00000007  MTVAL   : 0x00000000  
+MHARTID : 0x00000000  
+
+panic_abort (details=details@entry=0x3fc9ac1c "abort() was called at PC 0x4200828b on core 0") at /home/kang/esp/esp-idf/components/esp_system/panic.c:466
+466	    *((volatile int *) 0) = 0; // NOLINT(clang-analyzer-core.NullDereference) should be an invalid operation on targets
+#0  panic_abort (details=details@entry=0x3fc9ac1c "abort() was called at PC 0x4200828b on core 0") at /home/kang/esp/esp-idf/components/esp_system/panic.c:466
+#1  0x40385710 in esp_system_abort (details=details@entry=0x3fc9ac1c "abort() was called at PC 0x4200828b on core 0") at /home/kang/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+#2  0x4038cf82 in abort () at /home/kang/esp/esp-idf/components/newlib/abort.c:38
+#3  0x4200828e in ESPNowHandler::ESPNowHandler (this=<optimized out>) at /home/kang/workspace/DroneComms/main/espnow_example_main.cpp:41
+#4  0x4200866e in app_main () at /home/kang/workspace/DroneComms/main/espnow_example_main.cpp:202
+#5  0x420721f0 in main_task (args=<error reading variable: value has been optimized out>) at /home/kang/esp/esp-idf/components/freertos/app_startup.c:208
+#6  0x40386686 in vPortTaskWrapper (pxCode=<optimized out>, pvParameters=<optimized out>) at /home/kang/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/riscv/port.c:255
+
+
+
+ELF file SHA256: df70bf7f1
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403806c4
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x1820
+load:0x403cc710,len:0xbcc
+load:0x403ce710,len:0x2f40
+entry 0x403cc71a
+[0;32mI (24) boot: ESP-IDF v5.2.3 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Jan  2 2025 14:01:37[0m
+[0;32mI (24) boot: chip revision: v0.4[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (31) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (36) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (46) boot: Enabling RNG early entropy source...[0m
+[0;32mI (51) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (62) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (69) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (77) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (84) boot: End of partition table[0m
+[0;32mI (88) esp_image: segment 0: paddr=00010020 vaddr=3c080020 size=1a6c8h (108232) map[0m
+[0;32mI (114) esp_image: segment 1: paddr=0002a6f0 vaddr=3fc91c00 size=02b00h ( 11008) load[0m
+[0;32mI (116) esp_image: segment 2: paddr=0002d1f8 vaddr=40380000 size=02e20h ( 11808) load[0m
+[0;32mI (122) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=7317ch (471420) map[0m
+[0;32mI (202) esp_image: segment 4: paddr=000a31a4 vaddr=40382e20 size=0ecb8h ( 60600) load[0m
+[0;32mI (219) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (219) boot: Disabling RNG early entropy source...[0m
+[0;32mI (230) cpu_start: Unicore app[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (242) cpu_start: Project name:     espnow_example[0m
+[0;32mI (248) cpu_start: App version:      1[0m
+[0;32mI (252) cpu_start: Compile time:     Jan  3 2025 08:10:41[0m
+[0;32mI (258) cpu_start: ELF file SHA256:  df70bf7f1...[0m
+[0;32mI (264) cpu_start: ESP-IDF:          v5.2.3[0m
+[0;32mI (269) cpu_start: Min chip rev:     v0.3[0m
+[0;32mI (273) cpu_start: Max chip rev:     v1.99 [0m
+[0;32mI (278) cpu_start: Chip rev:         v0.4[0m
+[0;32mI (283) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (290) heap_init: At 3FC97ED0 len 00028130 (160 KiB): RAM[0m
+[0;32mI (296) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (303) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (310) heap_init: At 50000010 len 00001FD8 (7 KiB): RTCRAM[0m
+[0;32mI (317) spi_flash: detected chip: generic[0m
+[0;32mI (321) spi_flash: flash io: dio[0m
+[0;33mW (325) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (339) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (345) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (352) main_task: Started on CPU0[0m
+[0;32mI (352) main_task: Calling app_main()[0m
+[0;32mI (352) ESP-NOW: ESP-NOW Example Starting[0m
+[0;32mI (362) pp: pp rom version: 9387209[0m
+[0;32mI (362) net80211: net80211 rom version: 9387209[0m
+[0;33mW (372) wifi:wifi osi_nvs_open fail ret=4353[0m
+
+[0;33mW (372) wifi_init: Failed to unregister Rx callbacks[0m
+[0;31mE (382) wifi_init: Failed to deinit Wi-Fi driver (0x3001)[0m
+[0;31mE (382) wifi_init: Failed to deinit Wi-Fi (0x3001)[0m
+[0;31mE (392) ESP-NOW: Wi-Fi initialization failed: ESP_ERR_NVS_NOT_INITIALIZED[0m
+
+abort() was called at PC 0x4200828b on core 0
+Core  0 register dump:
+MEPC    : 0x403806d8  RA      : 0x40385710  SP      : 0x3fc9abf0  GP      : 0x3fc92400  
+TP      : 0x3fc80818  T0      : 0x37363534  T1      : 0x7271706f  T2      : 0x33323130  
+S0/FP   : 0x00000004  S1      : 0x3fc9ac54  A0      : 0x3fc9ac1c  A1      : 0x3fc9ac52  
+A2      : 0x00000000  A3      : 0x3fc9ac49  A4      : 0x00000001  A5      : 0x3fc98000  
+A6      : 0x7a797877  A7      : 0x76757473  S2      : 0x00000000  S3      : 0x00000000  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x6e6d6c6b  T4      : 0x6a696867  T5      : 0x66656463  T6      : 0x62613938  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x00000007  MTVAL   : 0x00000000  
+MHARTID : 0x00000000  
+
+Stack memory:
+3fc9abf0: 0x00000000 0x00000000 0x3fc9ac50 0x4038cf82 0x3c0849c0 0x3c08486c 0x00000001 0x3fc93854
+3fc9ac10: 0x3fc9ac54 0x3fc93870 0x3fc9ac50 0x726f6261 0x20292874 0x20736177 0x6c6c6163 0x61206465
+3fc9ac30: 0x43502074 0x34783020 0x38303032 0x20623832 0x63206e6f 0x2065726f 0x00000030 0x42000000
+3fc9ac50: 0x3c080030 0x30303234 0x62383238 0x00000100 0x3c08486c 0x00000188 0x00001101 0x4200828e
+3fc9ac70: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0x4039049a
+3fc9ac90: 0xa5a5a5a5 0x00000000 0x3fc91edc 0x00000074 0x00000001 0x4200f296 0x4200f280 0x4200f66c
+3fc9acb0: 0x4200f3b4 0x40000624 0x40000620 0x4200f6be 0x4200f6a2 0x4200f3c4 0x4200f654 0x4200f876
+3fc9acd0: 0x4200f9be 0x40000610 0x4200f274 0x4200f6d8 0x4200f700 0x4200f268 0x4200f70e 0x4200f736
+3fc9acf0: 0x4200f744 0x4200f7ae 0x4200f9a4 0x42010046 0x420100fe 0x4200f25a 0x4200f63c 0x4200f248
+3fc9ad10: 0x0000000a 0x00000020 0x00000001 0x00000000 0x00000020 0x00000000 0x00000005 0x00000000
+3fc9ad30: 0x00000000 0x00000001 0x00000001 0x00000000 0x00000001 0x00000000 0x00000006 0x00000000
+3fc9ad50: 0x000002f0 0x00000020 0x000000a1 0x00000000 0x00000001 0x00000007 0x1f2f3f4f 0x00000000
+3fc9ad70: 0x00000000 0x00000000 0x3c082000 0x4200866e 0x3c081db8 0x00000160 0xfe7fffff 0x420721f0
+3fc9ad90: 0x00000000 0x00001388 0x00000001 0x00000000 0x00000000 0x00000000 0x00000000 0x40386686
+3fc9adb0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc9add0: 0x00000000 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+0x3fc948b8 0x3fc9adf4 0x3fc948b0 0x00000018
+3fc9ae10: 0x00000000 0x00000000 0x3fc9adf4 0x00000000 0x00000001 0x3fc99df0 0x6e69616d 0x00000000
+3fc9ae30: 0x00000000 0x00000000 0x3fc9ade0 0x00000001 0x00000000 0x00000000 0x00000000 0x00000000
+3fc9ae50: 0x3fc986bc 0x3fc98724 0x3fc9878c 0x00000000 0x00000000 0x00000001 0x00000000 0x00000000
+3fc9ae70: 0x00000000 0x42004be4 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc9ae90: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc9aeb0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc9aed0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc9aef0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc9af10: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc9af30: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000600 0xa5a5a5a5 0xa5a5a5a5
+3fc9af50: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+3fc9af70: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+3fc9af90: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+3fc9afb0: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+3fc9afd0: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+
+
+
+ELF file SHA256: df70bf7f1
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403806c4
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x1820
+load:0x403cc710,len:0xbcc
+load:0x403ce710,len:0x2f40
+entry 0x403cc71a
+[0;32mI (24) boot: ESP-IDF v5.2.3 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Jan  2 2025 14:01:37[0m
+[0;32mI (24) boot: chip revision: v0.4[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (31) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (36) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (46) boot: Enabling RNG early entropy source...[0m
+[0;32mI (51) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (62) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (69) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (77) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (84) boot: End of partition table[0m
+[0;32mI (88) esp_image: segment 0: paddr=00010020 vaddr=3c080020 size=1a6c8h (108232) map[0m
+[0;32mI (114) esp_image: segment 1: paddr=0002a6f0 vaddr=3fc91c00 size=02b00h ( 11008) load[0m
+[0;32mI (116) esp_image: segment 2: paddr=0002d1f8 vaddr=40380000 size=02e20h ( 11808) load[0m
+[0;32mI (122) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=7317ch (471420) map[0m
+[0;32mI (202) esp_image: segment 4: paddr=000a31a4 vaddr=40382e20 size=0ecb8h ( 60600) load[0m
+[0;32mI (219) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (219) boot: Disabling RNG early entropy source...[0m
+[0;32mI (230) cpu_start: Unicore app[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (242) cpu_start: Project name:     espnow_example[0m
+[0;32mI (248) cpu_start: App version:      1[0m
+[0;32mI (252) cpu_start: Compile time:     Jan  3 2025 08:10:41[0m
+[0;32mI (258) cpu_start: ELF file SHA256:  df70bf7f1...[0m
+[0;32mI (264) cpu_start: ESP-IDF:          v5.2.3[0m
+[0;32mI (269) cpu_start: Min chip rev:     v0.3[0m
+[0;32mI (273) cpu_start: Max chip rev:     v1.99 [0m
+[0;32mI (278) cpu_start: Chip rev:         v0.4[0m
+[0;32mI (283) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (290) heap_init: At 3FC97ED0 len 00028130 (160 KiB): RAM[0m
+[0;32mI (296) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (303) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (310) heap_init: At 50000010 len 00001FD8 (7 KiB): RTCRAM[0m
+[0;32mI (317) spi_flash: detected chip: generic[0m
+[0;32mI (321) spi_flash: flash io: dio[0m
+[0;33mW (325) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (339) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (345) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (352) main_task: Started on CPU0[0m
+[0;32mI (352) main_task: Calling app_main()[0m
+[0;32mI (352) ESP-NOW: ESP-NOW Example Starting[0m
+[0;32mI (362) pp: pp rom version: 9387209[0m
+[0;32mI (362) net80211: net80211 rom version: 9387209[0m
+[0;33mW (372) wifi:wifi osi_nvs_open fail ret=4353[0m
+
+[0;33mW (372) wifi_init: Failed to unregister Rx callbacks[0m
+[0;31mE (382) wifi_init: Failed to deinit Wi-Fi driver (0x3001)[0m
+[0;31mE (382) wifi_init: Failed to deinit Wi-Fi (0x3001)[0m
+[0;31mE (392) ESP-NOW: Wi-Fi initialization failed: ESP_ERR_NVS_NOT_INITIALIZED[0m
+
+abort() was called at PC 0x4200828b on core 0
+Core  0 register dump:
+MEPC    : 0x403806d8  RA      : 0x40385710  SP      : 0x3fc9abf0  GP      : 0x3fc92400  
+TP      : 0x3fc80818  T0      : 0x37363534  T1      : 0x7271706f  T2      : 0x33323130  
+S0/FP   : 0x00000004  S1      : 0x3fc9ac54  A0      : 0x3fc9ac1c  A1      : 0x3fc9ac52  
+A2      : 0x00000000  A3      : 0x3fc9ac49  A4      : 0x00000001  A5      : 0x3fc98000  
+A6      : 0x7a797877  A7      : 0x76757473  S2      : 0x00000000  S3      : 0x00000000  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x6e6d6c6b  T4      : 0x6a696867  T5      : 0x66656463  T6      : 0x62613938  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x00000007  MTVAL   : 0x00000000  
+MHARTID : 0x00000000  
+
+panic_abort (details=details@entry=0x3fc9ac1c "abort() was called at PC 0x4200828b on core 0") at /home/kang/esp/esp-idf/components/esp_system/panic.c:466
+466	    *((volatile int *) 0) = 0; // NOLINT(clang-analyzer-core.NullDereference) should be an invalid operation on targets
+#0  panic_abort (details=details@entry=0x3fc9ac1c "abort() was called at PC 0x4200828b on core 0") at /home/kang/esp/esp-idf/components/esp_system/panic.c:466
+#1  0x40385710 in esp_system_abort (details=details@entry=0x3fc9ac1c "abort() was called at PC 0x4200828b on core 0") at /home/kang/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+#2  0x4038cf82 in abort () at /home/kang/esp/esp-idf/components/newlib/abort.c:38
+#3  0x4200828e in ESPNowHandler::ESPNowHandler (this=<optimized out>) at /home/kang/workspace/DroneComms/main/espnow_example_main.cpp:41
+#4  0x4200866e in app_main () at /home/kang/workspace/DroneComms/main/espnow_example_main.cpp:202
+#5  0x420721f0 in main_task (args=<error reading variable: value has been optimized out>) at /home/kang/esp/esp-idf/components/freertos/app_startup.c:208
+#6  0x40386686 in vPortTaskWrapper (pxCode=<optimized out>, pvParameters=<optimized out>) at /home/kang/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/riscv/port.c:255
+
+
+
+ELF file SHA256: df70bf7f1
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403806c4
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x1820
+load:0x403cc710,len:0xbcc
+load:0x403ce710,len:0x2f40
+entry 0x403cc71a
+[0;32mI (24) boot: ESP-IDF v5.2.3 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Jan  2 2025 14:01:37[0m
+[0;32mI (24) boot: chip revision: v0.4[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (31) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (36) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (46) boot: Enabling RNG early entropy source...[0m
+[0;32mI (51) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (62) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (69) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (77) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (84) boot: End of partition table[0m
+[0;32mI (88) esp_image: segment 0: paddr=00010020 vaddr=3c080020 size=1a6c8h (108232) map[0m
+[0;32mI (114) esp_image: segment 1: paddr=0002a6f0 vaddr=3fc91c00 size=02b00h ( 11008) load[0m
+[0;32mI (116) esp_image: segment 2: paddr=0002d1f8 vaddr=40380000 size=02e20h ( 11808) load[0m
+[0;32mI (122) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=7317ch (471420) map[0m
+[0;32mI (202) esp_image: segment 4: paddr=000a31a4 vaddr=40382e20 size=0ecb8h ( 60600) load[0m
+[0;32mI (219) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (219) boot: Disabling RNG early entropy source...[0m
+[0;32mI (230) cpu_start: Unicore app[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (242) cpu_start: Project name:     espnow_example[0m
+[0;32mI (248) cpu_start: App version:      1[0m
+[0;32mI (252) cpu_start: Compile time:     Jan  3 2025 08:10:41[0m
+[0;32mI (258) cpu_start: ELF file SHA256:  df70bf7f1...[0m
+[0;32mI (264) cpu_start: ESP-IDF:          v5.2.3[0m
+[0;32mI (269) cpu_start: Min chip rev:     v0.3[0m
+[0;32mI (273) cpu_start: Max chip rev:     v1.99 [0m
+[0;32mI (278) cpu_start: Chip rev:         v0.4[0m
+[0;32mI (283) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (290) heap_init: At 3FC97ED0 len 00028130 (160 KiB): RAM[0m
+[0;32mI (296) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (303) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (310) heap_init: At 50000010 len 00001FD8 (7 KiB): RTCRAM[0m
+[0;32mI (317) spi_flash: detected chip: generic[0m
+[0;32mI (321) spi_flash: flash io: dio[0m
+[0;33mW (325) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (339) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (345) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (352) main_task: Started on CPU0[0m
+[0;32mI (352) main_task: Calling app_main()[0m
+[0;32mI (352) ESP-NOW: ESP-NOW Example Starting[0m
+[0;32mI (362) pp: pp rom version: 9387209[0m
+[0;32mI (362) net80211: net80211 rom version: 9387209[0m
+[0;33mW (372) wifi:wifi osi_nvs_open fail ret=4353[0m
+
+[0;33mW (372) wifi_init: Failed to unregister Rx callbacks[0m
+[0;31mE (382) wifi_init: Failed to deinit Wi-Fi driver (0x3001)[0m
+[0;31mE (382) wifi_init: Failed to deinit Wi-Fi (0x3001)[0m
+[0;31mE (392) ESP-NOW: Wi-Fi initialization failed: ESP_ERR_NVS_NOT_INITIALIZED[0m
+
+abort() was called at PC 0x4200828b on core 0
+Core  0 register dump:
+MEPC    : 0x403806d8  RA      : 0x40385710  SP      : 0x3fc9abf0  GP      : 0x3fc92400  
+TP      : 0x3fc80818  T0      : 0x37363534  T1      : 0x7271706f  T2      : 0x33323130  
+S0/FP   : 0x00000004  S1      : 0x3fc9ac54  A0      : 0x3fc9ac1c  A1      : 0x3fc9ac52  
+A2      : 0x00000000  A3      : 0x3fc9ac49  A4      : 0x00000001  A5      : 0x3fc98000  
+A6      : 0x7a797877  A7      : 0x76757473  S2      : 0x00000000  S3      : 0x00000000  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x6e6d6c6b  T4      : 0x6a696867  T5      : 0x66656463  T6      : 0x62613938  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x00000007  MTVAL   : 0x00000000  
+MHARTID : 0x00000000  
+
+Stack memory:
+3fc9abf0: 0x00000000 0x00000000 0x3fc9ac50 0x4038cf82 0x3c0849c0 0x3c08486c 0x00000001 0x3fc93854
+3fc9ac10: 0x3fc9ac54 0x3fc93870 0x3fc9ac50 0x726f6261 0x20292874 0x20736177 0x6c6c6163 0x61206465
+3fc9ac30: 0x43502074 0x34783020 0x38303032 0x20623832 0x63206e6f 0x2065726f 0x00000030 0x42000000
+3fc9ac50: 0x3c080030 0x30303234 0x62383238 0x00000100 0x3c08486c 0x00000188 0x00001101 0x4200828e
+3fc9ac70: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0x4039049a
+3fc9ac90: 0xa5a5a5a5 0x00000000 0x3fc91edc 0x00000074 0x00000001 0x4200f296 0x4200f280 0x4200f66c
+3fc9acb0: 0x4200f3b4 0x40000624 0x40000620 0x4200f6be 0x4200f6a2 0x4200f3c4 0x4200f654 0x4200f876
+3fc9acd0: 0x4200f9be 0x40000610 0x4200f274 0x4200f6d8 0x4200f700 0x4200f268 0x4200f70e 0x4200f736
+3fc9acf0: 0x4200f744 0x4200f7ae 0x4200f9a4 0x42010046 0x420100fe 0x4200f25a 0x4200f63c 0x4200f248
+3fc9ad10: 0x0000000a 0x00000020 0x00000001 0x00000000 0x00000020 0x00000000 0x00000005 0x00000000
+3fc9ad30: 0x00000000 0x00000001 0x00000001 0x00000000 0x00000001 0x00000000 0x00000006 0x00000000
+3fc9ad50: 0x000002f0 0x00000020 0x000000a1 0x00000000 0x00000001 0x00000007 0x1f2f3f4f 0x00000000
+3fc9ad70: 0x00000000 0x00000000 0x3c082000 0x4200866e 0x3c081db8 0x00000160 0xfe7fffff 0x420721f0
+3fc9ad90: 0x00000000 0x00001388 0x00000001 0x00000000 0x00000000 0x00000000 0x00000000 0x40386686
+3fc9adb0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc9add0: 0x00000000 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+3fc9adf0: 0x00000150 0x3fc9a680 0x00000000 0x3fc948b8 0x3fc948b8 0x3fc9adf4 0x3fc948b0 0x00000018
+3fc9ae10: 0x00000000 0x00000000 0x3fc9adf4 0x00000000 0x00000001 0x3fc99df0 0x6e69616d 0x00000000
+3fc9ae30: 0x00000000 0x00000000 0x3fc9ade0 0x00000001 0x00000000 0x00000000 0x00000000 0x00000000
+3fc9ae50: 0x3fc986bc 0x3fc98724 0x3fc9878c 0x00000000 0x00000000 0x00000001 0x00000000 0x00000000
+3fc9ae70: 0x00000000 0x42004be4 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc9ae90: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc9aeb0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc9aed0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc9aef0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc9af10: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+0xa5a5a5a5
+3fc9af50: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+3fc9af70: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+3fc9af90: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+3fc9afb0: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+3fc9afd0: 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5 0xa5a5a5a5
+
+
+
+ELF file SHA256: df70bf7f1
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403806c4
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x1820
+load:0x403cc710,len:0xbcc
+load:0x403ce710,len:0x2f40
+entry 0x403cc71a
+[0;32mI (24) boot: ESP-IDF v5.2.3 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Jan  2 2025 14:01:37[0m
+[0;32mI (24) boot: chip revision: v0.4[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (31) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (36) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (46) boot: Enabling RNG early entropy source...[0m
+[0;32mI (51) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (62) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (69) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (77) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (84) boot: End of partition table[0m
+[0;32mI (88) esp_image: segment 0: paddr=00010020 vaddr=3c080020 size=1a6c8h (108232) map[0m
+[0;32mI (114) esp_image: segment 1: paddr=0002a6f0 vaddr=3fc91c00 size=02b00h ( 11008) load[0m
+[0;32mI (116) esp_image: segment 2: paddr=0002d1f8 vaddr=40380000 size=02e20h ( 11808) load[0m
+[0;32mI (122) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=7317ch (471420) map[0m
+[0;32mI (202) esp_image: segment 4: paddr=000a31a4 vaddr=40382e20 size=0ecb8h ( 60600) load[0m
+[0;32mI (219) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (219) boot: Disabling RNG early entropy source...[0m
+[0;32mI (230) cpu_start: Unicore app[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (242) cpu_start: Project name:     espnow_example[0m
+[0;32mI (248) cpu_start: App version:      1[0m
+[0;32mI (252) cpu_start: Compile time:     Jan  3 2025 08:10:41[0m
+[0;32mI (258) cpu_start: ELF file SHA256:  df70bf7f1...[0m
+[0;32mI (264) cpu_start: ESP-IDF:          v5.2.3[0m
+[0;32mI (269) cpu_start: Min chip rev:     v0.3[0m
+[0;32mI (273) cpu_start: Max chip rev:     v1.99 [0m
+[0;32mI (278) cpu_start: Chip rev:         v0.4[0m
+[0;32mI (283) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (290) heap_init: At 3FC97ED0 len 00028130 (160 KiB): RAM[0m
+[0;32mI (296) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (303) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (310) heap_init: At 50000010 len 00001FD8 (7 KiB): RTCRAM[0m
+[0;32mI (317) spi_flash: detected chip: generic[0m
+[0;32mI (321) spi_flash: flash io: dio[0m
+[0;33mW (325) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (339) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (345) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (352) main_task: Started on CPU0[0m
+[0;32mI (352) main_task: Calling app_main()[0m
+[0;32mI (352) ESP-NOW: ESP-NOW Example Starting[0m
+[0;32mI (362) pp: pp rom version: 9387209[0m
+[0;32mI (362) net80211: net80211 rom version: 9387209[0m
+[0;33mW (372) wifi:wifi osi_nvs_open fail ret=4353[0m
+
+[0;33mW (372) wifi_init: Failed to unregister Rx callbacks[0m
+[0;31mE (382) wifi_init: Failed to deinit Wi-Fi driver (0x3001)[0m
+[0;31mE (382) wifi_init: Failed to deinit Wi-Fi (0x3001)[0m
+[0;31mE (392) ESP-NOW: Wi-Fi initialization failed: ESP_ERR_NVS_NOT_INITIALIZED[0m
+
+abort() was called at PC 0x4200828b on core 0
+Core  0 register dump:
+MEPC    : 0x403806d8  RA      : 0x40385710  SP      : 0x3fc9abf0  GP      : 0x3fc92400  
+TP      : 0x3fc80818  T0      : 0x37363534  T1      : 0x7271706f  T2      : 0x33323130  
+S0/FP   : 0x00000004  S1      : 0x3fc9ac54  A0      : 0x3fc9ac1c  A1      : 0x3fc9ac52  
+A2      : 0x00000000  A3      : 0x3fc9ac49  A4      : 0x00000001  A5      : 0x3fc98000  
+A6      : 0x7a797877  A7      : 0x76757473  S2      : 0x00000000  S3      : 0x00000000  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x6e6d6c6b  T4      : 0x6a696867  T5      : 0x66656463  T6      : 0x62613938  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x00000007  MTVAL   : 0x00000000  
+MHARTID : 0x00000000  
+
+panic_abort (details=details@entry=0x3fc9ac1c "abort() was called at PC 0x4200828b on core 0") at /home/kang/esp/esp-idf/components/esp_system/panic.c:466
+466	    *((volatile int *) 0) = 0; // NOLINT(clang-analyzer-core.NullDereference) should be an invalid operation on targets
+#0  panic_abort (details=details@entry=0x3fc9ac1c "abort() was called at PC 0x4200828b on core 0") at /home/kang/esp/esp-idf/components/esp_system/panic.c:466
+#1  0x40385710 in esp_system_abort (details=details@entry=0x3fc9ac1c "abort() was called at PC 0x4200828b on core 0") at /home/kang/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+#2  0x4038cf82 in abort () at /home/kang/esp/esp-idf/components/newlib/abort.c:38
+#3  0x4200828e in ESPNowHandler::ESPNowHandler (this=<optimized out>) at /home/kang/workspace/DroneComms/main/espnow_example_main.cpp:41
+#4  0x00000000 in ?? ()
+Backtrace stopped: frame did not save the PC
+
+
+
+ELF file SHA256: df70bf7f1
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403806c4
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x1820
+load:0x403cc710,len:0xbcc
+load:0x403ce710,len:0x2f40
+entry 0x403cc71a
+[0;32mI (24) boot: ESP-IDF v5.2.3 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Jan  2 2025 14:01:37[0m
+[0;32mI (24) boot: chip revision: v0.4[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (31) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (36) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (46) boot: Enabling RNG early entropy source...[0m
+[0;32mI (51) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (62) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (69) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (77) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (84) boot: End of partition table[0m
+[0;32mI (88) esp_image: segment 0: paddr=00010020 vaddr=3c080020 size=1a6c8h (108232) map[0m
+[0;32mI (114) esp_image: segment 1: paddr=0002a6f0 vaddr=3fc91c00 size=02b00h ( 11008) load[0m
+[0;32mI (116) esp_image: segment 2: paddr=0002d1f8 vaddr=40380000 size=02e20h ( 11808) load[0m
+[0;32mI (122) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=7317ch (471420) map[0m
+[0;32mI (202) esp_image: segment 4: paddr=000a31a4 vaddr=40382e20 size=0ecb8h ( 60600) load[0m
+[0;32mI (219) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (219) boot: Disabling RNG early entropy source...[0m
+[0;32mI (230) cpu_start: Unicore app[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (242) cpu_start: Project name:     espnow_example[0m
+[0;32mI (248) cpu_start: App version:      1[0m
+[0;32mI (252) cpu_start: Compile time:     Jan  3 2025 08:10:41[0m
+[0;32mI (258) cpu_start: ELF file SHA256:  df70bf7f1...[0m
+[0;32mI (264) cpu_start: ESP-IDF:          v5.2.3[0m
+[0;32mI (269) cpu_start: Min chip rev:     v0.3[0m
+[0;32mI (273) cpu_start: Max chip rev:     v1.99 [0m
+[0;32mI (278) cpu_start: Chip rev:         v0.4[0m
+[0;32mI (283) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (290) heap_init: At 3FC97ED0 len 00028130 (160 KiB): RAM[0m
+[0;32mI (296) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (303) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (310) heap_init: At 50000010 len 00001FD8 (7 KiB): RTCRAM[0m
+[0;32mI (317) spi_flash: detected chip: generic[0m
+[0;32mI (321) spi_flash: flash io: dio[0m
+[0;33mW (325) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (339) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (345) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (352) main_task: Started on CPU0[0m
+[0;32mI (352) main_task: Calling app_main()[0m
+[0;32mI (352) ESP-NOW: ESP-NOW Example Starting[0m
+[0;32mI (362) pp: pp rom version: 9387209[0m
+[0;32mI (362) net80211: net80211 rom version: 9387209[0m
+[0;33mW (372) wifi:wifi osi_nvs_open fail ret=4353[0m
+
+[0;33mW (372) wifi_init: Failed to unregister Rx callbacks[0m
+[0;31mE (382) wifi_init: Failed to deinit Wi-Fi driver (0x3001)[0m
+[0;31mE (382) wifi_init: Failed to deinit Wi-Fi (0x3001)[0m
+[0;31mE (392) ESP-NOW: Wi-Fi initialization failed: ESP_ERR_NVS_NOT_INITIALIZED[0m
+
+abort() was called at PC 0x4200828b on core 0
+Core  0 register dump:
+MEPC    : 0x403806d8  RA      : 0x40385710  SP      : 0x3fc9abf0  GP      : 0x3fc92400  
+TP      : 0x3fc80818  T0      : 0x37363534  T1      : 0x7271706f  T2      : 0x33323130  
+S0/FP   : 0x00000004  S1      : 0x3fc9ac54  A0      : 0x3fc9ac1c  A1      : 0x3fc9ac52  
+A2      : 0x00000000  A3      : 0x3fc9ac49  A4      : 0x00000001  A5      : 0x3fc98000  
+A6      : 0x7a797877  A7      : 0x76757473  S2      : 0x00000000  S3      : 0x00000000  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x6e6d6c6b  T4      : 0x6a696867  T5      : 0x66656463  T6      : 0x62613938  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x00000007  MTVAL   : 0x00000000  
+MHARTID : 0x00000000  
+
+panic_abort (details=details@entry=0x3fc9ac1c "abort() was called at PC 0x4200828b on core 0") at /home/kang/esp/esp-idf/components/esp_system/panic.c:466
+466	    *((volatile int *) 0) = 0; // NOLINT(clang-analyzer-core.NullDereference) should be an invalid operation on targets
+#0  panic_abort (details=details@entry=0x3fc9ac1c "abort() was called at PC 0x4200828b on core 0") at /home/kang/esp/esp-idf/components/esp_system/panic.c:466
+#1  0x40385710 in esp_system_abort (details=details@entry=0x3fc9ac1c "abort() was called at PC 0x4200828b on core 0") at /home/kang/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+#2  0x4038cf82 in abort () at /home/kang/esp/esp-idf/components/newlib/abort.c:38
+#3  0x4200828e in ESPNowHandler::ESPNowHandler (this=<optimized out>) at /home/kang/workspace/DroneComms/main/espnow_example_main.cpp:41
+#4  0x4200866e in app_main () at /home/kang/workspace/DroneComms/main/espnow_example_main.cpp:202
+#5  0x420721f0 in main_task (args=<error reading variable: value has been optimized out>) at /home/kang/esp/esp-idf/components/freertos/app_startup.c:208
+#6  0x40386686 in vPortTaskWrapper (pxCode=<optimized out>, pvParameters=<optimized out>) at /home/kang/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/riscv/port.c:255
+
+
+
+ELF file SHA256: df70bf7f1
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403806c4
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x1820
+load:0x403cc710,len:0xbcc
+load:0x403ce710,len:0x2f40
+entry 0x403cc71a
+[0;32mI (24) boot: ESP-IDF v5.2.3 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Jan  2 2025 14:01:37[0m
+[0;32mI (24) boot: chip revision: v0.4[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (31) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (36) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (46) boot: Enabling RNG early entropy source...[0m
+[0;32mI (51) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (62) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (69) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (77) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (84) boot: End of partition table[0m
+[0;32mI (88) esp_image: segment 0: paddr=00010020 vaddr=3c080020 size=1a6c8h (108232) map[0m
+[0;32mI (114) esp_image: segment 1: paddr=0002a6f0 vaddr=3fc91c00 size=02b00h ( 11008) load[0m
+[0;32mI (116) esp_image: segment 2: paddr=0002d1f8 vaddr=40380000 size=02e20h ( 11808) load[0m
+[0;32mI (122) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=7317ch (471420) map[0m
+[0;32mI (202) esp_image: segment 4: paddr=000a31a4 vaddr=40382e20 size=0ecb8h ( 60600) load[0m
+[0;32mI (219) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (219) boot: Disabling RNG early entropy source...[0m
+[0;32mI (230) cpu_start: Unicore app[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (242) cpu_start: Project name:     espnow_example[0m
+[0;32mI (248) cpu_start: App version:      1[0m
+[0;32mI (252) cpu_start: Compile time:     Jan  3 2025 08:10:41[0m
+[0;32mI (258) cpu_start: ELF file SHA256:  df70bf7f1...[0m
+[0;32mI (264) cpu_start: ESP-IDF:          v5.2.3[0m
+[0;32mI (269) cpu_start: Min chip rev:     v0.3[0m
+[0;32mI (273) cpu_start: Max chip rev:     v1.99 [0m
+[0;32mI (278) cpu_start: Chip rev:         v0.4[0m
+[0;32mI (283) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (290) heap_init: At 3FC97ED0 len 00028130 (160 KiB): RAM[0m
+[0;32mI (296) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (303) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (310) heap_init: At 50000010 len 00001FD8 (7 KiB): RTCRAM[0m
+[0;32mI (317) spi_flash: detected chip: generic[0m
+[0;32mI (321) spi_flash: flash io: dio[0m
+[0;33mW (325) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (339) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (345) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (352) main_task: Started on CPU0[0m
+[0;32mI (352) main_task: Calling app_main()[0m
+[0;32mI (352) ESP-NOW: ESP-NOW Example Starting[0m
+[0;32mI (362) pp: pp rom version: 9387209[0m
+[0;32mI (362) net80211: net80211 rom version: 9387209[0m
+[0;33mW (372) wifi:wifi osi_nvs_open fail ret=4353[0m
+
+[0;33mW (372) wifi_init: Failed to unregister Rx callbacks[0m
+[0;31mE (382) wifi_init: Failed to deinit Wi-Fi driver (0x3001)[0m
+[0;31mE (382) wifi_init: Failed to deinit Wi-Fi (0x3001)[0m
+[0;31mE (392) ESP-NOW: Wi-Fi initialization failed: ESP_ERR_NVS_NOT_INITIALIZED[0m
+
+abort() was called at PC 0x4200828b on core 0
+Core  0 register dump:
+MEPC    : 0x403806d8  RA      : 0x40385710  SP      : 0x3fc9abf0  GP      : 0x3fc92400  
+TP      : 0x3fc80818  T0      : 0x37363534  T1      : 0x7271706f  T2      : 0x33323130  
+S0/FP   : 0x00000004  S1      : 0x3fc9ac54  A0      : 0x3fc9ac1c  A1      : 0x3fc9ac52  
+A2      : 0x00000000  A3      : 0x3fc9ac49  A4      : 0x00000001  A5      : 0x3fc98000  
+A6      : 0x7a797877  A7      : 0x76757473  S2      : 0x00000000  S3      : 0x00000000  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x6e6d6c6b  T4      : 0x6a696867  T5      : 0x66656463  T6      : 0x62613938  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x00000007  MTVAL   : 0x00000000  
+MHARTID : 0x00000000  
+
+panic_abort (details=details@entry=0x3fc9ac1c "abort() was called at PC 0x4200828b on core 0") at /home/kang/esp/esp-idf/components/esp_system/panic.c:466
+466	    *((volatile int *) 0) = 0; // NOLINT(clang-analyzer-core.NullDereference) should be an invalid operation on targets
+#0  panic_abort (details=details@entry=0x3fc9ac1c "abort() was called at PC 0x4200828b on core 0") at /home/kang/esp/esp-idf/components/esp_system/panic.c:466
+#1  0x40385710 in esp_system_abort (details=details@entry=0x3fc9ac1c "abort() was called at PC 0x4200828b on core 0") at /home/kang/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+#2  0x4038cf82 in abort () at /home/kang/esp/esp-idf/components/newlib/abort.c:38
+#3  0x4200828e in ESPNowHandler::ESPNowHandler (this=<optimized out>) at /home/kang/workspace/DroneComms/main/espnow_example_main.cpp:41
+#4  0x4200866e in app_main () at /home/kang/workspace/DroneComms/main/espnow_example_main.cpp:202
+#5  0x420721f0 in main_task (args=<error reading variable: value has been optimized out>) at /home/kang/esp/esp-idf/components/freertos/app_startup.c:208
+#6  0x40386686 in vPortTaskWrapper (pxCode=<optimized out>, pvParameters=<optimized out>) at /home/kang/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/riscv/port.c:255
+
+
+
+ELF file SHA256: df70bf7f1
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403806c4
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x1820
+load:0x403cc710,len:0xbcc
+load:0x403ce710,len:0x2f40
+entry 0x403cc71a
+[0;32mI (24) boot: ESP-IDF v5.2.3 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Jan  2 2025 14:01:37[0m
+[0;32mI (24) boot: chip revision: v0.4[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (31) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (36) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (46) boot: Enabling RNG early entropy source...[0m
+[0;32mI (51) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (62) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (69) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (77) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (84) boot: End of partition table[0m
+[0;32mI (88) esp_image: segment 0: paddr=00010020 vaddr=3c080020 size=1a6c8h (108232) map[0m
+[0;32mI (114) esp_image: segment 1: paddr=0002a6f0 vaddr=3fc91c00 size=02b00h ( 11008) load[0m
+[0;32mI (116) esp_image: segment 2: paddr=0002d1f8 vaddr=40380000 size=02e20h ( 11808) load[0m
+[0;32mI (122) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=7317ch (471420) map[0m
+[0;32mI (202) esp_image: segment 4: paddr=000a31a4 vaddr=40382e20 size=0ecb8h ( 60600) load[0m
+[0;32mI (219) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (219) boot: Disabling RNG early entropy source...[0m
+[0;32mI (230) cpu_start: Unicore app[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (242) cpu_start: Project name:     espnow_example[0m
+[0;32mI (248) cpu_start: App version:      1[0m
+[0;32mI (252) cpu_start: Compile time:     Jan  3 2025 08:10:41[0m
+[0;32mI (258) cpu_start: ELF file SHA256:  df70bf7f1...[0m
+[0;32mI (264) cpu_start: ESP-IDF:          v5.2.3[0m
+[0;32mI (269) cpu_start: Min chip rev:     v0.3[0m
+[0;32mI (273) cpu_start: Max chip rev:     v1.99 [0m
+[0;32mI (278) cpu_start: Chip rev:         v0.4[0m
+[0;32mI (283) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (290) heap_init: At 3FC97ED0 len 00028130 (160 KiB): RAM[0m
+[0;32mI (296) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (303) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (310) heap_init: At 50000010 len 00001FD8 (7 KiB): RTCRAM[0m
+[0;32mI (317) spi_flash: detected chip: generic[0m
+[0;32mI (321) spi_flash: flash io: dio[0m
+[0;33mW (325) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (339) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (345) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (352) main_task: Started on CPU0[0m
+[0;32mI (352) main_task: Calling app_main()[0m
+[0;32mI (352) ESP-NOW: ESP-NOW Example Starting[0m
+[0;32mI (362) pp: pp rom version: 9387209[0m
+[0;32mI (362) net80211: net80211 rom version: 9387209[0m
+[0;33mW (372) wifi:wifi osi_nvs_open fail ret=4353[0m
+
+[0;33mW (372) wifi_init: Failed to unregister Rx callbacks[0m
+[0;31mE (382) wifi_init: Failed to deinit Wi-Fi driver (0x3001)[0m
+[0;31mE (382) wifi_init: Failed to deinit Wi-Fi (0x3001)[0m
+[0;31mE (392) ESP-NOW: Wi-Fi initialization failed: ESP_ERR_NVS_NOT_INITIALIZED[0m
+
+abort() was called at PC 0x4200828b on core 0
+Core  0 register dump:
+MEPC    : 0x403806d8  RA      : 0x40385710  SP      : 0x3fc9abf0  GP      : 0x3fc92400  
+TP      : 0x3fc80818  T0      : 0x37363534  T1      : 0x7271706f  T2      : 0x33323130  
+S0/FP   : 0x00000004  S1      : 0x3fc9ac54  A0      : 0x3fc9ac1c  A1      : 0x3fc9ac52  
+A2      : 0x00000000  A3      : 0x3fc9ac49  A4      : 0x00000001  A5      : 0x3fc98000  
+A6      : 0x7a797877  A7      : 0x76757473  S2      : 0x00000000  S3      : 0x00000000  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x6e6d6c6b  T4      : 0x6a696867  T5      : 0x66656463  T6      : 0x62613938  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x00000007  MTVAL   : 0x00000000  
+MHARTID : 0x00000000  
+
+panic_abort (details=details@entry=0x3fc9ac1c "abort() was called at PC 0x4200828b on core 0") at /home/kang/esp/esp-idf/components/esp_system/panic.c:466
+466	    *((volatile int *) 0) = 0; // NOLINT(clang-analyzer-core.NullDereference) should be an invalid operation on targets
+#0  panic_abort (details=details@entry=0x3fc9ac1c "abort() was called at PC 0x4200828b on core 0") at /home/kang/esp/esp-idf/components/esp_system/panic.c:466
+#1  0x40385710 in esp_system_abort (details=details@entry=0x3fc9ac1c "abort() was called at PC 0x4200828b on core 0") at /home/kang/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+#2  0x4038cf82 in abort () at /home/kang/esp/esp-idf/components/newlib/abort.c:38
+#3  0x4200828e in ESPNowHandler::ESPNowHandler (this=<optimized out>) at /home/kang/workspace/DroneComms/main/espnow_example_main.cpp:41
+#4  0x00000000 in ?? ()
+Backtrace stopped: frame did not save the PC
+
+
+
+ELF file SHA256: df70bf7f1
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403806c4
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x1820
+load:0x403cc710,len:0xbcc
+load:0x403ce710,len:0x2f40
+entry 0x403cc71a
+[0;32mI (24) boot: ESP-IDF v5.2.3 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Jan  2 2025 14:01:37[0m
+[0;32mI (24) boot: chip revision: v0.4[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (31) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (36) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (46) boot: Enabling RNG early entropy source...[0m
+[0;32mI (51) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (62) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (69) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (77) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (84) boot: End of partition table[0m
+[0;32mI (88) esp_image: segment 0: paddr=00010020 vaddr=3c080020 size=1a6c8h (108232) map[0m
+[0;32mI (114) esp_image: segment 1: paddr=0002a6f0 vaddr=3fc91c00 size=02b00h ( 11008) load[0m
+[0;32mI (116) esp_image: segment 2: paddr=0002d1f8 vaddr=40380000 size=02e20h ( 11808) load[0m
+[0;32mI (122) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=7317ch (471420) map[0m
+[0;32mI (202) esp_image: segment 4: paddr=000a31a4 vaddr=40382e20 size=0ecb8h ( 60600) load[0m
+[0;32mI (219) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (219) boot: Disabling RNG early entropy source...[0m
+[0;32mI (230) cpu_start: Unicore app[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (242) cpu_start: Project name:     espnow_example[0m
+[0;32mI (248) cpu_start: App version:      1[0m
+[0;32mI (252) cpu_start: Compile time:     Jan  3 2025 08:10:41[0m
+[0;32mI (258) cpu_start: ELF file SHA256:  df70bf7f1...[0m
+[0;32mI (264) cpu_start: ESP-IDF:          v5.2.3[0m
+[0;32mI (269) cpu_start: Min chip rev:     v0.3[0m
+[0;32mI (273) cpu_start: Max chip rev:     v1.99 [0m
+[0;32mI (278) cpu_start: Chip rev:         v0.4[0m
+[0;32mI (283) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (290) heap_init: At 3FC97ED0 len 00028130 (160 KiB): RAM[0m
+[0;32mI (296) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (303) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (310) heap_init: At 50000010 len 00001FD8 (7 KiB): RTCRAM[0m
+[0;32mI (317) spi_flash: detected chip: generic[0m
+[0;32mI (321) spi_flash: flash io: dio[0m
+[0;33mW (325) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (339) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (345) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (352) main_task: Started on CPU0[0m
+[0;32mI (352) main_task: Calling app_main()[0m
+[0;32mI (352) ESP-NOW: ESP-NOW Example Starting[0m
+[0;32mI (362) pp: pp rom version: 9387209[0m
+[0;32mI (362) net80211: net80211 rom version: 9387209[0m
+[0;33mW (372) wifi:wifi osi_nvs_open fail ret=4353[0m
+
+[0;33mW (372) wifi_init: Failed to unregister Rx callbacks[0m
+[0;31mE (382) wifi_init: Failed to deinit Wi-Fi driver (0x3001)[0m
+[0;31mE (382) wifi_init: Failed to deinit Wi-Fi (0x3001)[0m
+[0;31mE (392) ESP-NOW: Wi-Fi initialization failed: ESP_ERR_NVS_NOT_INITIALIZED[0m
+
+abort() was called at PC 0x4200828b on core 0
+Core  0 register dump:
+MEPC    : 0x403806d8  RA      : 0x40385710  SP      : 0x3fc9abf0  GP      : 0x3fc92400  
+TP      : 0x3fc80818  T0      : 0x37363534  T1      : 0x7271706f  T2      : 0x33323130  
+S0/FP   : 0x00000004  S1      : 0x3fc9ac54  A0      : 0x3fc9ac1c  A1      : 0x3fc9ac52  
+A2      : 0x00000000  A3      : 0x3fc9ac49  A4      : 0x00000001  A5      : 0x3fc98000  
+A6      : 0x7a797877  A7      : 0x76757473  S2      : 0x00000000  S3      : 0x00000000  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x6e6d6c6b  T4      : 0x6a696867  T5      : 0x66656463  T6      : 0x62613938  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x00000007  MTVAL   : 0x00000000  
+MHARTID : 0x00000000  
+
+panic_abort (details=details@entry=0x3fc9ac1c "abort() was called at PC 0x4200828b on core 0") at /home/kang/esp/esp-idf/components/esp_system/panic.c:466
+466	    *((volatile int *) 0) = 0; // NOLINT(clang-analyzer-core.NullDereference) should be an invalid operation on targets
+#0  panic_abort (details=details@entry=0x3fc9ac1c "abort() was called at PC 0x4200828b on core 0") at /home/kang/esp/esp-idf/components/esp_system/panic.c:466
+#1  0x40385710 in esp_system_abort (details=details@entry=0x3fc9ac1c "abort() was called at PC 0x4200828b on core 0") at /home/kang/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+#2  0x4038cf82 in abort () at /home/kang/esp/esp-idf/components/newlib/abort.c:38
+#3  0x4200828e in ESPNowHandler::ESPNowHandler (this=<optimized out>) at /home/kang/workspace/DroneComms/main/espnow_example_main.cpp:41
+#4  0x4200866e in app_main () at /home/kang/workspace/DroneComms/main/espnow_example_main.cpp:202
+#5  0x420721f0 in main_task (args=<optimized out>) at /home/kang/esp/esp-idf/components/freertos/app_startup.c:208
+#6  0x00000000 in ?? ()
+Backtrace stopped: frame did not save the PC
+
+
+
+ELF file SHA256: df70bf7f1
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403806c4
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x1820
+load:0x403cc710,len:0xbcc
+load:0x403ce710,len:0x2f40
+entry 0x403cc71a
+[0;32mI (24) boot: ESP-IDF v5.2.3 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Jan  2 2025 14:01:37[0m
+[0;32mI (24) boot: chip revision: v0.4[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (31) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (36) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (46) boot: Enabling RNG early entropy source...[0m
+[0;32mI (51) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (62) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (69) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (77) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (84) boot: End of partition table[0m
+[0;32mI (88) esp_image: segment 0: paddr=00010020 vaddr=3c080020 size=1a6c8h (108232) map[0m
+[0;32mI (114) esp_image: segment 1: paddr=0002a6f0 vaddr=3fc91c00 size=02b00h ( 11008) load[0m
+[0;32mI (116) esp_image: segment 2: paddr=0002d1f8 vaddr=40380000 size=02e20h ( 11808) load[0m
+[0;32mI (122) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=7317ch (471420) map[0m
+[0;32mI (202) esp_image: segment 4: paddr=000a31a4 vaddr=40382e20 size=0ecb8h ( 60600) load[0m
+[0;32mI (219) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (219) boot: Disabling RNG early entropy source...[0m
+[0;32mI (230) cpu_start: Unicore app[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (242) cpu_start: Project name:     espnow_example[0m
+[0;32mI (248) cpu_start: App version:      1[0m
+[0;32mI (252) cpu_start: Compile time:     Jan  3 2025 08:10:41[0m
+[0;32mI (258) cpu_start: ELF file SHA256:  df70bf7f1...[0m
+[0;32mI (264) cpu_start: ESP-IDF:          v5.2.3[0m
