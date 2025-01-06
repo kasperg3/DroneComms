@@ -1,3 +1,8 @@
-CONFIG_ESP_CONSOLE_SECONDARY_NONE=y
+# This file was generated using idf.py save-defconfig. It can be edited manually.
+# Espressif IoT Development Framework (ESP-IDF) 5.2.3 Project Minimal Configuration
+#
+CONFIG_IDF_TARGET="esp32c3"
 CONFIG_COMPILER_CXX_EXCEPTIONS=y
-CONFIG_COMPILER_CXX_EXCEPTIONS_EMG_POOL_SIZE=1024
+
+# Console configuration
+CONFIG_ESP_CONSOLE_SECONDARY_NONE=y

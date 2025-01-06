@@ -1,59 +1,48 @@
-# SPDX-FileCopyrightText: 2023-2024 Espressif Systems (Shanghai) CO LTD
-# SPDX-License-Identifier: CC0-1.0
-from time import sleep
+import serial
+import random
+import struct
+def generate_random_floats(count, lower_bound, upper_bound):
+    return [random.uniform(lower_bound, upper_bound) for _ in range(count)]
 
-import pytest
-import serial.tools.list_ports
-from pytest_embedded import Dut
+BUF_SIZE = 1024
 
+class Message:
+    def __init__(self, winning_bids, winning_agents, entries):
+        self.winning_bids = winning_bids
+        self.winning_agents = winning_agents
+        self.entries = entries
 
-def test_usb_device_serial_example(dut: Dut) -> None:
+    def serialize(self):
+        
+        bids_data = struct.pack(f'{len(self.winning_bids)}f', *self.winning_bids)
+        agents_data = struct.pack(f'{len(self.winning_agents)}B', *self.winning_agents)
+        entries_data = struct.pack('I', self.entries)
+        return bids_data + agents_data + entries_data
 
-    ports = list(serial.tools.list_ports.comports())
-    for p in ports:
-        if (p.device == '/dev/ttyACM0'):      # Get the usb_serial_jtag port
-            with serial.Serial(p.device) as s:
-                s.write(b'hi, espressif\n')
-                sleep(1)
-                res = s.readline()
-                assert b'hi, espressif' in res
-                s.write(b'See you again!\n')
-                sleep(1)
-                res = s.readline()
-                assert b'See you again!' in res
-                s.write(b'Echo a very long buffer. Assume this buffer is very large and you can see whole buffer\n')
-                sleep(1)
-                res = s.readline()
-                assert b'Echo a very long buffer. Assume this buffer is very large and you can see whole buffer' in res
-                s.write(b'64 bytes buffer:-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-\n')
-                sleep(1)
-                res = s.readline()
-                assert b'64 bytes buffer:-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-' in res
+def send_message_to_serial(port, message:Message):
+    data = message.serialize()
+    
+    with serial.Serial(port, baudrate=40000000) as ser:
+        ser.write(data)
+        ser.flush()
+        
+def send_floats_to_serial(port, floats):
+    serialized_floats = ','.join(f"{f:.5f}" for f in floats)
+    data = f"{serialized_floats}\n".encode()
+    
+    with serial.Serial(port, baudrate=40000000) as ser:
+        ser.write(data)
+        ser.flush()
 
-            return
+if __name__ == "__main__":
+    port = '/dev/ttyACM0'  # Change this to your serial port
+    lower_bound = 10.0
+    upper_bound = 99.0
+    n_tasks = 20
 
-    raise Exception('usb_serial_jtag port not found')
+    winning_bids = generate_random_floats(n_tasks, lower_bound, upper_bound)
+    winning_agents = [random.randint(0, 255) for _ in range(n_tasks)]
+    entries = random.randint(1, 100)
 
-ports = list(serial.tools.list_ports.comports())
-for p in ports:
-    if (p.device == '/dev/ttyACM0'):      # Get the usb_serial_jtag port
-        with serial.Serial(p.device) as s:
-            s.write(b'hi, espressif\n')
-            sleep(1)
-            res = s.readline()
-            print(res)
-            s.write(b'See you again!\n')
-            sleep(1)
-            res = s.readline()
-            print(res)
-            
-            s.write(b'Echo a very long buffer. Assume this buffer is very large and you can see whole buffer\n')
-            sleep(1)
-            res = s.readline()
-            print(res)
-            
-            s.write(b'64 bytes buffer:-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-\n')
-            sleep(1)
-            res = s.readline()
-            print(res)
-            
+    message = Message(winning_bids, winning_agents, entries)
+    send_message_to_serial(port, message)

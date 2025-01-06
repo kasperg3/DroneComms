@@ -24,7 +24,9 @@
         "streambuf": "cpp",
         "*.inc": "cpp",
         "iosfwd": "cpp",
-        "functional": "cpp"
+        "functional": "cpp",
+        "memory_resource": "cpp",
+        "new": "cpp"
     },
     "idf.port": "/dev/ttyACM0"
 }

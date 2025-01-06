@@ -28,17 +28,19 @@
 #include "esp_check.h"
 
 #define BUF_SIZE (1024)
-#define ECHO_TASK_STACK_SIZE (4096)
 
-#define TAG "ESP-NOW"
+#define TAG "ESP-COMM"
 using std::exception;
 // Data structure for ESP-NOW
 
 struct Message
 {
-    uint8_t data[BUF_SIZE];
-    size_t len;
+    float winningBids[BUF_SIZE / sizeof(float)];
+    float winningAgents[BUF_SIZE / sizeof(int8_t)];
+    size_t entries;
 };
+
+
 
 // Queue handle for ESP-NOW and UART
 QueueHandle_t transmitQueue;
@@ -48,7 +50,6 @@ QueueHandle_t recieveQueue;
 class ESPNowHandler
 {
 private:
-
 public:
     ESPNowHandler()
     {
@@ -96,14 +97,27 @@ public:
             ESP_LOGE(TAG, "Failed to add broadcast peer: %s", esp_err_to_name(ret));
             abort();
         }
+
+        // // Set ESP-NOW rate
+        // esp_now_rate_config_t rate = {
+        //     .phymode = ,
+        //     .rate = WIFI_PHY_RATE_MCS0,
+        //     .ersu = false,
+        //     .dcm = false,
+        // };
+        // ret = esp_now_set_peer_rate_config(peerInfo.peer_addr, rate);
+        // if (ret != ESP_OK)
+        // {
+        //     ESP_LOGE(TAG, "Failed to set ESP-NOW rate: %s", esp_err_to_name(ret));
+        //     abort();
+        // }
     }
 
     static void onDataReceive(const esp_now_recv_info_t *info, const uint8_t *data, int len)
     {
         Message receivedData;
         std::memcpy(&receivedData, data, sizeof(receivedData));
-        ESP_LOGI(TAG, "Received data from ESP-NOW, forwarding to UART");
-
+        ESP_LOGI(TAG, "Received data from ESP-NOW: %.*s Entries: %d", receivedData.entries, (char *)receivedData.data, receivedData.entries);
         // Send data to serial queue
         if (xQueueSend(recieveQueue, &receivedData, portMAX_DELAY) != pdPASS)
         {
@@ -121,8 +135,7 @@ public:
 
     void sendData(const uint8_t *peer_addr, const Message &data)
     {
-
-        auto result = esp_now_send(peer_addr, data.data, data.len);
+        auto result = esp_now_send(peer_addr, reinterpret_cast<const uint8_t *>(&data), sizeof(data));
         if (result != ESP_OK)
         {
             ESP_LOGE(TAG, "Error sending data: %s", esp_err_to_name(result));
@@ -146,16 +159,59 @@ public:
         init();
     }
 
+    // Message read()
+    // {
+    //     Message message;
+    //     message.len = usb_serial_jtag_read_bytes(message.data, BUF_SIZE*8, pdMS_TO_TICKS(100));
+    //     return message;
+    // }
+
     Message read()
     {
         Message message;
-        message.len = usb_serial_jtag_read_bytes(message.data, sizeof(message.data), 20 / portTICK_PERIOD_MS);
+        uint8_t buffer[BUF_SIZE];
+        size_t index = 0;
+        uint8_t byte;
+        // uint32_t start_time = esp_log_timestamp();
+        while (index < BUF_SIZE)
+        {
+            int len = usb_serial_jtag_read_bytes(&byte, 1, pdMS_TO_TICKS(10));
+            if (len > 0)
+            {
+                buffer[index++] = byte;
+
+                // Check for the end character (e.g., '\n')
+                if (byte == '\n')
+                {
+                    ESP_LOGI(TAG, "End character found");
+                    break;
+                }
+            }
+            else
+            {
+                // Timeout or error, handle as needed
+                break;
+            }
+        }
+
+        if (index > 0)
+        {
+            std::memcpy(message.data, buffer, index);
+            message.entries = index;
+        }
+        else
+        {
+            message.entries = 0;
+        }
+        // uint32_t elapsed_time = esp_log_timestamp() - start_time;
+        // ESP_LOGI(TAG, "Elapsed time: %u ms", static_cast<unsigned int>(elapsed_time));
         return message;
     }
 
     void write(Message serialMessage)
     {
-        usb_serial_jtag_write_bytes(serialMessage.data, serialMessage.len, 20 / portTICK_PERIOD_MS);
+
+        usb_serial_jtag_write_bytes(reinterpret_cast<const uint8_t *>(&serialMessage), sizeof(serialMessage), 10 / portTICK_PERIOD_MS);
     }
 
     ~SerialHandler()
@@ -166,12 +222,11 @@ public:
     {
         // Configure USB SERIAL JTAG
         usb_serial_jtag_driver_config_t usb_serial_jtag_config = {
-            .tx_buffer_size = BUF_SIZE,
-            .rx_buffer_size = BUF_SIZE,
+            .tx_buffer_size = BUF_SIZE * 4,
+            .rx_buffer_size = BUF_SIZE * 4,
         };
 
         ESP_ERROR_CHECK(usb_serial_jtag_driver_install(&usb_serial_jtag_config));
-        ESP_LOGI("usb_serial_jtag echo", "USB_SERIAL_JTAG init done");
     }
 };
 
@@ -203,9 +258,10 @@ void serialReadTask(void *pvParameters)
         while (1)
         {
             Message serialMessage = handler->read();
-            if (serialMessage.len > 0)
+
+            if (serialMessage.entries > 0)
             {
-                ESP_LOGI(TAG, "Serial Data received: %.*s, Length: %d", serialMessage.len, serialMessage.data, serialMessage.len);
+                ESP_LOGI(TAG, "Serial Data received: %.*s, Entries: %d", serialMessage.entries, (char *)serialMessage.data, serialMessage.entries);
 
                 if (xQueueSend(transmitQueue, &serialMessage, portMAX_DELAY) != pdPASS)
                 {
@@ -228,13 +284,10 @@ void serialWriteTask(void *pvParameters)
         SerialHandler *handler = static_cast<SerialHandler *>(pvParameters);
         Message receivedData;
 
+        // Receive data from ESP-NOW and write to serial
         while (xQueueReceive(recieveQueue, &receivedData, portMAX_DELAY) == pdPASS)
         {
-            Message serialMessage;
-            std::memcpy(serialMessage.data, &receivedData, sizeof(receivedData));
-            serialMessage.len = sizeof(receivedData);
-
-            handler->write(serialMessage);
+            handler->write(receivedData);
         }
     }
     catch (exception &e)

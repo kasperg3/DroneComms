@@ -1,3 +1,3 @@
-idf_component_register(SRCS "espnow_example_main.cpp"
+idf_component_register(SRCS "esp_comms.cpp"
                     INCLUDE_DIRS ".")
 
