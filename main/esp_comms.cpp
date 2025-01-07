@@ -10,6 +10,7 @@
 #include <iostream>
 #include <stdio.h>
 #include "driver/usb_serial_jtag.h"
+#define MAC2STRING(mac) mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]
 
 #define BUF_SIZE (ESP_NOW_MAX_DATA_LEN_V2)
 
@@ -82,8 +83,9 @@ public:
 
     static void onDataReceive(const esp_now_recv_info_t *info, const uint8_t *data, int len)
     {
-        ESP_LOGI(TAG, "Received packet from: " MACSTR, MAC2STR(info->src_addr));
-        ESP_LOGI(TAG, "RSSI: %d dBm", info->rx_ctrl.rssi);
+        ESP_LOGI(TAG, "Data received from %02x:%02x:%02x:%02x:%02x:%02x, Length: %d",
+                 MAC2STRING(info->src_addr), len);
+        ESP_LOGI(TAG, "RSSI: %d dBm", info->rx_ctrl->rssi);
         
         Message message;
         message.data = (uint8_t *)malloc(len);
@@ -176,7 +178,6 @@ public:
 
     void init()
     {
-        // Configure USB SERIAL JTAG
         usb_serial_jtag_driver_config_t usb_serial_jtag_config = {
             .tx_buffer_size = BUF_SIZE * 4,
             .rx_buffer_size = BUF_SIZE * 4,
@@ -186,7 +187,6 @@ public:
     }
 };
 
-// ESP-NOW send task
 void espNowSendTask(void *pvParameters)
 {
     uint8_t broadcastAddress[6] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF}; // Broadcast
@@ -196,7 +196,6 @@ void espNowSendTask(void *pvParameters)
         Message message;
         while (xQueueReceive(espNowTransmitQueue, &message, portMAX_DELAY) == pdPASS)
         {
-            // TODO Is this data being send correctly?
             handler->sendData(broadcastAddress, message);
         }
     }
@@ -205,7 +204,7 @@ void espNowSendTask(void *pvParameters)
         ESP_LOGE(TAG, "Exception: %s", e.what());
     }
 }
-// Serial read task
+
 void serialReadTask(void *pvParameters)
 {
     try

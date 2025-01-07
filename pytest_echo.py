@@ -58,11 +58,11 @@ if __name__ == "__main__":
 
     message = Message(winning_bids, winning_agents)
     
-    def receive_thread():
-        received_message = receive_message_from_serial("/dev/ttyACM1")
-        print(f"Received message: {received_message}")
+    # def receive_thread():
+    #     received_message = receive_message_from_serial("/dev/ttyACM1")
+    #     print(f"Received message: {received_message}")
 
-    thread = threading.Thread(target=receive_thread)
-    thread.start()
+    # thread = threading.Thread(target=receive_thread)
+    # thread.start()
     
     send_message_to_serial(port, message)
