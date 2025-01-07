@@ -10,9 +10,14 @@
 #include <iostream>
 #include <stdio.h>
 #include "driver/usb_serial_jtag.h"
-
+#define MAC2STRING(mac) mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]
+#define CHECK_ERROR_AND_ABORT(ret, msg)                  \
+    if (ret != ESP_OK)                                   \
+    {                                                    \
+        ESP_LOGE(TAG, msg ": %s", esp_err_to_name(ret)); \
+        abort();                                         \
+    }
 #define BUF_SIZE (ESP_NOW_MAX_DATA_LEN_V2)
-
 #define TAG "ESP-COMM"
 using std::exception;
 // Data structure for ESP-NOW
@@ -44,22 +49,18 @@ public:
             ret = nvs_flash_init();
         }
         ESP_ERROR_CHECK(ret);
-
+        auto wifi_ifx = WIFI_IF_STA;
         // Initialize Wi-Fi in station mode
         wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
         ESP_ERROR_CHECK(esp_netif_init());
         ESP_ERROR_CHECK(esp_event_loop_create_default());
         ESP_ERROR_CHECK(esp_wifi_init(&cfg));
         ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
+        ESP_ERROR_CHECK(esp_wifi_set_protocol(wifi_ifx, WIFI_PROTOCOL_LR)); //
         ESP_ERROR_CHECK(esp_wifi_start());
 
         // Initialize ESP-NOW
-        ret = esp_now_init();
-        if (ret != ESP_OK)
-        {
-            ESP_LOGE(TAG, "ESP-NOW initialization failed: %s", esp_err_to_name(ret));
-            abort();
-        }
+        CHECK_ERROR_AND_ABORT(esp_now_init(), "ESP-NOW initialization failed")
 
         // Register callbacks
         esp_now_register_recv_cb(onDataReceive);
@@ -70,21 +71,27 @@ public:
         std::memset(peerInfo.peer_addr, 0xFF, ESP_NOW_ETH_ALEN); // Broadcast address
         peerInfo.channel = 0;
         peerInfo.encrypt = false;
-        peerInfo.ifidx = WIFI_IF_STA;
+        peerInfo.ifidx = wifi_ifx;
+        CHECK_ERROR_AND_ABORT(esp_now_add_peer(&peerInfo), "Failed to add broadcast peer");
 
-        ret = esp_now_add_peer(&peerInfo);
-        if (ret != ESP_OK)
-        {
-            ESP_LOGE(TAG, "Failed to add broadcast peer: %s", esp_err_to_name(ret));
-            abort();
-        }
+        // Set rate config
+        esp_now_rate_config_t rate_config = {
+            .phymode = WIFI_PHY_MODE_LR,     // Set to WIFI_PHY_MODE_11B for short distance
+            .rate = WIFI_PHY_RATE_LORA_500K, // Set to WIFI_PHY_RATE_LORA_500K for LoRa
+            .ersu = true,                    // Enable ERSU (Extended Range Single User)
+            .dcm = true                      //
+        };
+
+        CHECK_ERROR_AND_ABORT(esp_now_set_peer_rate_config(peerInfo.peer_addr, &rate_config), "Failed to set peer rate config");
+        CHECK_ERROR_AND_ABORT(esp_wifi_set_max_tx_power(82), "Failed to set the tx power"); // Set maximum TX power (0-82, where 82 is the highest)
     }
 
     static void onDataReceive(const esp_now_recv_info_t *info, const uint8_t *data, int len)
     {
-        ESP_LOGI(TAG, "Received packet from: " MACSTR, MAC2STR(info->src_addr));
-        ESP_LOGI(TAG, "RSSI: %d dBm", info->rx_ctrl.rssi);
-        
+        ESP_LOGI(TAG, "Data received from %02x:%02x:%02x:%02x:%02x:%02x, Length: %d",
+                 MAC2STRING(info->src_addr), len);
+        ESP_LOGI(TAG, "RSSI: %d dBm", info->rx_ctrl->rssi);
+
         Message message;
         message.data = (uint8_t *)malloc(len);
         if (message.data == nullptr)
@@ -176,7 +183,6 @@ public:
 
     void init()
     {
-        // Configure USB SERIAL JTAG
         usb_serial_jtag_driver_config_t usb_serial_jtag_config = {
             .tx_buffer_size = BUF_SIZE * 4,
             .rx_buffer_size = BUF_SIZE * 4,
@@ -186,7 +192,6 @@ public:
     }
 };
 
-// ESP-NOW send task
 void espNowSendTask(void *pvParameters)
 {
     uint8_t broadcastAddress[6] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF}; // Broadcast
@@ -196,7 +201,6 @@ void espNowSendTask(void *pvParameters)
         Message message;
         while (xQueueReceive(espNowTransmitQueue, &message, portMAX_DELAY) == pdPASS)
         {
-            // TODO Is this data being send correctly?
             handler->sendData(broadcastAddress, message);
         }
     }
@@ -205,7 +209,7 @@ void espNowSendTask(void *pvParameters)
         ESP_LOGE(TAG, "Exception: %s", e.what());
     }
 }
-// Serial read task
+
 void serialReadTask(void *pvParameters)
 {
     try
@@ -272,8 +276,8 @@ extern "C" void app_main()
     ESP_LOGI(TAG, "Starting ESP-NOW and UART Bridge");
     // Initialize queues
 
-    espNowTransmitQueue = xQueueCreate(10, sizeof(Message));
-    serialWriteQueue = xQueueCreate(10, sizeof(Message));
+    espNowTransmitQueue = xQueueCreate(50, sizeof(Message));
+    serialWriteQueue = xQueueCreate(50, sizeof(Message));
     if (!espNowTransmitQueue || !serialWriteQueue)
     {
         ESP_LOGE(TAG, "Failed to create queues");

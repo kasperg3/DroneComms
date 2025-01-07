@@ -36,7 +36,7 @@ def send_message_to_serial(port, message:Message):
         
 
 def receive_message_from_serial(port):
-    with serial.Serial(port, baudrate=40000000, timeout=1) as ser:
+    with serial.Serial(port, baudrate=40000000, timeout=0.2) as ser:
         data = ser.read(BUF_SIZE)
         if len(data) == 0:
             raise ValueError("No data received from serial port")
@@ -45,16 +45,14 @@ def receive_message_from_serial(port):
         
         return message
 
-
-
 if __name__ == "__main__":
     port = '/dev/ttyACM0'  # Change this to your serial port
-    lower_bound = 0
-    upper_bound = 10
+    lower_bound = 1
+    upper_bound = 1
     n_tasks = 200
 
     winning_bids = generate_random_floats(n_tasks, lower_bound, upper_bound)
-    winning_agents = [random.randint(0, 255) for _ in range(n_tasks)]
+    winning_agents = [random.randint(1, 1) for _ in range(n_tasks)]
 
     message = Message(winning_bids, winning_agents)
     

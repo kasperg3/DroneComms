@@ -26,7 +26,12 @@
         "iosfwd": "cpp",
         "functional": "cpp",
         "memory_resource": "cpp",
-        "new": "cpp"
+        "new": "cpp",
+        "chrono": "cpp",
+        "variant": "cpp",
+        "cstring": "cpp",
+        "iostream": "cpp",
+        "system_error": "cpp"
     },
     "idf.port": "/dev/ttyACM0"
 }
