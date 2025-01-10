@@ -29,11 +29,9 @@ struct Message
     size_t len;
 };
 
-// Queue handle for ESP-NOW and UART
 QueueHandle_t espNowTransmitQueue;
 QueueHandle_t serialWriteQueue;
 
-// Define ESPNowHandler class
 bool dataSent = true;
 SemaphoreHandle_t dataSentMutex; // Declare a mutex handle
 
@@ -102,7 +100,7 @@ public:
         ESP_LOGI(TAG, "Data received from %02x:%02x:%02x:%02x:%02x:%02x, Length: %d",
                  MAC2STRING(info->src_addr), len);
         ESP_LOGI(TAG, "RSSI: %d dBm", info->rx_ctrl->rssi);
-
+        
         Message message;
         message.data = (uint8_t *)malloc(len);
         if (message.data == nullptr)
@@ -112,7 +110,7 @@ public:
         }
         std::memcpy(message.data, data, len);
         message.len = len;
-        ESP_LOGI(TAG, "Received data from ESP-NOW Entries:");
+        ESP_LOGI(TAG, "Data received from MAC: %02x:%02x:%02x:%02x:%02x:%02x", MAC2STRING(info->src_addr));
         if (xQueueSend(serialWriteQueue, &message, portMAX_DELAY) != pdPASS)
         {
             ESP_LOGE(TAG, "Failed to send data to UART queue");
@@ -154,8 +152,6 @@ public:
                 ESP_LOGW(TAG, "Waiting for previous message to be sent");
             }
 
-            // ESP_LOGI(TAG, "Sending data: %.*s, Length: %d", message.len, message.data, message.len);
-
             auto result = esp_now_send(peer_addr, message.data, message.len);
             if (result != ESP_OK)
             {
@@ -192,7 +188,7 @@ public:
         size_t total_len = 0;
         while (total_len < buffer_size)
         {
-            int len = usb_serial_jtag_read_bytes(buffer + total_len, 1, pdMS_TO_TICKS(100));
+            int len = usb_serial_jtag_read_bytes(buffer + total_len, 1, pdMS_TO_TICKS(50));
             if (len > 0)
             {
                 total_len += len;
@@ -221,6 +217,7 @@ public:
         // Add stop sequence
         const uint8_t stopSequence[] = {0x03, 0x03, 0x03}; // Example stop sequence
         usb_serial_jtag_write_bytes(stopSequence, sizeof(stopSequence), 10 / portTICK_PERIOD_MS);
+        usb_serial_jtag_wait_tx_done(portMAX_DELAY);
     }
 
     ~SerialHandler()
@@ -229,10 +226,9 @@ public:
 
     void init()
     {
-        usb_serial_jtag_driver_config_t usb_serial_jtag_config = {
-            .tx_buffer_size = BUF_SIZE * 10,
-            .rx_buffer_size = BUF_SIZE * 10,
-        };
+        usb_serial_jtag_driver_config_t usb_serial_jtag_config = USB_SERIAL_JTAG_DRIVER_CONFIG_DEFAULT();
+        usb_serial_jtag_config.tx_buffer_size = BUF_SIZE*2;
+        usb_serial_jtag_config.rx_buffer_size = BUF_SIZE*4;
 
         ESP_ERROR_CHECK(usb_serial_jtag_driver_install(&usb_serial_jtag_config));
     }
@@ -261,7 +257,6 @@ void serialReadTask(void *pvParameters)
     try
     {
         SerialHandler *handler = static_cast<SerialHandler *>(pvParameters);
-
         Message message;
         message.data = (uint8_t *)malloc(BUF_SIZE);
         // TODO there might be a problem with allocating all the data, and only filling some of it
@@ -276,7 +271,7 @@ void serialReadTask(void *pvParameters)
             if (len > 0)
             {
                 message.len = len;
-                // ESP_LOGI(TAG, "Serial Data received: %.*s, Entries: %d", message.len, message.data, message.len);
+                ESP_LOGI(TAG, "Serial Data received: %d Bytes", message.len);
                 if (xQueueSend(espNowTransmitQueue, &message, portMAX_DELAY) != pdPASS)
                 {
                     ESP_LOGE(TAG, "Failed to send data to ESP-NOW queue");
@@ -300,7 +295,7 @@ void serialWriteTask(void *pvParameters)
         Message message;
         while (xQueueReceive(serialWriteQueue, &message, portMAX_DELAY) == pdPASS)
         {
-            // ESP_LOGI(TAG, "Writing data to serial: %.*s, Length: %d", message.len, message.data, message.len);
+            ESP_LOGI(TAG, "Writing %d Bytes to serial", message.len);
             handler->write(message.data, message.len);
         }
     }
