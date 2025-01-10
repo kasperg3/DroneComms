@@ -6,6 +6,7 @@
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
 #include <freertos/queue.h>
+#include <freertos/semphr.h> // Include FreeRTOS mutex header
 #include "esp_log.h"
 #include <iostream>
 #include <stdio.h>
@@ -34,6 +35,7 @@ QueueHandle_t serialWriteQueue;
 
 // Define ESPNowHandler class
 bool dataSent = true;
+SemaphoreHandle_t dataSentMutex; // Declare a mutex handle
 
 class ESPNowHandler
 {
@@ -85,6 +87,14 @@ public:
 
         CHECK_ERROR_AND_ABORT(esp_now_set_peer_rate_config(peerInfo.peer_addr, &rate_config), "Failed to set peer rate config");
         CHECK_ERROR_AND_ABORT(esp_wifi_set_max_tx_power(82), "Failed to set the tx power"); // Set maximum TX power (0-82, where 82 is the highest)
+
+        // Initialize the mutex
+        dataSentMutex = xSemaphoreCreateMutex();
+        if (dataSentMutex == nullptr)
+        {
+            ESP_LOGE(TAG, "Failed to create mutex");
+            abort();
+        }
     }
 
     static void onDataReceive(const esp_now_recv_info_t *info, const uint8_t *data, int len)
@@ -117,7 +127,9 @@ public:
                  mac_addr[3], mac_addr[4], mac_addr[5],
                  status == ESP_NOW_SEND_SUCCESS ? "Success" : "Failure");
 
+        xSemaphoreTake(dataSentMutex, portMAX_DELAY);
         dataSent = true;
+        xSemaphoreGive(dataSentMutex);
     }
 
     void sendData(const uint8_t *peer_addr, Message message)
@@ -128,20 +140,29 @@ public:
         }
         else
         {
-            while (!dataSent)
+            while (true)
             {
+                xSemaphoreTake(dataSentMutex, portMAX_DELAY);
+                if (dataSent)
+                {
+                    dataSent = false;
+                    xSemaphoreGive(dataSentMutex);
+                    break;
+                }
+                xSemaphoreGive(dataSentMutex);
                 vTaskDelay(pdMS_TO_TICKS(10)); // Wait for the previous message to be sent
-                ESP_LOGW(TAG, "Waiting for previous  message to be sent");
+                ESP_LOGW(TAG, "Waiting for previous message to be sent");
             }
 
-            dataSent = false;
             // ESP_LOGI(TAG, "Sending data: %.*s, Length: %d", message.len, message.data, message.len);
-            
+
             auto result = esp_now_send(peer_addr, message.data, message.len);
             if (result != ESP_OK)
             {
                 ESP_LOGE(TAG, "Error sending data: %s", esp_err_to_name(result));
+                xSemaphoreTake(dataSentMutex, portMAX_DELAY);
                 dataSent = true; // Reset the flag if sending failed
+                xSemaphoreGive(dataSentMutex);
             }
         }
     }
@@ -151,8 +172,11 @@ public:
         esp_now_deinit();
         esp_wifi_stop();
         esp_wifi_deinit();
+        vSemaphoreDelete(dataSentMutex); // Delete the mutex
     }
 };
+
+// The rest of the code remains unchanged
 
 class SerialHandler
 {
@@ -232,7 +256,6 @@ void espNowSendTask(void *pvParameters)
     }
 }
 
-
 void serialReadTask(void *pvParameters)
 {
     try
@@ -261,7 +284,6 @@ void serialReadTask(void *pvParameters)
             }
         }
         free(message.data);
-
     }
     catch (exception &e)
     {
@@ -305,7 +327,7 @@ extern "C" void app_main()
     static SerialHandler serialHandler;
 
     // Create tasks
-    xTaskCreate(espNowSendTask, "espNowSendTask", 4096/2, &espNowHandler, 3, nullptr);
-    xTaskCreate(serialReadTask, "serialReadTask", 4096/2, &serialHandler, 2, nullptr);
-    xTaskCreate(serialWriteTask, "serialWriteTask", 4096/2, &serialHandler, 1, nullptr);
+    xTaskCreate(espNowSendTask, "espNowSendTask", 2048, &espNowHandler, 1, nullptr);
+    xTaskCreate(serialReadTask, "serialReadTask", 2048, &serialHandler, 1, nullptr);
+    xTaskCreate(serialWriteTask, "serialWriteTask", 2048, &serialHandler, 1, nullptr);
 }
