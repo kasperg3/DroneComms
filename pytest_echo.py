@@ -77,7 +77,7 @@ def sender_thread():
     sender_port = "/dev/ttyACM1"  # Change this to your serial port
     lower_bound = 0
     upper_bound = 100
-    n_tasks = 290
+    n_tasks = 200
 
     agent_id = random.randint(0, 255)
     winning_bids = generate_random_floats(n_tasks, lower_bound, upper_bound)
@@ -91,7 +91,7 @@ def sender_thread():
     data = serialize_message(message)
     def send_periodically():
         while True:
-            time.sleep(0.1)
+            time.sleep(1)
             print(f"Sending {len(data)} of data to serial port")
             start_time = time.time()
             send_message_to_serial(sender_port, message)
@@ -129,5 +129,5 @@ def reciever_thread():
 
 
 if __name__ == "__main__":
-    reciever_thread()
+    # reciever_thread()
     sender_thread()
