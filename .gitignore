@@ -28,3 +28,8 @@ Thumbs.db
 # Ignore Python specific files
 __pycache__/
 *.pyc
+
+# ROS2
+install/
+log/
+build/
