@@ -246,7 +246,10 @@ public:
         combinedMessage.push_back(END_DELIMITER);
         // Write the combined message in one go
         usb_serial_jtag_write_bytes(combinedMessage.data(), combinedMessage.size(), pdMS_TO_TICKS(10));
-        usb_serial_jtag_wait_tx_done(portMAX_DELAY);
+        // This blocks if there are no listener on the serial
+        // usb_serial_jtag_wait_tx_done(portMAX_DELAY);
+        usb_serial_jtag_wait_tx_done(pdMS_TO_TICKS(100));
+
     }
 
     ~SerialHandler()
@@ -266,18 +269,11 @@ public:
 void espNowSendTask(void *pvParameters)
 {
     uint8_t broadcastAddress[6] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF}; // Broadcast
-    try
+    ESPNowHandler *handler = static_cast<ESPNowHandler *>(pvParameters);
+    Message message;
+    while (xQueueReceive(espNowTransmitQueue, &message, portMAX_DELAY) == pdPASS)
     {
-        ESPNowHandler *handler = static_cast<ESPNowHandler *>(pvParameters);
-        Message message;
-        while (xQueueReceive(espNowTransmitQueue, &message, portMAX_DELAY) == pdPASS)
-        {
             handler->sendData(broadcastAddress, message);
-        }
-    }
-    catch (exception &e)
-    {
-        ESP_LOGE(TAG, "Exception: %s", e.what());
     }
 }
 
@@ -320,7 +316,7 @@ void serialWriteTask(void *pvParameters)
 extern "C" void app_main()
 {
     ESP_LOGI(TAG, "Starting ESP Communication");
-    esp_log_level_set(TAG, ESP_LOG_ERROR);
+    // esp_log_level_set(TAG, ESP_LOG_ERROR);
 
     // Initialize queues
     espNowTransmitQueue = xQueueCreate(ESP_NOW_QUEUE_SIZE, sizeof(Message));
@@ -335,7 +331,6 @@ extern "C" void app_main()
     static SerialHandler serialHandler;
 
     // Create tasks
-    // Calculate the stack size for a full queue and add some extra bytes
     xTaskCreate(espNowSendTask, "espNowSendTask", 4096, &espNowHandler, 1, nullptr);
     xTaskCreate(serialReadTask, "serialReadTask", 4096, &serialHandler, 1, nullptr);
     xTaskCreate(serialWriteTask, "serialWriteTask", 4096, &serialHandler, 1, nullptr);
