@@ -78,6 +78,7 @@ class SerialParser(Node):
         )
 
         # Define the serial receive timer
+        # The max send rate is 33 messages per second, 1/33 * 2 = 0.06 seconds should be sufficient
         timer_period = 0.01  # seconds
         self.timer = self.create_timer(timer_period, self.serial_read_callback)
 
@@ -110,7 +111,6 @@ class SerialParser(Node):
         end_delimiter = b'\x03'
         escape_char = b'\x1B'
         while True:
-            print(self.ser.in_waiting)
             byte_read = self.ser.read()
             if byte_read:
                 if byte_read == start_delimiter and not self.serial_read_buffer:
@@ -125,7 +125,8 @@ class SerialParser(Node):
                     self.serial_read_buffer.clear()
                     try:
                         message = byte_array_to_message(data)
-                        self.get_logger().info(f"Received message: {message}")
+                        # self.get_logger().info(f"Received message: {message}")
+                        self.get_logger().info(f"Received message from agent id: {message.agent_id}")
                         self.publisher_.publish(String(data=str(message)))
                         return
                     except struct.error as e:
@@ -161,14 +162,16 @@ def sender_thread():
     sender_port = "/dev/ttyACM1"  # Change this to your serial port
     lower_bound = 0
     upper_bound = 10
-    n_tasks = 10
-
+    # n_tasks = 295
+    n_tasks = 60
+    
     with serial.Serial(sender_port) as ser:
         ser.reset_input_buffer()
         ser.reset_output_buffer()
         
     def send_periodically():
         while True:
+            # This results in a throughput of around 25 messages per second and a bit rate of 33 * 1490 * 8 = 397.333 Kbits per second
             agent_id = random.randint(0, 255)
             winning_bids = generate_random_floats(n_tasks, lower_bound, upper_bound)
             winning_agents = [random.randint(0, 255) for _ in range(n_tasks)]
