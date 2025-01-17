@@ -19,7 +19,7 @@ class Message:
     winning_agents: list
 
 
-def byte_array_to_message(data: bytes, unescape_message:bool) -> Message:
+def byte_array_to_message(data: bytes, unescape_message:bool = False) -> Message:
     if unescape_message:
         start_delimiter = b'\x02'
         end_delimiter = b'\x03'
@@ -84,7 +84,6 @@ class SerialParser(Node):
     def serial_read_callback(self):
         received_message = None
         try:
-            # self.get_logger().info("Reading from serial")
             received_message = self.receive_message_from_serial()
             if received_message:
                 self.get_logger().info(f"Received message from agent id: {received_message.agent_id}")
@@ -110,31 +109,33 @@ class SerialParser(Node):
         start_delimiter = b'\x02'
         end_delimiter = b'\x03'
         escape_char = b'\x1B'
-        escaping = False
         while True:
+            print(self.ser.in_waiting)
             byte_read = self.ser.read()
             if byte_read:
                 if byte_read == start_delimiter and not self.serial_read_buffer:
                     self.serial_read_buffer.extend(byte_read)
                 elif byte_read == escape_char:
-                    escaping = not escaping
-                elif byte_read == end_delimiter and not escaping:
+                    self.serial_read_buffer.extend(self.ser.read()) # ignore escape char and read the next byte
+                elif byte_read == end_delimiter:
                     self.serial_read_buffer.extend(byte_read)
                     start_index = self.serial_read_buffer.find(start_delimiter)
                     stop_index = len(self.serial_read_buffer) - 1
                     data = self.serial_read_buffer[start_index + 1 : stop_index]
                     self.serial_read_buffer.clear()
-                    
                     try:
-                        message = byte_array_to_message(data, unescape_message=False)
+                        message = byte_array_to_message(data)
                         self.get_logger().info(f"Received message: {message}")
                         self.publisher_.publish(String(data=str(message)))
                         return
                     except struct.error as e:
                         self.get_logger().error(f"Failed to deserialize message: {e}")
+                        hex_data = ' '.join(f'{byte:02x}' for byte in data)
+                        self.get_logger().error(f"Not able to deserialize: {len(data)} Bytes")
+                        for i in range(0, len(hex_data), 48):
+                            self.get_logger().error(f" {hex_data[i:i+48]}")
                 else:
                     self.serial_read_buffer.extend(byte_read)
-                    escaping = False
 
 
 def main():
@@ -145,10 +146,6 @@ def main():
 
 def send_message_to_serial(port, message: Message):
     data = message_to_byte_array(message)
-    # hex_data = ' '.join(f'{byte:02x}' for byte in data)
-    # print(f"Serial Data to send: {len(data)} Bytes")
-    # for i in range(0, len(hex_data), 48):
-    #     print(f" {hex_data[i:i+48]}")
     if len(data) > 1490:
         raise ValueError("Data size exceeds 1490 bytes")
     with serial.Serial(port) as ser:
@@ -157,15 +154,14 @@ def send_message_to_serial(port, message: Message):
         ser.flush()
 
 
-
 def generate_random_floats(count, lower_bound, upper_bound):
     return [float(random.uniform(lower_bound, upper_bound)) for _ in range(count)]
 
 def sender_thread():
     sender_port = "/dev/ttyACM1"  # Change this to your serial port
-    lower_bound = 10
+    lower_bound = 0
     upper_bound = 10
-    n_tasks = 100
+    n_tasks = 10
 
     with serial.Serial(sender_port) as ser:
         ser.reset_input_buffer()
@@ -173,10 +169,9 @@ def sender_thread():
         
     def send_periodically():
         while True:
-            time.sleep(1)
-            agent_id = random.randint(0, 0)
+            agent_id = random.randint(0, 255)
             winning_bids = generate_random_floats(n_tasks, lower_bound, upper_bound)
-            winning_agents = [random.randint(3, 3) for _ in range(n_tasks)]
+            winning_agents = [random.randint(0, 255) for _ in range(n_tasks)]
             message = Message(agent_id, winning_bids, winning_agents)
             send_message_to_serial(sender_port, message)
 
