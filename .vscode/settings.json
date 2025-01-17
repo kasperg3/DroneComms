@@ -31,7 +31,16 @@
         "variant": "cpp",
         "cstring": "cpp",
         "iostream": "cpp",
-        "system_error": "cpp"
+        "system_error": "cpp",
+        "deque": "cpp",
+        "vector": "cpp",
+        "bitset": "cpp",
+        "hash_map": "cpp",
+        "hash_set": "cpp",
+        "initializer_list": "cpp",
+        "utility": "cpp",
+        "valarray": "cpp",
+        "cstddef": "cpp"
     },
     "idf.port": "/dev/ttyUSB0"
 }

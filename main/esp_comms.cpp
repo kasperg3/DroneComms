@@ -9,6 +9,7 @@
 #include <freertos/semphr.h> // Include FreeRTOS mutex header
 #include "esp_log.h"
 #include <iostream>
+#include <vector>
 #include <stdio.h>
 #include "driver/usb_serial_jtag.h"
 #define MAC2STRING(mac) mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]
@@ -111,11 +112,12 @@ public:
         std::memcpy(message.data, data, len);
         message.len = len;
         ESP_LOGI(TAG, "Data received from MAC: %02x:%02x:%02x:%02x:%02x:%02x", MAC2STRING(info->src_addr));
+        //ESP_LOG_BUFFER_HEX(TAG, message.data, message.len);
         if (xQueueSend(serialWriteQueue, &message, portMAX_DELAY) != pdPASS)
         {
             ESP_LOGE(TAG, "Failed to send data to UART queue");
         }
-        free(message.data);
+        // free(message.data);
     }
 
     static void onDataSend(const uint8_t *mac_addr, esp_now_send_status_t status)
@@ -177,29 +179,54 @@ public:
 class SerialHandler
 {
 private:
+    const uint8_t START_DELIMITER = 0x02;
+    const uint8_t END_DELIMITER = 0x03;
+    const uint8_t ESCAPE_CHAR = 0x1B;
+
 public:
     SerialHandler()
     {
         init();
     }
 
+
     int read(uint8_t *buffer, size_t buffer_size)
     {
         size_t total_len = 0;
         while (total_len < buffer_size)
         {
-            int len = usb_serial_jtag_read_bytes(buffer + total_len, 1, pdMS_TO_TICKS(50));
+            // Read each byte
+            uint8_t byte;
+            int len = usb_serial_jtag_read_bytes(&byte, 1, pdMS_TO_TICKS(10));
+            // Check for the start delimiter and start reading the data
             if (len > 0)
             {
-                total_len += len;
-                if (total_len >= 3 && buffer[total_len - 1] == '\x00' && buffer[total_len - 2] == '\x00' && buffer[total_len - 3] == '\x00')
+                if (byte == START_DELIMITER)
                 {
-                    break;
+                    // ESP_LOGI(TAG, "Start delimiter found: 0x%02x", byte);
+                    total_len = 0; // Reset buffer if start delimiter is found
+                    std::memset(buffer, 0, buffer_size);
                 }
-            }
-            else
-            {
-                break;
+                else if (byte == END_DELIMITER)
+                {
+                    // ESP_LOGI(TAG, "END delimiter found: 0x%02x", byte);
+                    break; // End delimiter found, exit the loop
+                }
+                else if (byte == ESCAPE_CHAR)
+                {
+                    // ESP_LOGI(TAG, "ESCAPE delimiter found: 0x%02x", byte);
+                    // Read the next byte after escape character
+                    len = usb_serial_jtag_read_bytes(&byte, 1, pdMS_TO_TICKS(100));
+                    if (len > 0)
+                    {
+                        // ESP_LOGI(TAG, "Character after escape: 0x%02x", byte);
+                        buffer[total_len++] = byte;
+                    }
+                }
+                else
+                {
+                    buffer[total_len++] = byte;
+                }
             }
         }
         return total_len;
@@ -207,16 +234,24 @@ public:
 
     void write(uint8_t *serialMessage, size_t len)
     {
-        // Add start sequence
-        const uint8_t startSequence[] = {0x02, 0x02, 0x02}; // Example start sequence
-        usb_serial_jtag_write_bytes(startSequence, sizeof(startSequence), 10 / portTICK_PERIOD_MS);
+        // Combine start sequence, escaped message, and stop sequence into a single buffer
+        std::vector<uint8_t> combinedMessage;
+        combinedMessage.push_back(START_DELIMITER);
 
-        // Write the actual data
-        usb_serial_jtag_write_bytes(serialMessage, len, 10 / portTICK_PERIOD_MS);
+        // Escape the message
+        for (size_t i = 0; i < len; ++i)
+        {
+            if (serialMessage[i] == START_DELIMITER || serialMessage[i] == END_DELIMITER || serialMessage[i] == ESCAPE_CHAR)
+            {
+                combinedMessage.push_back(ESCAPE_CHAR);
+            }
+            combinedMessage.push_back(serialMessage[i]);
+        }
 
-        // Add stop sequence
-        const uint8_t stopSequence[] = {0x03, 0x03, 0x03}; // Example stop sequence
-        usb_serial_jtag_write_bytes(stopSequence, sizeof(stopSequence), 10 / portTICK_PERIOD_MS);
+        combinedMessage.push_back(END_DELIMITER);
+        // Write the combined message in one go
+        //ESP_LOG_BUFFER_HEX(TAG, combinedMessage.data(), combinedMessage.size());
+        usb_serial_jtag_write_bytes(combinedMessage.data(), combinedMessage.size(), 10 / portTICK_PERIOD_MS);
         usb_serial_jtag_wait_tx_done(portMAX_DELAY);
     }
 
@@ -245,6 +280,7 @@ void espNowSendTask(void *pvParameters)
         {
             handler->sendData(broadcastAddress, message);
         }
+        // free(message.data); // Free the allocated memory when the message has been sent
     }
     catch (exception &e)
     {
@@ -259,7 +295,6 @@ void serialReadTask(void *pvParameters)
         SerialHandler *handler = static_cast<SerialHandler *>(pvParameters);
         Message message;
         message.data = (uint8_t *)malloc(BUF_SIZE);
-        // TODO there might be a problem with allocating all the data, and only filling some of it
         if (message.data == nullptr)
         {
             ESP_LOGE(TAG, "Failed to allocate memory for message data");
@@ -272,13 +307,13 @@ void serialReadTask(void *pvParameters)
             {
                 message.len = len;
                 ESP_LOGI(TAG, "Serial Data received: %d Bytes", message.len);
+                //ESP_LOG_BUFFER_HEX(TAG, message.data, message.len);
                 if (xQueueSend(espNowTransmitQueue, &message, portMAX_DELAY) != pdPASS)
                 {
                     ESP_LOGE(TAG, "Failed to send data to ESP-NOW queue");
                 }
             }
         }
-        free(message.data);
     }
     catch (exception &e)
     {
@@ -293,11 +328,14 @@ void serialWriteTask(void *pvParameters)
     {
         SerialHandler *handler = static_cast<SerialHandler *>(pvParameters);
         Message message;
+        std::memset(&message, 0, sizeof(Message));
         while (xQueueReceive(serialWriteQueue, &message, portMAX_DELAY) == pdPASS)
         {
             ESP_LOGI(TAG, "Writing %d Bytes to serial", message.len);
+            //ESP_LOG_BUFFER_HEX(TAG, message.data, message.len);
             handler->write(message.data, message.len);
         }
+        // free(message.data); // Free the allocated memory when the message has been sent
     }
     catch (exception &e)
     {
@@ -307,7 +345,7 @@ void serialWriteTask(void *pvParameters)
 
 extern "C" void app_main()
 {
-    ESP_LOGI(TAG, "Starting ESP-NOW and UART Bridge");
+    ESP_LOGI(TAG, "Starting ESP Communication");
     // Initialize queues
 
     espNowTransmitQueue = xQueueCreate(50, sizeof(Message));
