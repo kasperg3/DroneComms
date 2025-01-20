@@ -316,7 +316,7 @@ void serialWriteTask(void *pvParameters)
 extern "C" void app_main()
 {
     ESP_LOGI(TAG, "Starting ESP Communication");
-    // esp_log_level_set(TAG, ESP_LOG_ERROR);
+    esp_log_level_set(TAG, ESP_LOG_ERROR);
 
     // Initialize queues
     espNowTransmitQueue = xQueueCreate(ESP_NOW_QUEUE_SIZE, sizeof(Message));
