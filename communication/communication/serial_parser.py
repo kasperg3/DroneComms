@@ -4,7 +4,7 @@ from dataclasses import dataclass
 import rclpy
 import rclpy.logging
 from rclpy.node import Node
-from drone_communication_interface.msg import ByteArray
+from common_interface.msg import ByteArray
 from std_msgs.msg import String
 import random
 import threading
@@ -99,8 +99,8 @@ class SerialParser(Node):
         self.last_received_time = time.time()
 
     def serial_read_callback(self):
-        received_message = None
         try:
+            received_message = None
             received_message = self.receive_message_from_serial()
             if received_message:
                 self.get_logger().info(f"Received message from agent id: {received_message.agent_id}")
@@ -177,7 +177,7 @@ def sender_thread():
     lower_bound = 0
     upper_bound = 10
     # n_tasks = 295
-    n_tasks = 60
+    n_tasks = 10
 
     def send_periodically():
         while True:
