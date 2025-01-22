@@ -127,8 +127,8 @@ class SerialParser(Node):
         start_delimiter = b'\x02'
         end_delimiter = b'\x03'
         escape_char = b'\x1B'
-        while True:
-            byte_read = self.ser.read()
+        while self.ser.in_waiting:
+            byte_read = self.ser.read(1)
             if byte_read:
                 if byte_read == start_delimiter and not self.serial_read_buffer:
                     self.serial_read_buffer.extend(byte_read)
@@ -141,6 +141,7 @@ class SerialParser(Node):
                     data = self.serial_read_buffer[start_index + 1: stop_index]
                     self.serial_read_buffer.clear()
                     try:
+                        self.get_logger().info(f"Received message with {len(data)} bytes")
                         return Message.deserialize(data)
                     except struct.error as e:
                         self.get_logger().error(f"Failed to deserialize message: {e}")
@@ -181,7 +182,7 @@ def sender_thread():
 
     def send_periodically():
         while True:
-            # time.sleep(0.01) # This is the minimum delay
+            time.sleep(0.01) # This is the minimum delay
             agent_id = random.randint(0, 255)
             winning_bids = generate_random_floats(n_tasks, lower_bound, upper_bound)
             timestamps = generate_random_floats(n_tasks, lower_bound, 1000)

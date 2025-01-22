@@ -12,6 +12,7 @@
 #include <vector>
 #include <stdio.h>
 #include "driver/usb_serial_jtag.h"
+
 #define MAC2STRING(mac) mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]
 #define CHECK_ERROR_AND_ABORT(ret, msg)                  \
     if (ret != ESP_OK)                                   \
@@ -331,7 +332,7 @@ extern "C" void app_main()
     static SerialHandler serialHandler;
 
     // Create tasks
-    xTaskCreate(espNowSendTask, "espNowSendTask", 4096, &espNowHandler, 1, nullptr);
-    xTaskCreate(serialReadTask, "serialReadTask", 4096, &serialHandler, 1, nullptr);
-    xTaskCreate(serialWriteTask, "serialWriteTask", 4096, &serialHandler, 1, nullptr);
+    xTaskCreate(espNowSendTask, "espNowSendTask", 8192, &espNowHandler, 1, nullptr);
+    xTaskCreate(serialReadTask, "serialReadTask", 8192, &serialHandler, 1, nullptr);
+    xTaskCreate(serialWriteTask, "serialWriteTask", 8192, &serialHandler, 1, nullptr);
 }

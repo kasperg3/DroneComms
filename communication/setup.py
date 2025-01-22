@@ -17,10 +17,9 @@ setup(
     maintainer_email='kasperg3@rocketmail.com',
     description='TODO: Package description',
     license='TODO: License declaration',
-    tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'serial_parser = communication.serial_parser:main'
+            'driver = communication.driver:main'
         ],
     },
 )

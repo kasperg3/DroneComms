@@ -1,0 +1,56 @@
+services:
+    communication0:
+        image: communication
+        container_name: communication0
+        build:
+            context: .
+            dockerfile: ./communication/Dockerfile
+        volumes:
+            - ./config/config_agent0.yaml:/config/config.yaml
+        networks:
+            - drone0_network
+        devices:
+            - "/dev/ttyACM0:/dev/ttyACM0"
+    planning0:
+        image: planning
+        container_name: planner0
+        build:
+            context: .
+            dockerfile: ./planning/Dockerfile
+        volumes:
+            - ./config/config_agent0.yaml:/config/config.yaml
+        networks:
+            - drone0_network
+        devices:
+            - "/dev/ttyACM0:/dev/ttyACM0"
+
+    communication1:
+        image: communication
+        container_name: communication1
+        build:
+            context: .
+            dockerfile: ./communication/Dockerfile
+        volumes:
+            - ./config/config_agent1.yaml:/config/config.yaml
+        networks:
+            - drone1_network
+        devices:
+            - "/dev/ttyACM1:/dev/ttyACM0"
+    planning1:
+        image: planning
+        container_name: planner1
+        build:
+            context: .
+            dockerfile: ./planning/Dockerfile
+        volumes:
+            - ./config/config_agent1.yaml:/config/config.yaml
+        networks:
+            - drone1_network
+        devices:
+            - "/dev/ttyACM1:/dev/ttyACM0"
+
+networks:
+    drone0_network:
+        driver: bridge
+    drone1_network:
+        driver: bridge
