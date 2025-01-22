@@ -5,7 +5,37 @@ from rclpy.node import Node
 from common_interface.msg import ByteArray
 import time
 
+    
+@staticmethod
+def add_escape_to_message(data):
+    start_delimiter = 0x02
+    end_delimiter = 0x03
+    escape_byte = 0x1B
 
+    escaped_data = bytearray()
+    escaped_data.append(start_delimiter)  # Add start byte
+    for byte in data:
+        if byte in (start_delimiter, end_delimiter, escape_byte):
+            escaped_data.append(escape_byte)  # add escape byte
+        escaped_data.append(byte)
+    escaped_data.append(end_delimiter)  # Add end byte
+    return bytes(escaped_data)
+
+@staticmethod
+def remove_escape_from_message(data):
+    start_delimiter = b'\x02'
+    end_delimiter = b'\x03'
+    escape_char = b'\x1B'
+
+    data = data.replace(escape_char + start_delimiter, start_delimiter)
+    data = data.replace(escape_char + end_delimiter, end_delimiter)
+    data = data.replace(escape_char + escape_char, escape_char)
+
+    if data[0] == start_delimiter[0]:
+        data = data[1:]
+    if data[-1] == end_delimiter[0]:
+        data = data[:-1]
+    return data
 class CommunicationDriver(Node):
 
     def __init__(self, port = "/dev/ttyACM0"):
@@ -59,7 +89,7 @@ class CommunicationDriver(Node):
         if len(data) > 1490:
             raise ValueError("Data size exceeds 1490 bytes")
         with serial.Serial(port) as ser:
-            ser.write(data)
+            ser.write(add_escape_to_message(data))
             ser.flush()
 
     def receive_message_from_serial(self):

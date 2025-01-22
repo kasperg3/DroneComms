@@ -3,6 +3,6 @@ driver:
     port: '/dev/ttyACM0'
 planner:
   ros__parameters:
-    n_agents: 2
+    n_agents: 3
     agent_id: 1
     capacity: 3000

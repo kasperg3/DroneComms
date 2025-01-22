@@ -10,7 +10,7 @@ services:
         networks:
             - drone0_network
         devices:
-            - "/dev/ttyACM0:/dev/ttyACM0"
+            - "/dev/ttyACM1:/dev/ttyACM0"
     planning0:
         image: planning
         container_name: planner0
@@ -22,7 +22,7 @@ services:
         networks:
             - drone0_network
         devices:
-            - "/dev/ttyACM0:/dev/ttyACM0"
+            - "/dev/ttyACM1:/dev/ttyACM0"
 
     communication1:
         image: communication
@@ -35,7 +35,7 @@ services:
         networks:
             - drone1_network
         devices:
-            - "/dev/ttyACM1:/dev/ttyACM0"
+            - "/dev/ttyACM0:/dev/ttyACM0"
     planning1:
         image: planning
         container_name: planner1
@@ -47,10 +47,36 @@ services:
         networks:
             - drone1_network
         devices:
-            - "/dev/ttyACM1:/dev/ttyACM0"
+            - "/dev/ttyACM0:/dev/ttyACM0"
+    communication2:
+        image: communication
+        container_name: communication2
+        build:
+            context: .
+            dockerfile: ./communication/Dockerfile
+        volumes:
+            - ./config/config_agent1.yaml:/config/config.yaml
+        networks:
+            - drone1_network
+        devices:
+            - "/dev/ttyACM2:/dev/ttyACM0"
+    planning2:
+        image: planning
+        container_name: planner2
+        build:
+            context: .
+            dockerfile: ./planning/Dockerfile
+        volumes:
+            - ./config/config_agent2.yaml:/config/config.yaml
+        networks:
+            - drone1_network
+        devices:
+            - "/dev/ttyACM2:/dev/ttyACM0"
 
 networks:
     drone0_network:
         driver: bridge
     drone1_network:
+        driver: bridge
+    drone2_network:
         driver: bridge
