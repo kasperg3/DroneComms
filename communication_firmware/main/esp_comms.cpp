@@ -11,7 +11,11 @@
 #include <iostream>
 #include <vector>
 #include <stdio.h>
+#include "esp_random.h"
 #include "driver/usb_serial_jtag.h"
+#include "esp_spiffs.h"
+#include "esp_timer.h"
+#include "driver/gpio.h"
 
 #define MAC2STRING(mac) mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]
 #define CHECK_ERROR_AND_ABORT(ret, msg)                  \
@@ -33,6 +37,8 @@ struct Message
 
 QueueHandle_t espNowTransmitQueue;
 QueueHandle_t serialWriteQueue;
+// Remove this for final version
+QueueHandle_t spiffsWriteQueue;
 
 bool dataSent = true;
 SemaphoreHandle_t dataSentMutex; // Declare a mutex handle
@@ -68,6 +74,14 @@ public:
         // Register callbacks
         esp_now_register_recv_cb(onDataReceive);
         esp_now_register_send_cb(onDataSend);
+
+        // // Add a unicast peer
+        // esp_now_peer_info_t unicastPeerInfo{};
+        // std::memcpy(unicastPeerInfo.peer_addr, unicastAddress, ESP_NOW_ETH_ALEN);
+        // unicastPeerInfo.channel = 0;
+        // unicastPeerInfo.encrypt = false;
+        // unicastPeerInfo.ifidx = wifi_ifx;
+        // CHECK_ERROR_AND_ABORT(esp_now_add_peer(&unicastPeerInfo), "Failed to add unicast peer");
 
         // Add a broadcast peer
         esp_now_peer_info_t peerInfo{};
@@ -109,6 +123,18 @@ public:
             ESP_LOGE(TAG, "Received data exceeds buffer size");
             return;
         }
+
+        // Remove for the final version
+        int rssi = info->rx_ctrl->rssi;
+        char formatted_data[128];
+        int64_t time_since_start = esp_timer_get_time() / 1000; // Convert microseconds to milliseconds
+        snprintf(formatted_data, sizeof(formatted_data), "%lld,%d,%zu,%02x:%02x:%02x:%02x:%02x:%02x,%02x:%02x:%02x:%02x:%02x:%02x\n",
+             time_since_start, rssi, message.len, MAC2STRING(info->src_addr), MAC2STRING(info->des_addr));
+        if (xQueueSend(spiffsWriteQueue, &formatted_data, portMAX_DELAY) != pdPASS)
+        {
+            ESP_LOGE(TAG, "Failed to send extended message to ESP-NOW queue");
+        }
+
         std::memcpy(message.data, data, len);
         message.len = len;
         ESP_LOGI(TAG, "Data received from MAC: %02x:%02x:%02x:%02x:%02x:%02x", MAC2STRING(info->src_addr));
@@ -314,25 +340,240 @@ void serialWriteTask(void *pvParameters)
 #define ESP_NOW_QUEUE_SIZE 50
 #define SERIAL_QUEUE_SIZE 50
 
+class SPIFFSHandler
+{
+private:
+    static const size_t BUFFER_SIZE = 1024;
+    uint8_t data_buffer[BUFFER_SIZE];
+    size_t buffer_index = 0;
+
+public:
+    SPIFFSHandler()
+    {
+        init_spiffs();
+    }
+
+    ~SPIFFSHandler()
+    {
+        // Unmount SPIFFS
+        esp_vfs_spiffs_unregister(NULL);
+        ESP_LOGI(TAG, "SPIFFS unmounted");
+    }
+
+    // Function to initialize and mount SPIFFS
+    void init_spiffs(void) {
+        esp_vfs_spiffs_conf_t conf = {
+            .base_path = "/spiffs",
+            .partition_label = NULL,
+            .max_files = 5,
+            .format_if_mount_failed = true
+        };
+
+        esp_err_t ret = esp_vfs_spiffs_register(&conf);
+
+        if (ret != ESP_OK) {
+            if (ret == ESP_FAIL) {
+                ESP_LOGE(TAG, "Failed to mount or format filesystem");
+            } else if (ret == ESP_ERR_NOT_FOUND) {
+                ESP_LOGE(TAG, "Failed to find SPIFFS partition");
+            } else {
+                ESP_LOGE(TAG, "Failed to initialize SPIFFS (%s)", esp_err_to_name(ret));
+            }
+            return;
+        }
+
+        size_t total = 0, used = 0;
+        ret = esp_spiffs_info(NULL, &total, &used);
+        if (ret != ESP_OK) {
+            ESP_LOGE(TAG, "Failed to get SPIFFS partition information (%s)", esp_err_to_name(ret));
+        } else {
+            ESP_LOGI(TAG, "Partition size: total: %d, used: %d", total, used);
+        }
+    }
+
+    // Function to append data to SPIFFS
+    void append_data_to_spiffs(const uint8_t *data, size_t len) {
+        FILE *f = fopen("/spiffs/data.txt", "a+");
+        if (f == NULL) {
+            ESP_LOGE(TAG, "Failed to open file for appending");
+            return;
+        }
+        
+        fputs(reinterpret_cast<const char*>(data), f);
+        fclose(f);
+    }
+
+    // Function to read data from SPIFFS and output to serial
+    void read_spiffs_to_serial(void) {
+        FILE *f = fopen("/spiffs/data.txt", "r");
+        if (f == NULL) {
+            ESP_LOGI(TAG, "No data file found in SPIFFS");
+            return;
+        }
+        char line[128];
+        while (fgets(line, sizeof(line), f) != NULL) {
+            printf("%s", line);
+            vTaskDelay( 1 / portTICK_PERIOD_MS );
+        }
+        fclose(f);
+        ESP_LOGI(TAG, "Data output to serial");
+    }
+
+    void remove_spiffs_file(void) {
+        if (remove("/spiffs/data.txt") != 0) {
+            ESP_LOGE(TAG, "Failed to remove file");
+        } else {
+            ESP_LOGI(TAG, "File removed");
+        }
+    }
+};
+
+
+void send_random_message_task(void *pvParameters)
+{
+    Message message;
+    while (true)
+    {
+        // Generate a random message
+        size_t random_len = esp_random() % (BUF_SIZE - 10); // Ensure random_len doesn't exceed the buffer
+        if (random_len >= sizeof(message.data)) {
+            random_len = sizeof(message.data) - 1; // Limit to buffer size
+        }
+
+        for (size_t i = 0; i < random_len; ++i)
+        {
+            message.data[i] = static_cast<uint8_t>(esp_random() % 256); // Fill with random data
+        }
+
+        message.len = random_len;
+
+        // Add the message to the queue
+        if (xQueueSend(espNowTransmitQueue, &message, portMAX_DELAY) != pdPASS)
+        {
+            ESP_LOGE(TAG, "Failed to send message to ESP-NOW queue");
+        }
+        // Prepare to log data to spiffs
+        int64_t time_since_start = esp_timer_get_time() / 1000; // Convert microseconds to milliseconds
+        uint8_t mac[6];
+        esp_wifi_get_mac(WIFI_IF_STA, mac);
+        uint8_t broadcastAddress[6] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF}; // Broadcast
+        char formatted_data[128];
+        snprintf(formatted_data, sizeof(formatted_data), "%lld,%d,%zu,%02x:%02x:%02x:%02x:%02x:%02x,%02x:%02x:%02x:%02x:%02x:%02x\n",
+             time_since_start, 0, message.len, MAC2STRING(mac), MAC2STRING(broadcastAddress));
+        // send the data to the Queue
+        if (xQueueSend(spiffsWriteQueue, &formatted_data, portMAX_DELAY) != pdPASS)
+        {
+            ESP_LOGE(TAG, "Failed to send data to SPIFFS queue");
+        }
+
+        // Delay for a while before sending the next message
+        vTaskDelay(pdMS_TO_TICKS(100)); // Delay for 1 second
+    }
+}
+void spiffsWriteTask(void *pvParameters){
+    SPIFFSHandler *handler = static_cast<SPIFFSHandler *>(pvParameters);
+    char data[128];
+    std::vector<std::string> batch;
+    const size_t batchSize = 10;
+
+    while (xQueueReceive(spiffsWriteQueue, &data, portMAX_DELAY) == pdPASS)
+    {
+        batch.push_back(std::string(data));
+        if (batch.size() >= batchSize)
+        {
+            ESP_LOGI(TAG, "Writing batch of %zu messages to SPIFFS", batch.size());
+            for (const auto& msg : batch)
+            {
+                handler->append_data_to_spiffs(reinterpret_cast<const uint8_t*>(msg.c_str()), msg.length());
+            }
+            batch.clear();
+        }
+    }
+
+    // Write any remaining messages in the batch
+    for (const auto& msg : batch)
+    {
+        handler->append_data_to_spiffs(reinterpret_cast<const uint8_t*>(msg.c_str()), msg.length());
+    }
+}
+
+void buttonPressedTask(void *pvParameters)
+{
+    SPIFFSHandler *handler = static_cast<SPIFFSHandler *>(pvParameters);
+    gpio_num_t button_gpio = GPIO_NUM_0; // Assuming the integrated button is connected to GPIO0
+
+    // Configure the button GPIO
+    gpio_config_t io_conf;
+    io_conf.intr_type = GPIO_INTR_NEGEDGE; // Trigger on falling edge
+    io_conf.mode = GPIO_MODE_INPUT;
+    io_conf.pin_bit_mask = (1ULL << button_gpio);
+    io_conf.pull_down_en = GPIO_PULLDOWN_DISABLE;
+    io_conf.pull_up_en = GPIO_PULLUP_ENABLE;
+    gpio_config(&io_conf);
+
+    while (true)
+    {
+        // Wait for the button press
+        if (gpio_get_level(button_gpio) == 0)
+        {
+            // Debounce the button press
+            vTaskDelay(pdMS_TO_TICKS(50));
+            if (gpio_get_level(button_gpio) == 0)
+            {
+                ESP_LOGI(TAG, "Button pressed, deleting SPIFFS content");
+                handler->remove_spiffs_file();
+
+                // Wait for the button to be released
+                while (gpio_get_level(button_gpio) == 0)
+                {
+                    vTaskDelay(pdMS_TO_TICKS(10));
+                }
+            }
+        }
+        vTaskDelay(pdMS_TO_TICKS(10)); // Polling delay
+    }
+}
+
 extern "C" void app_main()
 {
     ESP_LOGI(TAG, "Starting ESP Communication");
-    esp_log_level_set(TAG, ESP_LOG_ERROR);
+    esp_log_level_set(TAG, ESP_LOG_DEBUG);
 
     // Initialize queues
     espNowTransmitQueue = xQueueCreate(ESP_NOW_QUEUE_SIZE, sizeof(Message));
     serialWriteQueue = xQueueCreate(SERIAL_QUEUE_SIZE, sizeof(Message));
+    spiffsWriteQueue = xQueueCreate(SERIAL_QUEUE_SIZE, sizeof(char)*128);
+
     if (!espNowTransmitQueue || !serialWriteQueue)
     {
         ESP_LOGE(TAG, "Failed to create queues");
         return;
     }
-
+    
+    static SPIFFSHandler spiffsHandler;
     static ESPNowHandler espNowHandler;
     static SerialHandler serialHandler;
+    
+     // Initialize SPIFFS
+    spiffsHandler.append_data_to_spiffs((const uint8_t*)"Device rebooted\n", 14); // Append data to SPIFFS
+    
+    vTaskDelay(pdMS_TO_TICKS(1000)); // Sleep for 1 second
+    // Read and output data from SPIFFS to serial
 
-    // Create tasks
+    xTaskCreate([](void *pvParameters) {
+        SPIFFSHandler *handler = static_cast<SPIFFSHandler *>(pvParameters);
+        handler->read_spiffs_to_serial();
+        vTaskDelete(NULL); // Delete the task after execution
+    }, "readSPIFFSTask", 8192, &spiffsHandler, 1, nullptr);
+
+    spiffsHandler.read_spiffs_to_serial();
+
+    xTaskCreate(send_random_message_task, "send_data", 8192, nullptr, 1, nullptr);
+    xTaskCreate(spiffsWriteTask, "spiffsWriteQueue", 8192, &spiffsHandler, 1, nullptr);
+    xTaskCreate(buttonPressedTask, "buttonTask", 8192, &spiffsHandler, 1, nullptr);
+
     xTaskCreate(espNowSendTask, "espNowSendTask", 8192, &espNowHandler, 1, nullptr);
-    xTaskCreate(serialReadTask, "serialReadTask", 8192, &serialHandler, 1, nullptr);
-    xTaskCreate(serialWriteTask, "serialWriteTask", 8192, &serialHandler, 1, nullptr);
+
+    // xTaskCreate(serialReadTask, "serialReadTask", 8192, &serialHandler, 1, nullptr);
+    // xTaskCreate(serialWriteTask, "serialWriteTask", 8192, &serialHandler, 1, nullptr);
 }
