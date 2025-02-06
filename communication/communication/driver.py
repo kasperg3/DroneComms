@@ -70,10 +70,8 @@ class CommunicationDriver(Node):
             received_message = None
             received_message = self.receive_message_from_serial()
             if received_message:
-                self.get_logger().info(f"Received message with {len(received_message)} bytes")
-                
                 message = ByteArray(bytes=[bytes([b]) for b in received_message])
-                self.get_logger().info(f"Sending message with length {len(message.bytes)}")
+                self.get_logger().info(f"Received message from serial port {self.port} with {len(message.bytes)} bytes")
                 self.publisher_.publish(message)
         except Exception as e:
             self.get_logger().error(f"Failed to receive message: {e}")

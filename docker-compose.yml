@@ -57,7 +57,7 @@ services:
         volumes:
             - ./config/config_agent1.yaml:/config/config.yaml
         networks:
-            - drone1_network
+            - drone2_network
         devices:
             - "/dev/ttyACM2:/dev/ttyACM0"
     planning2:
@@ -69,7 +69,7 @@ services:
         volumes:
             - ./config/config_agent2.yaml:/config/config.yaml
         networks:
-            - drone1_network
+            - drone2_network
         devices:
             - "/dev/ttyACM2:/dev/ttyACM0"
 

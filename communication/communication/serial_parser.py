@@ -11,6 +11,25 @@ import threading
 import time
 BUF_SIZE = 1490
 
+
+
+@dataclass
+class MessageExt:
+    sender_addr: bytes
+    receiver_addr: bytes
+    rssi: int
+    data: bytes
+    length: int
+
+    @staticmethod
+    def deserialize(data: bytes) -> 'MessageExt':
+        ESP_NOW_ETH_ALEN = 6
+        sender_addr = data[:ESP_NOW_ETH_ALEN]
+        receiver_addr = data[ESP_NOW_ETH_ALEN:2*ESP_NOW_ETH_ALEN]
+        rssi = struct.unpack("i", data[2*ESP_NOW_ETH_ALEN:2*ESP_NOW_ETH_ALEN + 4])[0]
+        length = struct.unpack("I", data[-4:])[0]
+        message_data = data[2*ESP_NOW_ETH_ALEN + 4:-4]
+        return MessageExt(sender_addr, receiver_addr, rssi, message_data, length)
 @dataclass
 class Message:
     agent_id: int
@@ -38,9 +57,10 @@ class Message:
         bids_data = data[: n_bids * 4]
         agents_data = data[n_bids * 4 : n_bids * 5]
         timestamps_data = data[n_bids * 5 :]
+        n_agents = len(data[n_bids * 5 :]) // 4
         winning_bids = list(struct.unpack(f"{n_bids}f", bids_data))
         winning_agents = list(struct.unpack(f"{n_bids}B", agents_data))
-        timestamps = list(struct.unpack(f"{n_bids}f", timestamps_data))
+        timestamps = list(struct.unpack(f"{n_agents}f", timestamps_data))
         return Message(agent_id, winning_bids, winning_agents, timestamps)
 
     @staticmethod
@@ -142,7 +162,7 @@ class SerialParser(Node):
                     self.serial_read_buffer.clear()
                     try:
                         self.get_logger().info(f"Received message with {len(data)} bytes")
-                        return Message.deserialize(data)
+                        return MessageExt.deserialize(data)
                     except struct.error as e:
                         self.get_logger().error(f"Failed to deserialize message: {e}")
                         hex_data = ' '.join(f'{byte:02x}' for byte in data)
@@ -154,7 +174,7 @@ class SerialParser(Node):
 
 def main():
     rclpy.init()
-    serial_parser = SerialParser("/dev/ttyACM0")
+    serial_parser = SerialParser("/dev/ttyACM1")
     rclpy.spin(serial_parser)
     rclpy.shutdown()
 
@@ -174,9 +194,9 @@ def generate_random_floats(count, lower_bound, upper_bound):
 
 
 def sender_thread():
-    sender_port = "/dev/ttyACM1"  # Change this to your serial port
+    sender_port = "/dev/ttyACM0"  # Change this to your serial port
     lower_bound = 0
-    upper_bound = 10
+    upper_bound = 1
     # n_tasks = 295
     n_tasks = 10
 
@@ -186,7 +206,7 @@ def sender_thread():
             agent_id = random.randint(0, 255)
             winning_bids = generate_random_floats(n_tasks, lower_bound, upper_bound)
             timestamps = generate_random_floats(n_tasks, lower_bound, 1000)
-            winning_agents = [random.randint(0, 255) for _ in range(n_tasks)]
+            winning_agents = list(range(n_tasks))
             message = Message(agent_id, winning_bids, winning_agents,timestamps)
             send_message_to_serial(sender_port, message)
 

@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
 # Copy the requirements file
 
 # Install the Python dependencies
-RUN pip3 install --no-cache-dir pyserial trajallocpy==0.0.13 shapely extremitypathfinder[numba] matplotlib numpy geojson
+RUN pip3 install --no-cache-dir pyserial trajallocpy==0.0.14 shapely extremitypathfinder[numba] matplotlib numpy geojson
 
 # Copy your ROS 2 package to the container
 COPY ./planning /ros2_ws/src/planning
