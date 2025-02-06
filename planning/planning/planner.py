@@ -128,14 +128,17 @@ class PlannerNode(Node):
                 message = StatusMessage.deserialize(bytes(b''.join(msg.bytes)))
                 self.get_logger().info(f"Received status message from agent {message.agnet_id} with RSSI {message.rssi}")
             except Exception as e:
-                self.new_messages = True
                 message = Message.deserialize(bytes(b''.join(msg.bytes)), num_bids=len(self.agent.tasks), num_timestamps=self.n_agents)
                 # if message.agent_id == self.agent_id:
                 #     self.get_logger().info(f"Ignoring message from self (agent {message.agent_id})")
                 #     return
                 self.agent_messages[message.agent_id] = [message.winning_bids,message.winning_agents,message.timestamps]
-                self.consensus({message.agent_id: [message.winning_bids,message.winning_agents,message.timestamps]})
-                # self.get_logger().info(f"Received message from agent {message.agent_id} with winning beliefs {message.winning_bids}")
+                conlficts = self.consensus({message.agent_id: [message.winning_bids,message.winning_agents,message.timestamps]})
+                if conlficts == 0:
+                    self.new_messages = False
+                else:
+                    self.new_messages = True
+                    
         except Exception as e:
             self.get_logger().error(f"Failed to process message: {e}")
 
@@ -145,6 +148,8 @@ class PlannerNode(Node):
         self.get_logger().info(f"path: {self.agent.path}")
         self.get_logger().info(f"bundle: {self.agent.bundle}")
         self.get_logger().info(f"winning agents: {self.agent.winning_agents}")
+        return conflicts 
+    
     def bundle_builder(self):
         if self.new_messages:
             bids: CBBA.BundleResult = self.agent.build_bundle()

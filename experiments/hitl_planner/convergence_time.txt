@@ -1,0 +1,226 @@
+
+communication1  | [INFO] [1738761447.493263145] [driver]: CommunicationDriver has started.
+communication0  | [INFO] [1738761447.504322615] [driver]: CommunicationDriver has started.
+communication2  | [INFO] [1738761447.573297413] [driver]: CommunicationDriver has started.
+planner0        | [INFO] [1738761454.134447967] [planner]: Number of agents: 3
+planner0        | [INFO] [1738761454.135359692] [planner]: Agent ID: 0
+planner0        | [INFO] [1738761454.136009556] [planner]: Capacity: 3000
+planner0        | [INFO] [1738761454.144050820] [planner]: PlannerNode has started.
+planner0        | [INFO] [1738761454.352711925] [planner]: No new messages
+communication0  | [INFO] [1738761454.352981042] [driver]: Sending message with to serial port /dev/ttyACM0 with 193 bytes
+communication1  | [INFO] [1738761454.374346774] [driver]: Received message from serial port /dev/ttyACM0 with 193 bytes
+planner0        | [INFO] [1738761454.444023790] [planner]: No new messages
+communication2  | [INFO] [1738761454.453957625] [driver]: Received message from serial port /dev/ttyACM0 with 193 bytes
+planner0        | [INFO] [1738761454.544683976] [planner]: No new messages
+planner0        | [INFO] [1738761454.643878442] [planner]: No new messages
+planner0        | [INFO] [1738761454.744172631] [planner]: No new messages
+planner0        | [INFO] [1738761454.844682529] [planner]: No new messages
+planner0        | [INFO] [1738761454.944759824] [planner]: No new messages
+planner0        | [INFO] [1738761455.043845001] [planner]: No new messages
+planner2        | [INFO] [1738761455.074724485] [planner]: Number of agents: 3
+planner2        | [INFO] [1738761455.075509625] [planner]: Agent ID: 2
+planner2        | [INFO] [1738761455.075905908] [planner]: Capacity: 3000
+planner2        | [INFO] [1738761455.078735720] [planner]: PlannerNode has started.
+planner1        | [INFO] [1738761455.079615670] [planner]: Number of agents: 3
+planner1        | [INFO] [1738761455.080036338] [planner]: Agent ID: 1
+planner1        | [INFO] [1738761455.080423684] [planner]: Capacity: 3000
+planner1        | [INFO] [1738761455.083924261] [planner]: PlannerNode has started.
+planner0        | [INFO] [1738761455.144515080] [planner]: No new messages
+communication2  | [INFO] [1738761455.225337636] [driver]: Sending message with to serial port /dev/ttyACM0 with 193 bytes
+planner0        | [INFO] [1738761455.243945209] [planner]: No new messages
+communication1  | [INFO] [1738761455.245788860] [driver]: Sending message with to serial port /dev/ttyACM0 with 193 bytes
+communication2  | [INFO] [1738761455.253583628] [driver]: Received message from serial port /dev/ttyACM0 with 193 bytes
+planner2        | [INFO] [1738761455.254731754] [planner]: Number of conflicts: 6
+planner2        | [INFO] [1738761455.255132444] [planner]: path: [23, 14, 15]
+planner2        | [INFO] [1738761455.255482178] [planner]: bundle: [23, 15, 14]
+planner2        | [INFO] [1738761455.255895258] [planner]: winning agents: [ 1  1  1  1  1  1  1  1  1  1  1  1  1  1  2  2  1  1  1  1  1  1  1  2
+planner2        |  -1  1  1  1  1  1  1  1  1  1  1  1]
+planner1        | [INFO] [1738761455.284291584] [planner]: No new messages
+communication0  | [INFO] [1738761455.295135240] [driver]: Received message from serial port /dev/ttyACM0 with 193 bytes
+planner0        | [INFO] [1738761455.296359070] [planner]: Number of conflicts: 1
+planner0        | [INFO] [1738761455.296774872] [planner]: path: [29, 32, 33]
+planner0        | [INFO] [1738761455.297170183] [planner]: bundle: [29, 32, 33]
+planner0        | [INFO] [1738761455.297649941] [planner]: winning agents: [-1 -1  0  0  0 -1 -1  2  0 -1  0  0  0 -1  2  2 -1  0  0 -1 -1 -1 -1  2
+planner0        |   2  0  2  0  2  0  2  2  0  0  2  0]
+communication2  | [INFO] [1738761455.340026092] [driver]: Sending message with to serial port /dev/ttyACM0 with 193 bytes
+communication1  | [INFO] [1738761455.373765016] [driver]: Received message from serial port /dev/ttyACM0 with 193 bytes
+planner1        | [INFO] [1738761455.375167965] [planner]: Number of conflicts: 1
+planner1        | [INFO] [1738761455.375660484] [planner]: path: [29, 32, 33]
+planner1        | [INFO] [1738761455.376089236] [planner]: bundle: [29, 32, 33]
+planner1        | [INFO] [1738761455.376719119] [planner]: winning agents: [-1 -1  2  2  2 -1 -1  2  2 -1  2  2  2 -1  2  2 -1  2  2 -1 -1 -1 -1  2
+planner1        |   2  2 -1  2  2  1 -1 -1  1  1 -1  2]
+communication0  | [INFO] [1738761455.378696973] [driver]: Sending message with to serial port /dev/ttyACM0 with 193 bytes
+planner2        | [INFO] [1738761455.379179200] [planner]: No new messages
+communication1  | [INFO] [1738761455.418658381] [driver]: Sending message with to serial port /dev/ttyACM0 with 193 bytes
+planner0        | [INFO] [1738761455.444007966] [planner]: No new messages
+communication2  | [INFO] [1738761455.453692751] [driver]: Received message from serial port /dev/ttyACM0 with 193 bytes
+planner2        | [INFO] [1738761455.454781974] [planner]: Number of conflicts: 1
+planner2        | [INFO] [1738761455.455184663] [planner]: path: [23, 14, 15, 25, 27, 7, 24, 28, 10, 8, 17, 18, 4]
+planner2        | [INFO] [1738761455.455553441] [planner]: bundle: [23, 15, 14, 25, 27, 7, 24, 28, 18, 17, 10, 8, 4]
+planner2        | [INFO] [1738761455.456043216] [planner]: winning agents: [ 1  1 -1  0  2  1  1  2  2  1  2  0  0  0  2  2  0  2  2  1  0  1  1  2
+planner2        |   2  2  1  2  2  1  1  1  1  1  1  0]
+planner1        | [INFO] [1738761455.484359492] [planner]: No new messages
+communication0  | [INFO] [1738761455.494644873] [driver]: Received message from serial port /dev/ttyACM0 with 193 bytes
+planner0        | [INFO] [1738761455.496287229] [planner]: Number of conflicts: 7
+planner0        | [INFO] [1738761455.496804762] [planner]: path: []
+planner0        | [INFO] [1738761455.497174806] [planner]: bundle: []
+planner0        | [INFO] [1738761455.497722515] [planner]: winning agents: [ 1  1  2  1  1  1  1  2  2 -1  2  2  2  1  2  2  1  2  2  1  1  1 -1  2
+planner0        |   2  2 -1  2  2  1 -1  1  1  1 -1  1]
+communication2  | [INFO] [1738761455.499568110] [driver]: Sending message with to serial port /dev/ttyACM0 with 193 bytes
+communication1  | [INFO] [1738761455.574456651] [driver]: Received message from serial port /dev/ttyACM0 with 193 bytes
+planner1        | [INFO] [1738761455.575560160] [planner]: Number of conflicts: 0
+planner1        | [INFO] [1738761455.575982060] [planner]: path: [29, 32, 33, 21, 1, 0, 20, 6, 13, 3, 4, 5, 35, 31, 16, 19]
+planner1        | [INFO] [1738761455.576410250] [planner]: bundle: [29, 32, 33, 21, 19, 20, 13, 16, 31, 35, 6, 3, 0, 1, 4, 5]
+planner1        | [INFO] [1738761455.577043850] [planner]: winning agents: [ 1  1  2  1  1  1  1  2  2 -1  2  2  2  1  2  2  1  2  2  1  1  1 -1  2
+planner1        |   2  2 -1  2  2  1 -1  1  1  1 -1  1]
+planner2        | [INFO] [1738761455.579251200] [planner]: No new messages
+communication1  | [INFO] [1738761455.584921289] [driver]: Sending message with to serial port /dev/ttyACM0 with 193 bytes
+communication0  | [INFO] [1738761455.588606656] [driver]: Sending message with to serial port /dev/ttyACM0 with 193 bytes
+communication0  | [INFO] [1738761455.594571879] [driver]: Received message from serial port /dev/ttyACM0 with 193 bytes
+planner0        | [INFO] [1738761455.596003026] [planner]: Number of conflicts: 0
+planner0        | [INFO] [1738761455.596558529] [planner]: path: [25, 27, 18, 8, 10, 17, 34, 2, 30, 9, 5, 22, 26]
+planner0        | [INFO] [1738761455.596937874] [planner]: bundle: [25, 27, 17, 18, 8, 10, 26, 22, 34, 30, 9, 5, 2]
+planner0        | [INFO] [1738761455.597491241] [planner]: winning agents: [1 1 0 1 1 0 1 2 0 0 0 2 2 1 2 2 1 0 0 1 1 1 0 2 2 0 0 0 2 1 0 1 1 1 0 1]
+communication2  | [INFO] [1738761455.656061095] [driver]: Received message from serial port /dev/ttyACM0 with 193 bytes
+planner2        | [INFO] [1738761455.658575067] [planner]: Number of conflicts: 1
+planner2        | [INFO] [1738761455.659771822] [planner]: path: [23, 14, 15, 25, 27, 7, 24, 28, 10, 8, 17, 18]
+planner2        | [INFO] [1738761455.660775321] [planner]: bundle: [23, 15, 14, 25, 27, 7, 24, 28, 18, 17, 10, 8]
+communication0  | [INFO] [1738761455.661081585] [driver]: Sending message with to serial port /dev/ttyACM0 with 193 bytes
+planner2        | [INFO] [1738761455.662376000] [planner]: winning agents: [ 1  1 -1  1  1  1  1  2  2 -1  2 -1 -1  1  2  2  1  2  2  1  1  1 -1  2
+planner2        |   2  2 -1  2  2  1 -1  1  1  1 -1  1]
+communication1  | [INFO] [1738761455.674007722] [driver]: Received message from serial port /dev/ttyACM0 with 193 bytes
+planner1        | [INFO] [1738761455.675419589] [planner]: Number of conflicts: 1
+planner1        | [INFO] [1738761455.675924942] [planner]: path: [29, 32, 33, 21, 1, 0, 20, 6, 13, 3, 4, 35, 31, 16, 19]
+planner1        | [INFO] [1738761455.676323870] [planner]: bundle: [29, 32, 33, 21, 19, 20, 13, 16, 31, 35, 6, 3, 0, 1, 4]
+planner1        | [INFO] [1738761455.676879499] [planner]: winning agents: [1 1 0 1 1 0 1 2 0 0 0 2 2 1 2 2 1 0 0 1 1 1 0 2 2 0 0 0 2 1 0 1 1 1 0 1]
+communication1  | [INFO] [1738761455.689478577] [driver]: Sending message with to serial port /dev/ttyACM0 with 193 bytes
+communication2  | [INFO] [1738761455.716758218] [driver]: Sending message with to serial port /dev/ttyACM0 with 193 bytes
+planner0        | [INFO] [1738761455.743936910] [planner]: No new messages
+communication1  | [INFO] [1738761455.774849700] [driver]: Received message from serial port /dev/ttyACM0 with 193 bytes
+planner1        | [INFO] [1738761455.776239143] [planner]: Number of conflicts: 0
+planner1        | [INFO] [1738761455.776882438] [planner]: path: [29, 32, 33, 21, 1, 0, 20, 6, 13, 3, 4, 35, 12, 31, 16, 19]
+planner1        | [INFO] [1738761455.777506171] [planner]: bundle: [29, 32, 33, 21, 19, 20, 13, 16, 31, 35, 6, 3, 0, 1, 4, 12]
+planner1        | [INFO] [1738761455.778136011] [planner]: winning agents: [ 1  1  0  1  1  2  1  2  0  2  0 -1  1  1  2  2  1  0  0  1  1  1  2  2
+planner1        |   2  0  0  0  2  1  2  1  1  1  2  1]
+planner2        | [INFO] [1738761455.779949904] [planner]: No new messages
+communication1  | [INFO] [1738761455.784720800] [driver]: Sending message with to serial port /dev/ttyACM0 with 193 bytes
+communication0  | [INFO] [1738761455.794482303] [driver]: Received message from serial port /dev/ttyACM0 with 193 bytes
+planner0        | [INFO] [1738761455.795527198] [planner]: Number of conflicts: 0
+planner0        | [INFO] [1738761455.795934300] [planner]: path: [25, 27, 18, 8, 10, 17, 34, 2, 30, 9, 5, 22, 26]
+planner0        | [INFO] [1738761455.796271943] [planner]: bundle: [25, 27, 17, 18, 8, 10, 26, 22, 34, 30, 9, 5, 2]
+planner0        | [INFO] [1738761455.796759636] [planner]: winning agents: [1 1 0 1 1 0 1 2 0 0 0 2 1 1 2 2 1 0 0 1 1 1 0 2 2 0 0 0 2 1 0 1 1 1 0 1]
+communication2  | [INFO] [1738761455.855679503] [driver]: Received message from serial port /dev/ttyACM0 with 193 bytes
+communication0  | [INFO] [1738761455.856817650] [driver]: Sending message with to serial port /dev/ttyACM0 with 193 bytes
+planner2        | [INFO] [1738761455.857966622] [planner]: Number of conflicts: 5
+planner2        | [INFO] [1738761455.858823955] [planner]: path: [23, 14, 15]
+planner2        | [INFO] [1738761455.859507577] [planner]: bundle: [23, 15, 14]
+planner2        | [INFO] [1738761455.860392259] [planner]: winning agents: [ 1  1  0  1  1 -1  1 -1  0 -1  0 -1  1  1  2  2  1  0  0  1  1  1 -1  2
+planner2        |  -1  0  0  0 -1  1 -1  1  1  1 -1  1]
+communication1  | [INFO] [1738761455.874138162] [driver]: Received message from serial port /dev/ttyACM0 with 193 bytes
+planner1        | [INFO] [1738761455.875405400] [planner]: Number of conflicts: 0
+planner1        | [INFO] [1738761455.875829504] [planner]: path: [29, 32, 33, 21, 1, 0, 20, 6, 13, 3, 4, 35, 12, 31, 16, 19]
+planner1        | [INFO] [1738761455.876225545] [planner]: bundle: [29, 32, 33, 21, 19, 20, 13, 16, 31, 35, 6, 3, 0, 1, 4, 12]
+planner1        | [INFO] [1738761455.876756979] [planner]: winning agents: [ 1  1  0  1  1  2  1  2  0  2  0 -1  1  1  2  2  1  0  0  1  1  1  2  2
+planner1        |   2  0  0  0  2  1  2  1  1  1  2  1]
+communication1  | [INFO] [1738761455.884905375] [driver]: Sending message with to serial port /dev/ttyACM0 with 193 bytes
+communication0  | [INFO] [1738761455.894696939] [driver]: Received message from serial port /dev/ttyACM0 with 193 bytes
+planner0        | [INFO] [1738761455.896213988] [planner]: Number of conflicts: 3
+planner0        | [INFO] [1738761455.896607080] [planner]: path: [25, 27, 18, 8, 10, 17, 26]
+planner0        | [INFO] [1738761455.896929054] [planner]: bundle: [25, 27, 17, 18, 8, 10, 26]
+planner0        | [INFO] [1738761455.897508410] [planner]: winning agents: [ 1  1 -1  1  1  2  1  2  0  2  0 -1  1  1  2  2  1  0  0  1  1  1  2  2
+planner0        |   2  0  0  0  2  1  2  1  1  1  2  1]
+communication2  | [INFO] [1738761455.953764307] [driver]: Received message from serial port /dev/ttyACM0 with 193 bytes
+communication2  | [INFO] [1738761455.957891524] [driver]: Sending message with to serial port /dev/ttyACM0 with 193 bytes
+planner2        | [INFO] [1738761455.958282778] [planner]: Number of conflicts: 0
+planner2        | [INFO] [1738761455.958756299] [planner]: path: [23, 14, 15, 7, 22, 6, 5, 9, 30, 24, 34, 2, 35, 11, 12, 13, 4, 20, 0, 28]
+planner2        | [INFO] [1738761455.959221909] [planner]: bundle: [23, 15, 14, 7, 22, 20, 13, 35, 6, 34, 30, 5, 24, 9, 4, 0, 2, 28, 11, 12]
+planner2        | [INFO] [1738761455.959864013] [planner]: winning agents: [2 1 2 1 2 2 2 2 0 2 0 2 2 2 2 2 1 0 0 1 2 1 2 2 2 0 0 0 2 1 2 1 1 1 2 2]
+communication0  | [INFO] [1738761455.962308621] [driver]: Sending message with to serial port /dev/ttyACM0 with 193 bytes
+communication1  | [INFO] [1738761455.973943905] [driver]: Received message from serial port /dev/ttyACM0 with 193 bytes
+planner1        | [INFO] [1738761455.975325018] [planner]: Number of conflicts: 4
+planner1        | [INFO] [1738761455.975841278] [planner]: path: [29, 32, 33, 21, 19]
+planner1        | [INFO] [1738761455.976323985] [planner]: bundle: [29, 32, 33, 21, 19]
+planner1        | [INFO] [1738761455.976905821] [planner]: winning agents: [ 2 -1  2 -1  2  2  2  2  0  2  0  2  2  2  2  2 -1  0  0  1  2  1  2  2
+planner1        |   2  0  0  0  2  1  2 -1  1  1  2  2]
+communication2  | [INFO] [1738761455.988191429] [driver]: Sending message with to serial port /dev/ttyACM0 with 193 bytes
+communication0  | [INFO] [1738761455.994556037] [driver]: Received message from serial port /dev/ttyACM0 with 193 bytes
+planner0        | [INFO] [1738761455.996116744] [planner]: Number of conflicts: 3
+planner0        | [INFO] [1738761455.996666759] [planner]: path: [25, 27, 18, 8, 10, 17, 26]
+planner0        | [INFO] [1738761455.997162762] [planner]: bundle: [25, 27, 17, 18, 8, 10, 26]
+planner0        | [INFO] [1738761455.997917909] [planner]: winning agents: [ 2  1 -1  1  2  2  2  2  0  2  0  2  2  2  2  2  1  0  0  1  2  1  2  2
+planner0        |   2  0  0  0  2  1  2  1  1  1  2  2]
+communication1  | [INFO] [1738761456.025100479] [driver]: Sending message with to serial port /dev/ttyACM0 with 193 bytes
+communication2  | [INFO] [1738761456.053945115] [driver]: Received message from serial port /dev/ttyACM0 with 193 bytes
+planner2        | [INFO] [1738761456.055115955] [planner]: Number of conflicts: 2
+planner2        | [INFO] [1738761456.055590647] [planner]: path: [23, 14, 15, 7, 22, 6, 30, 34, 35, 13, 20]
+planner2        | [INFO] [1738761456.055936303] [planner]: bundle: [23, 15, 14, 7, 22, 20, 13, 35, 6, 34, 30]
+planner2        | [INFO] [1738761456.056677449] [planner]: winning agents: [ 1  1  1  1 -1  1  2  2  0  1  0  1 -1  2  2  2  1  0  0  1  2  1  2  2
+planner2        |  -1  0  0  0  1  1  2  1  1  1  2  2]
+communication0  | [INFO] [1738761456.061366142] [driver]: Sending message with to serial port /dev/ttyACM0 with 193 bytes
+communication1  | [INFO] [1738761456.074273588] [driver]: Received message from serial port /dev/ttyACM0 with 193 bytes
+planner1        | [INFO] [1738761456.075678035] [planner]: Number of conflicts: 2
+planner1        | [INFO] [1738761456.076061585] [planner]: path: [29, 32, 33, 21, 1, 0, 16, 31, 9, 5, 2, 19]
+planner1        | [INFO] [1738761456.076473829] [planner]: bundle: [29, 32, 33, 21, 19, 16, 31, 5, 9, 0, 1, 2]
+planner1        | [INFO] [1738761456.077318156] [planner]: winning agents: [ 1  1  1 -1  2  1  2  2  0  1  0  0  2  2  2  2  1  0  0  1  2  1  2  2
+planner1        |   0  0  0  0  0  1  2  1  1  1  2  2]
+communication1  | [INFO] [1738761456.099931062] [driver]: Sending message with to serial port /dev/ttyACM0 with 193 bytes
+communication2  | [INFO] [1738761456.111268316] [driver]: Sending message with to serial port /dev/ttyACM0 with 193 bytes
+planner0        | [INFO] [1738761456.144190350] [planner]: No new messages
+communication1  | [INFO] [1738761456.174393829] [driver]: Received message from serial port /dev/ttyACM0 with 193 bytes
+planner1        | [INFO] [1738761456.175548858] [planner]: Number of conflicts: 1
+planner1        | [INFO] [1738761456.176007535] [planner]: path: [29, 32, 33, 21, 1, 0, 16, 31, 9, 5, 2, 19]
+planner1        | [INFO] [1738761456.176375274] [planner]: bundle: [29, 32, 33, 21, 19, 16, 31, 5, 9, 0, 1, 2]
+planner1        | [INFO] [1738761456.176861127] [planner]: winning agents: [1 1 1 2 2 1 2 2 0 1 0 2 2 2 2 2 1 0 0 1 2 1 2 2 2 0 0 0 0 1 2 1 1 1 2 2]
+planner2        | [INFO] [1738761456.178999132] [planner]: No new messages
+communication1  | [INFO] [1738761456.188556639] [driver]: Sending message with to serial port /dev/ttyACM0 with 193 bytes
+communication0  | [INFO] [1738761456.194216842] [driver]: Received message from serial port /dev/ttyACM0 with 193 bytes
+planner0        | [INFO] [1738761456.195803123] [planner]: Number of conflicts: 1
+planner0        | [INFO] [1738761456.196122946] [planner]: path: [25, 27, 18, 8, 10, 17, 24, 26, 28]
+planner0        | [INFO] [1738761456.196525690] [planner]: bundle: [25, 27, 17, 18, 8, 10, 26, 24, 28]
+planner0        | [INFO] [1738761456.197100182] [planner]: winning agents: [ 1  1  1  1  2  1  2  2  0  1  0 -1  2  2  2  2  1  0  0  1  2  1  2  2
+planner0        |   0  0  0  0  0  1  2  1  1  1  2  2]
+communication2  | [INFO] [1738761456.254337778] [driver]: Received message from serial port /dev/ttyACM0 with 193 bytes
+planner2        | [INFO] [1738761456.255572010] [planner]: Number of conflicts: 0
+planner2        | [INFO] [1738761456.256153529] [planner]: path: [23, 14, 15, 7, 24, 22, 6, 30, 34, 35, 13, 4, 20, 3, 12, 11]
+planner2        | [INFO] [1738761456.256664187] [planner]: bundle: [23, 15, 14, 7, 22, 20, 13, 35, 6, 34, 30, 24, 4, 3, 12, 11]
+planner2        | [INFO] [1738761456.257313832] [planner]: winning agents: [1 1 1 2 2 1 2 2 0 1 0 2 2 2 2 2 1 0 0 1 2 1 2 2 2 0 0 0 0 1 2 1 1 1 2 2]
+communication0  | [INFO] [1738761456.261372675] [driver]: Sending message with to serial port /dev/ttyACM0 with 193 bytes
+communication1  | [INFO] [1738761456.274173271] [driver]: Received message from serial port /dev/ttyACM0 with 193 bytes
+planner1        | [INFO] [1738761456.275428413] [planner]: Number of conflicts: 0
+planner1        | [INFO] [1738761456.275860244] [planner]: path: [29, 32, 33, 21, 1, 0, 16, 31, 9, 5, 2, 19]
+planner1        | [INFO] [1738761456.276319577] [planner]: bundle: [29, 32, 33, 21, 19, 16, 31, 5, 9, 0, 1, 2]
+planner1        | [INFO] [1738761456.276876911] [planner]: winning agents: [1 1 1 2 2 1 2 2 0 1 0 2 2 2 2 2 1 0 0 1 2 1 2 2 2 0 0 0 0 1 2 1 1 1 2 2]
+communication2  | [INFO] [1738761456.285428962] [driver]: Sending message with to serial port /dev/ttyACM0 with 193 bytes
+communication1  | [INFO] [1738761456.288874295] [driver]: Sending message with to serial port /dev/ttyACM0 with 193 bytes
+communication0  | [INFO] [1738761456.294324442] [driver]: Received message from serial port /dev/ttyACM0 with 193 bytes
+planner0        | [INFO] [1738761456.296259437] [planner]: Number of conflicts: 2
+planner0        | [INFO] [1738761456.297019128] [planner]: path: [25, 27, 18, 8, 10, 17, 26]
+planner0        | [INFO] [1738761456.297447748] [planner]: bundle: [25, 27, 17, 18, 8, 10, 26]
+planner0        | [INFO] [1738761456.298027833] [planner]: winning agents: [ 1  1  1  2  2  1  2  2  0  1  0  2  2  2  2  2  1  0  0  1  2  1  2  2
+planner0        |   2  0  0  0 -1  1  2  1  1  1  2  2]
+communication2  | [INFO] [1738761456.354764149] [driver]: Received message from serial port /dev/ttyACM0 with 193 bytes
+communication0  | [INFO] [1738761456.355760189] [driver]: Sending message with to serial port /dev/ttyACM0 with 193 bytes
+planner2        | [INFO] [1738761456.356492022] [planner]: Number of conflicts: 0
+planner2        | [INFO] [1738761456.357282364] [planner]: path: [23, 14, 15, 7, 24, 22, 6, 30, 34, 35, 13, 4, 20, 3, 12, 11]
+planner2        | [INFO] [1738761456.357784506] [planner]: bundle: [23, 15, 14, 7, 22, 20, 13, 35, 6, 34, 30, 24, 4, 3, 12, 11]
+planner2        | [INFO] [1738761456.358359347] [planner]: winning agents: [1 1 1 2 2 1 2 2 0 1 0 2 2 2 2 2 1 0 0 1 2 1 2 2 2 0 0 0 0 1 2 1 1 1 2 2]
+communication1  | [INFO] [1738761456.374150192] [driver]: Received message from serial port /dev/ttyACM0 with 193 bytes
+planner1        | [INFO] [1738761456.375307130] [planner]: Number of conflicts: 0
+planner1        | [INFO] [1738761456.375744206] [planner]: path: [29, 32, 33, 21, 1, 0, 16, 31, 9, 5, 2, 19]
+planner1        | [INFO] [1738761456.376175474] [planner]: bundle: [29, 32, 33, 21, 19, 16, 31, 5, 9, 0, 1, 2]
+planner1        | [INFO] [1738761456.376728767] [planner]: winning agents: [1 1 1 2 2 1 2 2 0 1 0 2 2 2 2 2 1 0 0 1 2 1 2 2 2 0 0 0 0 1 2 1 1 1 2 2]
+communication2  | [INFO] [1738761456.385150348] [driver]: Sending message with to serial port /dev/ttyACM0 with 193 bytes
+communication1  | [INFO] [1738761456.388330314] [driver]: Sending message with to serial port /dev/ttyACM0 with 193 bytes
+communication0  | [INFO] [1738761456.394488526] [driver]: Received message from serial port /dev/ttyACM0 with 193 bytes
+planner0        | [INFO] [1738761456.395902727] [planner]: Number of conflicts: 0
+planner0        | [INFO] [1738761456.396314583] [planner]: path: [25, 27, 18, 8, 10, 17, 28, 26]
+planner0        | [INFO] [1738761456.396680356] [planner]: bundle: [25, 27, 17, 18, 8, 10, 26, 28]
+planner0        | [INFO] [1738761456.397181342] [planner]: winning agents: [1 1 1 2 2 1 2 2 0 1 0 2 2 2 2 2 1 0 0 1 2 1 2 2 2 0 0 0 0 1 2 1 1 1 2 2]
+communication0  | [INFO] [1738761456.452001779] [driver]: Sending message with to serial port /dev/ttyACM0 with 193 bytes
+communication2  | [INFO] [1738761456.456036468] [driver]: Received message from serial port /dev/ttyACM0 with 193 bytes
+planner2        | [INFO] [1738761456.457873368] [planner]: Number of conflicts: 0
+
+
+
+Node start - Consensus time
+1738761455.083924261−1738761456.395902727
