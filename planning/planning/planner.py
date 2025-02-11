@@ -12,7 +12,6 @@ from trajallocpy import Agent, CoverageProblem, Experiment, Task, Utility, CBBA
 import shapely
 import geojson
 import numpy as np
-import time
 
 @dataclass
 class StatusMessage:
@@ -112,10 +111,9 @@ class PlannerNode(Node):
         # The agent messages
         self.agent_messages = {}
         
-        self.timer = self.create_timer(0.1, self.bundle_builder)
-        # self.timer = self.create_timer(0.5, self.send_status_message)
+        self.timer = self.create_timer(1, self.process_queues)
+        self.timer = self.create_timer(0.5, self.send_status_message)
         self.get_logger().info("PlannerNode has started.")
-        self.new_messages = True
 
     def send_status_message(self):
         self.get_logger().info("Sending status message")
@@ -129,37 +127,45 @@ class PlannerNode(Node):
                 self.get_logger().info(f"Received status message from agent {message.agnet_id} with RSSI {message.rssi}")
             except Exception as e:
                 message = Message.deserialize(bytes(b''.join(msg.bytes)), num_bids=len(self.agent.tasks), num_timestamps=self.n_agents)
-                # if message.agent_id == self.agent_id:
-                #     self.get_logger().info(f"Ignoring message from self (agent {message.agent_id})")
-                #     return
-                self.agent_messages[message.agent_id] = [message.winning_bids,message.winning_agents,message.timestamps]
-                conlficts = self.consensus({message.agent_id: [message.winning_bids,message.winning_agents,message.timestamps]})
-                if conlficts == 0:
-                    self.new_messages = False
-                else:
-                    self.new_messages = True
-                    
+                self.get_logger().info(f"Received Bid message with {len(msg.bytes)} bytes")
+                # self.get_logger().info(f"Received message: {message}")
+                self.incoming_queue.put(message)
         except Exception as e:
             self.get_logger().error(f"Failed to process message: {e}")
 
-    def consensus(self, messages):
-        conflicts = self.agent.update_task(messages)
-        self.get_logger().info(f"Number of conflicts: {conflicts}")
-        self.get_logger().info(f"path: {self.agent.path}")
-        self.get_logger().info(f"bundle: {self.agent.bundle}")
-        self.get_logger().info(f"winning agents: {self.agent.winning_agents}")
-        return conflicts 
-    
-    def bundle_builder(self):
-        if self.new_messages:
-            bids: CBBA.BundleResult = self.agent.build_bundle()
-            self.agent.update_bundle_result(bids)
-            bid_message= Message(self.agent.id,winning_bids=self.agent.winning_bids.tolist(), winning_agents=self.agent.winning_agents.tolist(), timestamps=list(self.agent.timestamps.values()))
-            data = bid_message.serialize()
-            self.message_broadcaster.publish(ByteArray(bytes=[bytes([b]) for b in data]))
-            self.new_messages = False
+    def process_queues(self):
+        messages = []
+        while not self.incoming_queue.empty():
+            messages.append(self.incoming_queue.get())
+
+        conflicts = self.consensus(messages)
+        if conflicts != 0 or len(self.agent.bundle) == 0:
+            self.bundle_builder()
         else:
-            self.get_logger().info("No new messages")
+            self.get_logger().info("No conflicts found, no need to update the bundle")
+
+    def consensus(self, messages):
+        for message in messages:
+            if message.agent_id not in self.agent_messages:
+                self.agent_messages[message.agent_id] = [[],[],[]]
+            self.agent_messages[message.agent_id][0] = message.winning_bids
+            self.agent_messages[message.agent_id][1] = message.winning_agents
+            self.agent_messages[message.agent_id][2] = {agent_id: random.uniform(0, 1000)  for i, agent_id in enumerate(range(self.n_agents))}
+            
+        self.agent.receive_message(self.agent_messages)
+        return self.agent.update_task()
+
+            
+    def bundle_builder(self):
+        # Build the bundle using the newest state from the listener
+        bids: CBBA.BundleResult = self.agent.build_bundle() 
+        self.get_logger().info(str(self.agent.bundle))
+        bid_message= Message(self.agent.id,winning_bids=list(bids.winning_bids), winning_agents=list(bids.winning_agents), timestamps=list(bids.timestamps.values()))
+        self.get_logger().info(f"Serialized message: {bid_message}")
+        data = bid_message.serialize()
+        self.get_logger().info(f"Broadcast message with {len(data)} bytes")
+        self.message_broadcaster.publish(ByteArray(bytes=[bytes([b]) for b in data]))
+
 
 def load_coverage_problem() -> CoverageProblem.CoverageProblem:
     file_name = "planning/planning/environment.geojson"
@@ -193,7 +199,7 @@ def load_coverage_problem() -> CoverageProblem.CoverageProblem:
     scaled_multi_polygon = shapely.geometry.MultiPolygon(scaled_polygons)
     task_list = []
     for id, task in enumerate(geometries["tasks"].geoms):
-        task_list.append(Task.TrajectoryTask(id, task, reward=100))
+        task_list.append(Task.TrajectoryTask(id, task, reward=1))
 
     cp = CoverageProblem.CoverageProblem(
         restricted_areas=scaled_multi_polygon,
@@ -207,8 +213,7 @@ def main(args=None):
     
     rclpy.init(args=args)
     cp = load_coverage_problem()
-    # Wait until the next whole second
-    time.sleep(1 - time.time() % 1)
+    
     node = PlannerNode(cp,initial_position=cp.generate_random_point_in_problem())
     rclpy.spin(node)
     node.destroy_node()
